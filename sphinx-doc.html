@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>cpoli</title>
+        <link rel="stylesheet" href="main.css" >
+            <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Serif">
+                <link rel="shortcut icon" href="images/cp.ico">
+                    
+                    </head>
+    <body id="body">
+        
+        <id id="black-strip">
+        </id>
+        
+        <div id="top_menu">
+            
+            <ul>
+                <li><a href="index.html"><div class="home">Home</div></a></li>
+                <li><a href="publi.html"><div class="publi">lications</div></a></li>
+                <li><a href="thesis.html"> <div class="thesis">sis</div></a></li>
+                <li><a href="vitae.html"> <div class="vitae">ef vitae</div></a></li>
+                <li><a href="prog.html"><div class="prog">gramming</div></a></li>
+            </ul>
+        </div>
+        
+        <header id=top_header>
+            <h1>  Charles Poli, Ph.D. </h1>
+            <h2>Post doc in the Condensed Matter theory Group, </br>
+                Physics Department, Lancaster University.</h2>
+        </header>
+        
+        
+        
+<div id="big_wrapper">	
+		
+    <img src="images/sphinx.jpeg" height="120px" style="margin-left:160px;">
+
+<article> <!-- RESEARCH INTERESTS -->
+    Sphinx is a Python documentation generator, it allows to create html and latex documentations of python projects. <br>
+    Visit the website  <a href="http://sphinx-doc.org/">http://sphinx-doc.org/</a>.
+    
+    </br></br>
+    <h1> Installation </h1>
+    </br>
+    
+    To install Sphinx:</br>
+     </br>
+    for Mac:</br>
+    &nbsp;&nbsp;launch a Terminal and </br>
+    <div class="shell-wrap">
+        <ul class="shell-body">
+            <li>sudo port install pyXX-sphinx</li>
+        </ul>
+    </div>
+    for Ubuntu:</br>
+    &nbsp;&nbsp;launch a Terminal and </br>
+    <div class="shell-wrap">
+        <ul class="shell-body">
+            <li>apt-get install python-sphinx</li>
+        </ul>
+    </div>
+    for Debian:</br>
+    &nbsp;&nbsp;launch a Terminal and </br>
+    <div class="shell-wrap">
+        <ul class="shell-body">
+            <li>yum install python-sphinx</li>
+        </ul>
+    </div>
+    for Windows:</br>
+    &nbsp;&nbsp;launch a PowerShell Terminal and </br>
+    <div class="shell-wrap">
+        <ul class="shell-body">
+            <li>pip install python-sphinx</li>
+        </ul>
+    </div>
+    </br>
+    
+ <h1>A simple example</h1>
+<br>
+<h2>Create a directory</h2>
+<div class="shell-wrap">
+    <ul class="shell-body">
+    <li>mkdir project
+    <li>cd project
+</div>
+<h2>Create a Python file (let's call it proj.py)</h2>
+
+<div style="border:3px solid black; margin: 30px 300px 30px 80px; ">
+    '''<br>
+    .. todo::<br>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;Add a modulus_squared function.<br>
+    '''<br>
+    <br>
+    import math<br>
+    <br>
+    <br>
+    def sum_diff(a, b):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;'''<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;Calculate the sum and the difference of two variables.<br>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;:param a: number<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;:param b: number<br>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;:return sum: sum of *a* and *b*<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;:return diff: difference between *a* and *b*<br>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;::<br>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Examples<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sum(1, 3)  # output 4, -2<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sum(1+1j, -1j)  # output 1, 1+2j<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;'''<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;sum = a + b<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;diff = a - b<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;return sum, diff<br>
+    <br>
+    <br>
+    def modulus(z):<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;r'''<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;Calculate the modulus :math:`|z|` of a complex number :math:`z`.<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;The modulus is given by:<br>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;.. math::<br>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|z| = \sqrt{[\Re(z)]^2+[\Im(z)]^2}<br>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;:param z: complex number<br>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;:return modulus: modulus of :math:`z`<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;'''<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;modulus = math.sqrt(z.real**2 + z.imag**2)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;return modulus<br>
+<br>
+</div>
+
+<h2>Syntax</h2>
+</br>
+  Sphinx is indent and line sensitive.<br>
+  <br>
+  3 important Sphinx blocks:
+  <div style="border:3px solid black; margin: 30px 300px 30px 80px; ">
+      .. todo:: <br><br>
+      &nbsp;&nbsp;&nbsp;&nbsp; Things to be done.<br>
+    </div>
+  <div style="border:3px solid black; margin: 30px 300px 30px 80px; ">
+      .. note::<br><br>
+      &nbsp;&nbsp;&nbsp;&nbsp; Some notes.<br>
+  </div>
+  <div style="border:3px solid black; margin: 30px 300px 30px 80px; ">
+      ::<br><br>
+      &nbsp;&nbsp;&nbsp;&nbsp; # python code<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+  </div>
+  
+<h2>Math</h2>
+</br>
+<!--Note the 'r' before the opening triple quotes has to be used if the comments content math expressions. </br> </br>-->
+
+math expressions:
+<div style="border:3px solid black; margin: 30px 300px 30px 80px; ">
+In the text :math:`x+y`, like $x+y$ in latex<br>
+ </div>
+ <div style="border:3px solid black; margin: 30px 300px 30px 80px; ">
+  .. math:: <br>
+   <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;  x+y
+     <br>
+    
+ <br>
+  like $$x+y$$ in latex<br>
+  </div>
+  <br>
+  
+
+<h2>Create the documentation</h2>
+
+<div class="shell-wrap">
+    <ul class="shell-body">
+        <li> sphinx-apidoc -F -o path_doc/doc path_project/project <br>
+</div>
+
+<strong> path_doc</strong> is the path of the parent directory which will contain the documentations<br><br>
+<strong>doc</strong> is the name of folder in which the documentations will be generated<br><br>
+<strong>path_project</strong> is the path of the parent directory of the project directory<br><br>
+<strong>project</strong> is the name of the directory containing the Python files to be documented<br><br>
+
+If you want doc and project to have the same parent directory run:
+<div class="shell-wrap">
+    <ul class="shell-body">
+        <li> sphinx-apidoc -F -o doc project <br>
+</div>
+
+Go to the doc directory and open conf.py<br><br>
+
+<strong>line 23</strong><br>
+Define the path to the Python project.<br>
+If doc and project belong to the same parent directory:<br>
+sys.path.insert(0, os.path.abspath('../project'))<br>
+<br>
+<strong>line 37</strong><br>
+Add 'sphinx.ext.pngmath', (if you use latex expressions)<br>
+<br>
+<strong>line xx</strong><br>
+If you want the preserve the source ordering (alphabetic ordering otherwise)<br>
+copy paste <br>
+autodoc_member_order = 'bysource'<br>
+<br>
+
+<strong>line 52</strong><br>
+Change the name of the index if you have multiple docs<br>
+(1 index.html per website).<br>
+master_doc = 'index_proj'<br>
+And, change the name of index.rst accordingly (to index_proj.rst) 
+<br>
+<strong>line 65</strong><br>
+define the version of the project.<br>
+version = '0.1'<br>
+<br>
+<strong>line 56 and 57</strong><br>
+Add your name<br>
+<br>
+<strong>line 106</strong><br>
+Change the html theme<br>
+visit <a href="http://sphinx-doc.org/theming.html">http://sphinx-doc.org/theming.html</a> to pick up one.<br>
+<br>
+<strong>line 218</strong>  (latex)<br>
+Change the font size <br>
+'pointsize': '12pt',<br>
+<br>
+<strong>line 232</strong> (latex)<br>
+Add your name <br>
+<br>
+<br>
+
+Using the terminal, go in the doc directory,
+if you want a html documentation, run
+
+<div class="shell-wrap">
+    <ul class="shell-body">
+        <li> make html <br>
+</div>
+
+if you want a latex documentation, run
+
+<div class="shell-wrap">
+    <ul class="shell-body">
+        <li> make pdflatex <br>
+</div>
+
+From the doc directory go to _build/html and/or _build/latex, <br>
+
+you will find the html/latex documentation files.<br>
+
+<br><br>
+The html folder contains 4 html files:<br>
+index.html<br>
+proj.html<br>
+genindex.html<br>
+py-modindex.html<br>
+<br>
+
+<h2>A bit of polishing</h2>
+
+Let's make some changes in the index_proj.rst:
+
+Remove lines 16 to 22 (we don't need those for that example).
+line 14 change 'proj' to 'code'
+line 15 add 'about' (just below 'code') 
+line 16 add 'examples' (just below 'code') 
+line 9 remove 'Contents:'
+line 6 change the title to 'The Very Simple Example'
+
+line 12
+Replace :maxdepth: 4' by :hidden:
+
+rename proj.rst to code.rst, 
+create about.rst,
+create examples.rst
+
+
+
+
+================
+
+
+<h2>Done!</h2>
+<br>
+
+
+
+
+
+
+It is also possible to create .rst files and add them to the 
+
+
+
+The proj.html looks like <a href="sphinx-proj/proj.html">proj.html</a> (with a bizstyle)<br>
+<br>
+If you post the html doc on github <br>
+create an empty file name touch .nojekyll<br>
+<div class="shell-wrap">
+    <ul class="shell-body">
+touch .nojekyll
+</div>
+
+<footer id="thefooter">
+	<small>&copy; Copyright cpoli 2014</small>
+</footer>  
+
+
+
+
+</body>
+
+</html>
