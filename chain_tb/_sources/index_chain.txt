@@ -1,0 +1,54 @@
+.. lieb_tb documentation master file, created by
+   sphinx-quickstart on Sun Apr 26 17:06:48 2015.
+   You can adapt this file completely to your liking, but it should at least contain the root `toctree` directive.
+
+Tight-Binding Chain
+===================
+
+**chain_tb** is a package providing a Python implementation of a finite one dimensional tight-binding chain. It can be used to build up and solve tight-binding models with complex valued onsite energies and/or hoppings. As such, this package can be used to analyze Parity-Time symmetry, Parity-Time symmetry breaking, zero-mode states, and topological protection.
+
+.. toctree::
+    :hidden:
+
+    about
+    code
+    examples_1
+    examples_2
+
+Installation
+------------
+
+**chain_tb** is available at https://github.com/cpoli/chain_tb
+
+To use **chain_tb**,  you need to install the programming language python and four additional packages:
+
+    * python 3.x
+    * numpy
+    * scipy
+    * matplotlib
+
+Quick example
+-------------
+
+This example shows how to define a chain of 21 sites with alternating hoppings and a defect in the dimerization pattern. Below is the source code and some plots. Here you can find more `examples <examples.html>`_.
+
+.. image:: ../figs/n21_ta(2+0j)_tb(1+0j)_ea0j_eb0j/lattice_dimDef_10.png
+
+.. code-block:: python
+
+    from chain_tb import * # import chain_tb model class
+
+    ch = chain_tb(sites=21, ta=2., tb=1.)
+    ch.set_def_dim([10])
+    ch.plt_lattice(ms=15, coef=4., save=True)
+    ch.get_eig()
+    ch.get_density_selec(selection='max_pola')
+    ch.plt_spec_pola(ms=10, fs=20, save=True)
+    ch.plt_density_selec(ms=15, fs=20, save=True)
+    ch.plt_show()
+
+.. image:: ../figs/n21_ta(2+0j)_tb(1+0j)_ea0j_eb0j/spec_pola_dimDef_10.png
+    :width: 48%
+.. image:: ../figs/n21_ta(2+0j)_tb(1+0j)_ea0j_eb0j/states_dimDef_10.png
+    :width: 48%
+
