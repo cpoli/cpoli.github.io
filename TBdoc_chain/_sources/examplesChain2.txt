@@ -1,0 +1,362 @@
+
+Zero modes
+================
+
+
+These examples illustrate the conditions to get a zero-mode, its properties, and how to amplify it.
+
+.. note::
+    Throughout the examples, the A sublattice displays a positive imaginary onsite energy (amplification) and the sublattice B a negative imaginary onsite energy (absorption) such than :math:`\bar{\epsilon}_a=-\bar{\epsilon}_b`.
+
+
+The chain is composed of :math:`n+1` sites A and :math:`n` sites B, starts and ends with an A site. The odd number of sites breaks the sublattice symmetry (one extra A site) resulting in the existence of a zero-mode fully polarized on the A sublattice: :math:`\langle A|A \rangle=1`, :math:`\langle B|B \rangle=0`, and energie :math:`\Im(\epsilon_a)`.
+
+.. image:: ../TBfig/chain_n21/lattice_t(2+0j)_ea0,2j_eb-0,2j.png
+    :height: 80px
+    :width: 100%
+    :align: center
+
+Identical hoppings
+------------------------------------------
+
+
+.. code-block:: python
+
+    from chainTB import *
+    tags = [b'a', b'b']
+    ri = [[0, 0], [1, 0]]
+    nx = 10
+    chain_tb = latticeTB(tags=tags, ri=ri, nor=2, ang=0.)
+    chain_tb.get_lattice(nx=nx, ny=1)
+    chain_tb.remove_sites([19])
+    # solve eigenvalue problem
+    t = 2.
+    eig_chain = eigChain(lat=chain_tb)
+    eig_chain.set_hop([t])
+    eig_chain.get_ham()
+    eig_chain.get_eig(eigenvec=True)
+    zero_mode = eig_chain.get_state_pola(b'a')
+    # plots
+    plot_chain = plotChain(sys=eig_chain)
+    fig_dispersion = plot_chain.plt_dispersion(t)
+    fig_lattice = plot_chain.plt_lattice(ms=15, fs=20, figsize=(10, 2.8))
+    fig_spec = plot_chain.plt_spec(ms=20, pola_tag=b'a')
+    fig_zero_mode = plot_chain.plt_intensity1d(zero_mode, ms=20)
+    #propagation
+    prop_chain = propTB(lat=chain_tb, steps=1400, dz=0.05)
+    psi_init =  np.ones(eig_chain.sites) / np.sqrt(eig_chain.sites)
+    prop_chain.get_prop(ham=eig_chain.ham, psi_init=psi_init, norm=True)
+    fig_prop = prop_chain.plt_prop1d()
+    # save figures
+    save_chain = saveFigTB(sys=eig_chain, params={'t': t}, dir_name='chain', ext='png')
+    save_chain.save_fig(fig_lattice, 'lattice')
+    save_chain.save_fig(fig_dispersion, 'dispersion')
+    save_chain.save_fig(fig_spec, 'spec')
+    save_chain.save_fig(fig_zero_mode, 'zero_mode')
+    save_chain.save_fig(fig_prop, 'prop')
+    plt.show()
+
+.. image:: ../TBfig/chain_n21/dispersion_t(2+0j)_ea0,2j_eb-0,2j.png
+    :width: 45%
+.. image:: ../TBfig/chain_n21/spec_t(2+0j)_ea0,2j_eb-0,2j.png
+    :width: 45%
+.. image:: ../TBfig/chain_n21/zero_mode_t(2+0j)_ea0,2j_eb-0,2j.png
+    :width: 45%
+.. image:: ../TBfig/chain_n21/prop_t(2+0j)_ea0,2j_eb-0,2j.png
+    :width: 45%
+
+The infinite chain can be viewed as an insulator in the condensed-matter language (no gap between the negative and positive energies). Below the PT-symmetry breaking, the spectrum displays the particle-hole symmetry.
+
+In the finite case, there is an extented zero mode uniformly distributed on the A sites is found. 
+
+
+Identical hoppings with an impurity
+--------------------------------------------------------
+
+
+The impurity is modeled by changing two adjacent hoppings of a given site.
+
+.. image:: ../TBfig/chain_n21/lat_hop_imp_t(2+0j)_ea0,1j_eb-0,1j.png
+    :height: 80px
+    :width:  100%
+    :align: center
+
+
+.. code-block:: python
+
+    from chainTB import *
+    tags = [b'a', b'b']
+    ri = [[0, 0], [1, 0]]
+    nx = 11
+    chain_tb = latticeTB(tags=tags, ri=ri, nor=2, ang=0.)
+    chain_tb.get_lattice(nx=nx, ny=1)
+    chain_tb.remove_sites([21])
+    # solve eigenvalue problem
+    eig_chain = eigChain(lat=chain_tb)
+    on = [.1j, -.1j]
+    eig_chain.set_onsite(on=on)
+    t = 2.
+    eig_chain.set_hop_alt([2., 2.])
+    eig_chain.set_hop_def([[9, 10] ,[10, 11]], [1., 1.])
+    eig_chain.get_ham(compl_trans=True)
+    eig_chain.get_eig(eigenvec=True)
+    zero_mode = eig_chain.get_state_pola(b'a')
+    # plots
+    plot_chain = plotChain(sys=eig_chain)
+    fig_lat_hop = plot_chain.plt_chain_hop(ms=15, fs=20)
+    fig_spec = plot_chain.plt_spec(ms=20, pola_tag=b'a')
+    fig_zero_mode = plot_chain.plt_intensity1d(zero_mode, ms=20)
+    #propagation
+    prop_chain = propTB(lat=chain_tb, steps=1400, dz=0.1)
+    psi_init =  np.zeros(eig_chain.sites)
+    psi_init[eig_chain.sites//2] = 1.
+    prop_chain.get_prop(ham=eig_chain.ham, psi_init=psi_init, norm=True)
+    fig_prop = prop_chain.plt_prop1d()
+    # save figures
+    save_chain = saveFigTB(sys=eig_chain, params={'t': t}, dir_name='chain', ext='png')
+    save_chain.save_fig(fig_lat_hop, 'lat_hop_imp')
+    save_chain.save_fig(fig_spec, 'spec_imp')
+    save_chain.save_fig(fig_zero_mode, 'zero_mode_imp')
+    save_chain.save_fig(fig_prop, 'prop_imp')
+    plt.show()
+
+.. image:: ../TBfig/chain_n21/spec_imp_t(2+0j)_ea0,1j_eb-0,1j.png
+        :width: 45%
+.. image:: ../TBfig/chain_n21/zero_mode_imp_t(2+0j)_ea0,1j_eb-0,1j.png
+        :width: 45%
+.. image:: ../TBfig/chain_n21/prop_imp_t(2+0j)_ea0,1j_eb-0,1j.png
+        :align: center
+        :width: 65%
+
+The zero mode is an extended state with maximal amplitude on the impurity site.
+
+Alternating hoppings
+--------------------------------------------------------
+
+The infinite chain can be viewed as an isolator in the condensed-matter language (gap between the negative and positive energies). As in the identical hoppings case, the spectrum (blue dots) displays the particle-hole symmetry, the eigenenergies can be written as :math:`\pm |E_n|`.
+
+.. image:: ../TBfig/chain_n21/lat_hop_ta(2+0j)_tb(1+0j)_ea0,2j_eb-0,2j.png
+    :height: 80px
+    :width: 100%
+    :align: center
+
+.. code-block:: python
+    
+    from chainTB import *
+    tags = [b'a', b'b']
+    ri = [[0, 0], [1, 0]]
+    nx = 11
+    chain_tb = latticeTB(tags=tags, ri=ri, nor=2, ang=0.)
+    chain_tb.get_lattice(nx=nx, ny=1)
+    chain_tb.remove_sites([21])
+    # solve eigenvalue problem
+    eig_chain = eigChain(lat=chain_tb)
+    on = [.2j, -.2j]
+    eig_chain.set_onsite(on=on)
+    ta, tb = 2., 1.
+    eig_chain.set_hop_alt([2., 1.])
+    eig_chain.get_ham(compl_trans=True)
+    eig_chain.get_eig(eigenvec=True)
+    zero_mode = eig_chain.get_state_pola(b'a')
+    # plots
+    plot_chain = plotChain(sys=eig_chain)
+    fig_lat_hop = plot_chain.plt_chain_hop(ms=15, fs=20)
+    fig_spec = plot_chain.plt_spec(ms=20, pola_tag=b'a')
+    fig_zero_mode = plot_chain.plt_intensity1d(zero_mode, ms=20)
+    #propagation
+    prop_chain = propTB(lat=chain_tb, steps=1400, dz=0.1)
+    psi_init =  np.ones(eig_chain.sites) / np.sqrt(eig_chain.sites)
+    prop_chain.get_prop(ham=eig_chain.ham, psi_init=psi_init, norm=True)
+    fig_prop = prop_chain.plt_prop1d()
+    # save figures
+    from collections import OrderedDict
+    save_chain = saveFigTB(sys=eig_chain, params=OrderedDict([('ta', ta), ('tb', tb)]), dir_name='chain', ext='png')
+    save_chain.save_fig(fig_lat_hop, 'lat_hop')
+    save_chain.save_fig(fig_spec, 'spec')
+    save_chain.save_fig(fig_zero_mode, 'zero_mode')
+    save_chain.save_fig(fig_prop, 'prop')
+    plt.show()
+
+
+.. image:: ../TBfig/chain_n21/spec_ta(2+0j)_tb(1+0j)_ea0,2j_eb-0,2j.png
+        :width: 45%
+.. image:: ../TBfig/chain_n21/zero_mode_ta(2+0j)_tb(1+0j)_ea0,2j_eb-0,2j.png
+        :width: 45%
+.. image:: ../TBfig/chain_n21/prop_ta(2+0j)_tb(1+0j)_ea0,2j_eb-0,2j.png
+        :align: center
+        :width: 65%
+
+The zero-mode is exponentially localized at one edge of the chain (the edge terminating with a weak coupling). The zero-mode is known as a Shockley state.
+
+Dimerization defect
+----------------------------
+
+Without disorder
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. image:: ../TBfig/chain_n21/lat_hop_dim_ta(2+0j)_tb(1+0j)_ea0,2j_eb-0,2j.png
+    :height: 80px
+    :width: 100%
+    :align: center
+
+.. code-block:: python
+
+    from chainTB import *
+    tags = [b'a', b'b']
+    ri = [[0, 0], [1, 0]]
+    nx = 11
+    chain_tb = latticeTB(tags=tags, ri=ri, nor=2, ang=0.)
+    chain_tb.get_lattice(nx=nx, ny=1)
+    chain_tb.remove_sites([21])
+    # solve eigenvalue problem
+    eig_chain = eigChain(lat=chain_tb)
+    on = [.2j, -.2j]
+    eig_chain.set_onsite(on=on)
+    ta, tb = 2., 1.
+    eig_chain.set_hop_alt([2., 1.])
+    eig_chain.set_dim_defect(nx-1)
+    eig_chain.get_ham(compl_trans=True)
+    eig_chain.get_eig(eigenvec=True)
+    zero_mode = eig_chain.get_state_pola(b'a')
+    # plots
+    plot_chain = plotChain(sys=eig_chain)
+    fig_lat_hop = plot_chain.plt_chain_hop(ms=15, fs=20)
+    fig_spec = plot_chain.plt_spec(ms=20, pola_tag=b'a')
+    fig_zero_mode = plot_chain.plt_intensity1d(zero_mode, ms=20)
+    #propagation
+    prop_chain = propTB(lat=chain_tb, steps=1400, dz=0.1)
+    psi_init =  np.ones(eig_chain.sites) / np.sqrt(eig_chain.sites)
+    prop_chain.get_prop(ham=eig_chain.ham, psi_init=psi_init, norm=True)
+    fig_prop = prop_chain.plt_prop1d()
+    # save figures
+    from collections import OrderedDict
+    save_chain = saveFigTB(sys=eig_chain, params=OrderedDict([('ta', ta), ('tb', tb)]), dir_name='chain', ext='png')
+    save_chain.save_fig(fig_lat_hop, 'lat_hop_dim')
+    save_chain.save_fig(fig_spec, 'spec_dim')
+    save_chain.save_fig(fig_zero_mode, 'zero_mode_dim')
+    save_chain.save_fig(fig_prop, 'prop_dim')
+    plt.show()
+
+
+.. image:: ../TBfig/chain_n21/spec_dim_ea0,2j_eb-0,2j_ta(2+0j)_tb(1+0j).png
+        :width: 45%
+.. image:: ../TBfig/chain_n21/zero_mode_dim_ea0,2j_eb-0,2j_ta(2+0j)_tb(1+0j).png
+        :width: 45%
+.. image:: ../TBfig/chain_n21/prop_dim_ea0,2j_eb-0,2j_ta(2+0j)_tb(1+0j).png
+        :align: center
+        :width: 65%
+
+
+A defect in the dimerization creates a zero-mode localized at the defect.
+
+with disorder
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. image:: ../TBfig/chain_n21/lat_hop_dim_ta(2+0j)_tb(1+0j)_ea0,2j_eb-0,2j_d_h_0,95.png
+    :height: 80px
+    :width: 100%
+    :align: center
+
+.. code-block:: python
+
+    from chainTB import *
+    tags = [b'a', b'b']
+    ri = [[0, 0], [1, 0]]
+    nx = 11
+    chain_tb = latticeTB(tags=tags, ri=ri, nor=2, ang=0.)
+    chain_tb.get_lattice(nx=nx, ny=1)
+    chain_tb.remove_sites([21])
+    # solve eigenvalue problem
+    eig_chain = eigChain(lat=chain_tb)
+    on = [.2j, -.2j]
+    eig_chain.set_onsite(on=on)
+    ta, tb = 2., 1.
+    eig_chain.set_hop_alt([2., 1.])
+    eig_chain.set_dim_defect(nx-1)
+    alpha = .95
+    eig_chain.set_disorder(alpha=alpha)
+    eig_chain.get_ham(compl_trans=True)
+    eig_chain.get_eig(eigenvec=True)
+    zero_mode = eig_chain.get_state_pola(b'a')
+    # plots
+    plot_chain = plotChain(sys=eig_chain)
+    fig_lat_hop = plot_chain.plt_chain_hop(ms=15, fs=20)
+    fig_spec = plot_chain.plt_spec(ms=20, pola_tag=b'a')
+    fig_zero_mode = plot_chain.plt_intensity1d(zero_mode, ms=20)
+    #propagation
+    prop_chain = propTB(lat=chain_tb, steps=1400, dz=0.1)
+    psi_init =  np.ones(eig_chain.sites) / np.sqrt(eig_chain.sites)
+    prop_chain.get_prop(ham=eig_chain.ham, psi_init=psi_init, norm=True)
+    fig_prop = prop_chain.plt_prop1d()
+    # save figures
+    from collections import OrderedDict
+    save_chain = saveFigTB(sys=eig_chain, params=OrderedDict([('ta', ta), ('tb', tb), ('alpha', alpha)]), dir_name='chain', ext='png')
+    save_chain.save_fig(fig_lat_hop, 'lat_hop_dim')
+    save_chain.save_fig(fig_spec, 'spec_dim')
+    save_chain.save_fig(fig_zero_mode, 'zero_mode_dim')
+    save_chain.save_fig(fig_prop, 'prop_dim')
+    plt.show()
+
+
+.. image:: ../TBfig/chain_n21/spec_dim_ta(2+0j)_tb(1+0j)_ea0,2j_eb-0,2j_d_h_0,95.png
+        :width: 45%
+.. image:: ../TBfig/chain_n21/zero_mode_dim_ta(2+0j)_tb(1+0j)_ea0,2j_eb-0,2j_d_h_0,95.png
+        :width: 45%
+.. image:: ../TBfig/chain_n21/prop_dim_ta(2+0j)_tb(1+0j)_ea0,2j_eb-0,2j_d_h_0,95.png
+        :align: center
+        :width: 65%
+
+The zero-mode is robust to disorder and in the gap i.e. the zero-mode is topologically protected. It has been first discover by Jackiw and Rebbin in field theory and few years later by Su, Schrieffer, and Heeger in condensed-matter.
+
+Adiabatic pumping
+----------------------------
+
+Change of hopping configuation continuously.  
+
+Visit three different hopping configurations:
+
+.. code-block:: python
+
+    from chainTB import *
+    tags = [b'a', b'b']
+    ri = [[0, 0], [1, 0]]
+    nx = 11
+    chain_tb = latticeTB(tags=tags, ri=ri, nor=2, ang=0.)
+    chain_tb.get_lattice(nx=nx, ny=1)
+    chain_tb.remove_sites([21])
+    # solve eigenvalue problem
+    eig_chain = eigChain(lat=chain_tb)
+    on = [.2j, -.2j]
+    eig_chain.set_onsite(on=on)
+    ta, tb = 2.5, 1.
+    eig_chain.set_hop_alt([2., 1.])
+    eig_chain.set_dim_defect(16)
+    eig_chain.get_ham(compl_trans=True)
+    ham1 = np.copy(eig_chain.ham)
+    eig_chain.set_hop_alt([2., 1.])
+    eig_chain.set_dim_defect(4)
+    eig_chain.get_ham(compl_trans=True)
+    ham2 = np.copy(eig_chain.ham)
+    eig_chain.set_hop_alt([2., 1.])
+    eig_chain.set_dim_defect(10)
+    eig_chain.get_ham(compl_trans=True)
+    ham3 = np.copy(eig_chain.ham)
+    hams = np.array([ham1, ham2, ham2, ham3, ham3])
+    #propagation
+    prop_chain = propTB(lat=chain_tb, steps=1000, dz=0.2)
+    psi_init =  np.zeros(eig_chain.sites)
+    psi_init[16] = 0.5
+    prop_chain.get_pump(hams=hams, psi_init=psi_init)
+    fig_pump = prop_chain.plt_prop1d()
+    # save figures
+    from collections import OrderedDict
+    save_chain = saveFigTB(sys=eig_chain, params=OrderedDict([('ta', ta), ('tb', tb), ('pump', 3)]), dir_name='chain', ext='png')
+    save_chain.save_fig(fig_pump, 'pumping')
+    plt.show()
+
+
+.. image:: ../TBfig/chain_n21/pumping_ta(2,5+0j)_tb(1+0j)_ea0,1j_eb-0,1j.png
+        :width: 90%
+        :align: center

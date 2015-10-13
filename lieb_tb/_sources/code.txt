@@ -1,7 +1,0 @@
-Code
-====
-
-.. automodule:: lieb_tb
-    :members:
-    :undoc-members:
-    :show-inheritance:

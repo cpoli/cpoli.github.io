@@ -99,7 +99,7 @@ p { padding-left: 20px; }
 #fig1  {
     position: absolute;
     display: block;
-    margin-left: 440px;
+    margin-left: 600px;
     margin-right: 0px;
     margin-top: 0px;
     position: absolute
@@ -108,7 +108,7 @@ p { padding-left: 20px; }
 #fig2  {
     position: absolute;
     display: block;
-    margin-left: 660px;
+    margin-left: 900px;
     margin-right: 0px;
     margin-top: 0px;
     position: absolute
@@ -116,9 +116,9 @@ p { padding-left: 20px; }
 #fig3  {
     position: absolute;
     display: block;
-    margin-left: 440px;
+    margin-left: 600px;
     margin-right: 0px;
-    margin-top: 180px;
+    margin-top: 240px;
     position: absolute
 }
 
@@ -126,8 +126,8 @@ p { padding-left: 20px; }
     position: absolute;
     display: block;
     margin-right: 0px;
-    margin-left: 660px;
-    margin-top: 180px;
+    margin-left: 900px;
+    margin-top: 240px;
     position: absolute
 }
 #contact_section{
@@ -136,8 +136,66 @@ p { padding-left: 20px; }
     margin: 0.5px;
     padding-bottom: 1%;
     right: 100px;
+    clear: both;
+
+}
+#about_me {
+    float: left;
+  width: 500px;
+  background-color: #ABC;
+      clear: both;
 }
 
+#about0 {
+    float: left;
+    height: 140px;
+    background-color: #CCD;
+}
+
+#about1 {
+    float: left;
+    width: 424px;
+    margin-left: 20px;
+    font-size: 18px;
+
+}
+#about2 {
+        float: left;
+  height: 200px;
+  width: 560px;
+  margin-top: -20px;
+/*  background-color: #ACF;*/
+      font-size: 18px;
+    clear: both;
+}
+
+#about3 {
+        float: left;
+  height: 200px;
+  width: 560px;
+  margin-top: 25px;
+/*  background-color: #ACF;*/
+      font-size: 18px;
+    clear: both;
+}
+
+#bar1 {
+    float: left;
+    height: 300px;
+    width: 500px;
+    clear: both;
+}
+#bar2 {
+    float: left;
+    height: 300px;
+    width: 500px;
+}
+
+
+
+#cleared {
+  clear: both;
+}
 
 li{
     background-image: url(arrow.gif);
@@ -201,6 +259,15 @@ article{
     pading: 20px;
 }
 
+
+.redcolor
+{
+    color: red;
+}
+.bluecolor
+{
+    color: #2E9AFE;
+}
 .contact {
  color: black;       
 }

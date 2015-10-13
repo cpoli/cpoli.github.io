@@ -1,0 +1,729 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Examples &mdash; liebTB  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="liebTB  documentation" href="index.html"/>
+        <link rel="prev" title="liebTB code" href="codeLiebTB.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+                  <center>
+              <a href="../index.html"><div class="test"> <img src = "../images/house.jpg"
+                  height="30px"/></a>
+          </center>
+          <a href="indexLiebTB.html" class="fa fa-home"> liebTB</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="codeLiebTB.html">liebTB code</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#identical-hoppings">Identical hoppings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#identical-hoppings-with-an-impurity">Identical hoppings with an impurity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#alternative-hoppings">Alternative hoppings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#diagonal-hopping">Diagonal hopping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hopping-disorder">Hopping disorder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adiabatic-pumping">Adiabatic pumping</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="indexLiebTB.html">liebTB</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="indexLiebTB.html">Docs</a> &raquo;</li>
+      
+    <li>Examples</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/examplesLieb.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<p>This section contents examples of the face-centered square tight-binding lattice. These examples illustrate the conditions under which a zero energy exists, the shape of the zero-mode, its robustness to disorder, and how to amplify it.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Throughout these examples, the A sublattice displays a positive imaginary onsite energy while the B and C sublattices have a negative imaginary onsite energy, such that <img class="math" src="_images/math/97db9627c4d2f54a9f19a475e792d88eed660d35.png" alt="\bar{\epsilon}_a=-\bar{\epsilon}_b=-\bar{\epsilon}_c"/>. The zero-mode, if any, is actually the only state localized uniquely on the A sublattice. By choosing such onsite energies, the zero-mode will amplified while all the other states get absorbed.</p>
+</div>
+<div class="section" id="identical-hoppings">
+<h2>Identical hoppings<a class="headerlink" href="#identical-hoppings" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="even-number-of-sites-along-and">
+<h3>Even number of sites along <img class="math" src="_images/math/188c175aac0a8a9c22499336711b5d7256407254.png" alt="x"/> and <img class="math" src="_images/math/b124ff74afb0914bb434e8fb849eb56d734412f8.png" alt="y"/><a class="headerlink" href="#even-number-of-sites-along-and" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="_images/lat_ea0j_eb-0,2j_ec-0,2j_t(1+0j).png"><img alt="_images/lat_ea0j_eb-0,2j_ec-0,2j_t(1+0j).png" class="align-center" src="_images/lat_ea0j_eb-0,2j_ec-0,2j_t(1+0j).png" style="width: 55%;" /></a>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">liebTB</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span>
+<span class="n">ri</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="n">tags</span> <span class="o">=</span> <span class="p">[</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="n">b</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="n">b</span><span class="s">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">lat_lieb</span> <span class="o">=</span> <span class="n">latticeTB</span><span class="p">(</span><span class="n">tags</span><span class="o">=</span><span class="n">tags</span><span class="p">,</span> <span class="n">ri</span><span class="o">=</span><span class="n">ri</span><span class="p">,</span> <span class="n">nor</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ang</span><span class="o">=</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">lat_lieb</span><span class="o">.</span><span class="n">get_lattice</span><span class="p">(</span><span class="n">nx</span><span class="o">=</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="n">ny</span><span class="p">)</span>
+<span class="c"># eigenvalue problem</span>
+<span class="n">eig_lieb</span> <span class="o">=</span> <span class="n">eigLieb</span><span class="p">(</span><span class="n">lat_lieb</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mf">1.</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_hop</span><span class="p">([</span><span class="n">t</span><span class="p">])</span>
+<span class="n">on</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0j</span><span class="p">,</span> <span class="o">-.</span><span class="mi">2j</span><span class="p">,</span> <span class="o">-.</span><span class="mi">2j</span><span class="p">]</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_onsite</span><span class="p">(</span><span class="n">on</span><span class="o">=</span><span class="n">on</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_ham</span><span class="p">()</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_eig</span><span class="p">(</span><span class="n">eigenvec</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">zero_mode</span> <span class="o">=</span> <span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_state_pola</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="c"># plots</span>
+<span class="n">plt_lieb</span> <span class="o">=</span> <span class="n">plotLieb</span><span class="p">(</span><span class="n">eig_lieb</span><span class="p">)</span>
+<span class="n">fig_lat</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_lattice</span><span class="p">(</span><span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">plt_hop</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mf">5.</span><span class="p">)</span>
+<span class="n">fig_spec</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_spec</span><span class="p">(</span><span class="n">pola_tag</span><span class="o">=</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">fig_dispersion</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_dispersion</span><span class="p">(</span><span class="n">ta</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">tb</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">tc</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">td</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">nn</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
+<span class="n">save_chain</span> <span class="o">=</span> <span class="n">saveFigTB</span><span class="p">(</span><span class="n">sys</span><span class="o">=</span><span class="n">eig_lieb</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;t&#39;</span><span class="p">:</span> <span class="n">t</span><span class="p">},</span> <span class="n">dir_name</span><span class="o">=</span><span class="s">&#39;lieb&#39;</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s">&#39;png&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_lat</span><span class="p">,</span> <span class="s">&#39;lat&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_spec</span><span class="p">,</span> <span class="s">&#39;spec&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_dispersion</span><span class="p">,</span> <span class="s">&#39;dispersion&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/dispersion_ea0j_eb-0,2j_ec-0,2j_t(1+0j).png"><img alt="_images/dispersion_ea0j_eb-0,2j_ec-0,2j_t(1+0j).png" class="align-center" src="_images/dispersion_ea0j_eb-0,2j_ec-0,2j_t(1+0j).png" style="width: 55%;" /></a>
+<a class="reference internal image-reference" href="_images/spec_ea0j_eb-0,2j_ec-0,2j_t(1+0j).png"><img alt="_images/spec_ea0j_eb-0,2j_ec-0,2j_t(1+0j).png" class="align-center" src="_images/spec_ea0j_eb-0,2j_ec-0,2j_t(1+0j).png" style="width: 55%;" /></a>
+<p>In the case of an even number of sites along x and y, no zero-mode is encountered. Note that the spectrum is composed of one flat band and two parabolic branches.The spectrum and the polarization on the A sublattice reveal that the flat band states are not localized on the A sublattice. One can actually show that the states are equally distributed on the B and C sublattice <img class="math" src="_images/math/3e7ca6182f013bcf143643a2bd079a9491815afc.png" alt="\langle B | B \rangle = \langle C | C \rangle = 1/2"/>. The states belonging to the parabolic branches are distributed on three sublattice <img class="math" src="_images/math/86e9ae32705bae7994001d4b5efc63a01bd46cf4.png" alt="\langle A | A \rangle = 2\langle B | B \rangle = 2\langle C | C \rangle = 1/2"/>.</p>
+</div>
+<div class="section" id="odd-number-of-sites-along-and">
+<h3>Odd number of sites along <img class="math" src="_images/math/188c175aac0a8a9c22499336711b5d7256407254.png" alt="x"/> and <img class="math" src="_images/math/b124ff74afb0914bb434e8fb849eb56d734412f8.png" alt="y"/><a class="headerlink" href="#odd-number-of-sites-along-and" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="_images/lat_ea0j_eb-0,2j_ec-0,2j_t(1+0j)1.png"><img alt="_images/lat_ea0j_eb-0,2j_ec-0,2j_t(1+0j)1.png" class="align-center" src="_images/lat_ea0j_eb-0,2j_ec-0,2j_t(1+0j)1.png" style="width: 55%;" /></a>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">liebTB</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span>
+<span class="n">ri</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="n">tags</span> <span class="o">=</span> <span class="p">[</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="n">b</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="n">b</span><span class="s">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">lat_lieb</span> <span class="o">=</span> <span class="n">latticeTB</span><span class="p">(</span><span class="n">tags</span><span class="o">=</span><span class="n">tags</span><span class="p">,</span> <span class="n">ri</span><span class="o">=</span><span class="n">ri</span><span class="p">,</span> <span class="n">nor</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ang</span><span class="o">=</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">lat_lieb</span><span class="o">.</span><span class="n">get_lattice</span><span class="p">(</span><span class="n">nx</span><span class="o">=</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="n">ny</span><span class="p">)</span>
+<span class="n">lat_lieb</span><span class="o">.</span><span class="n">remove_dangling</span><span class="p">(</span><span class="n">nor_bond</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c"># eigenvalue problem</span>
+<span class="n">eig_lieb</span> <span class="o">=</span> <span class="n">eigLieb</span><span class="p">(</span><span class="n">lat_lieb</span><span class="p">)</span>
+<span class="n">on</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0j</span><span class="p">,</span> <span class="o">-.</span><span class="mi">2j</span><span class="p">,</span> <span class="o">-.</span><span class="mi">2j</span><span class="p">]</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_onsite</span><span class="p">(</span><span class="n">on</span><span class="o">=</span><span class="n">on</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mf">1.</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_hop</span><span class="p">([</span><span class="n">t</span><span class="p">])</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_ham</span><span class="p">()</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_eig</span><span class="p">(</span><span class="n">eigenvec</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">zero_mode</span> <span class="o">=</span> <span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_state_pola</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="c"># plots</span>
+<span class="n">plt_lieb</span> <span class="o">=</span> <span class="n">plotLieb</span><span class="p">(</span><span class="n">eig_lieb</span><span class="p">)</span>
+<span class="n">fig_lat</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_lattice</span><span class="p">(</span><span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">plt_hop</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mf">5.</span><span class="p">)</span>
+<span class="n">fig_spec</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_spec</span><span class="p">(</span><span class="n">pola_tag</span><span class="o">=</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">fig_zm</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_intensity</span><span class="p">(</span><span class="n">zero_mode</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">save_chain</span> <span class="o">=</span> <span class="n">saveFigTB</span><span class="p">(</span><span class="n">sys</span><span class="o">=</span><span class="n">eig_lieb</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;t&#39;</span><span class="p">:</span> <span class="n">t</span><span class="p">},</span> <span class="n">dir_name</span><span class="o">=</span><span class="s">&#39;lieb&#39;</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s">&#39;png&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_lat</span><span class="p">,</span> <span class="s">&#39;lat&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_spec</span><span class="p">,</span> <span class="s">&#39;spec&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_zm</span><span class="p">,</span> <span class="s">&#39;zero_mode&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/spec_ea0j_eb-0,2j_ec-0,2j_t(1+0j)1.png"><img alt="_images/spec_ea0j_eb-0,2j_ec-0,2j_t(1+0j)1.png" class="align-center" src="_images/spec_ea0j_eb-0,2j_ec-0,2j_t(1+0j)1.png" style="width: 55%;" /></a>
+<a class="reference internal image-reference" href="_images/zero_mode_ea0j_eb-0,2j_ec-0,2j_t(1+0j).png"><img alt="_images/zero_mode_ea0j_eb-0,2j_ec-0,2j_t(1+0j).png" class="align-center" src="_images/zero_mode_ea0j_eb-0,2j_ec-0,2j_t(1+0j).png" style="width: 55%;" /></a>
+<p>Zero-mode only on A sublattice, and uniformly distributed. Zero-mode located in the flat band, note that  flat band states are on the B and C sites.</p>
+</div>
+</div>
+<div class="section" id="identical-hoppings-with-an-impurity">
+<h2>Identical hoppings with an impurity<a class="headerlink" href="#identical-hoppings-with-an-impurity" title="Permalink to this headline">¶</a></h2>
+<p>The impurity is modeled by changing two adjacent hoppings of a given site.</p>
+<div class="section" id="odd-number-of-sites-and">
+<h3>Odd number of sites <img class="math" src="_images/math/188c175aac0a8a9c22499336711b5d7256407254.png" alt="x"/> and <img class="math" src="_images/math/b124ff74afb0914bb434e8fb849eb56d734412f8.png" alt="y"/><a class="headerlink" href="#odd-number-of-sites-and" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="_images/lat_ind_ea0j_eb-0,2j_ec-0,2j_t(2+0j).png"><img alt="_images/lat_ind_ea0j_eb-0,2j_ec-0,2j_t(2+0j).png" class="align-center" src="_images/lat_ind_ea0j_eb-0,2j_ec-0,2j_t(2+0j).png" style="width: 55%;" /></a>
+<a class="reference internal image-reference" href="_images/lat_ea0j_eb-0,2j_ec-0,2j_t(2+0j).png"><img alt="_images/lat_ea0j_eb-0,2j_ec-0,2j_t(2+0j).png" class="align-center" src="_images/lat_ea0j_eb-0,2j_ec-0,2j_t(2+0j).png" style="width: 55%;" /></a>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">liebTB</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span>
+<span class="n">ri</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="n">tags</span> <span class="o">=</span> <span class="p">[</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="n">b</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="n">b</span><span class="s">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">lat_lieb</span> <span class="o">=</span> <span class="n">latticeTB</span><span class="p">(</span><span class="n">tags</span><span class="o">=</span><span class="n">tags</span><span class="p">,</span> <span class="n">ri</span><span class="o">=</span><span class="n">ri</span><span class="p">,</span> <span class="n">nor</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ang</span><span class="o">=</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">lat_lieb</span><span class="o">.</span><span class="n">get_lattice</span><span class="p">(</span><span class="n">nx</span><span class="o">=</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="n">ny</span><span class="p">)</span>
+<span class="n">lat_lieb</span><span class="o">.</span><span class="n">remove_dangling</span><span class="p">(</span><span class="n">nor_bond</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c"># eigenvalue problem</span>
+<span class="n">eig_lieb</span> <span class="o">=</span> <span class="n">eigLieb</span><span class="p">(</span><span class="n">lat_lieb</span><span class="p">)</span>
+<span class="n">on</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0j</span><span class="p">,</span> <span class="o">-.</span><span class="mi">2j</span><span class="p">,</span> <span class="o">-.</span><span class="mi">2j</span><span class="p">]</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_onsite</span><span class="p">(</span><span class="n">on</span><span class="o">=</span><span class="n">on</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mf">2.</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_hop</span><span class="p">([</span><span class="n">t</span><span class="p">])</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_hop_def</span><span class="p">([[</span><span class="mi">31</span><span class="p">,</span> <span class="mi">32</span><span class="p">]</span> <span class="p">,[</span><span class="mi">32</span><span class="p">,</span> <span class="mi">33</span><span class="p">],</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">32</span><span class="p">]</span> <span class="p">,[</span><span class="mi">32</span><span class="p">,</span> <span class="mi">39</span><span class="p">]],</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">])</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_ham</span><span class="p">()</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_eig</span><span class="p">(</span><span class="n">eigenvec</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">zero_mode</span> <span class="o">=</span> <span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_state_pola</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="c"># plots</span>
+<span class="n">plt_lieb</span> <span class="o">=</span> <span class="n">plotLieb</span><span class="p">(</span><span class="n">eig_lieb</span><span class="p">)</span>
+<span class="n">fig_lat_ind</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_lattice</span><span class="p">(</span><span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">plt_index</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+<span class="n">fig_lat</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_lattice</span><span class="p">(</span><span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">plt_hop</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>  <span class="n">c</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+<span class="n">fig_spec</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_spec</span><span class="p">(</span><span class="n">pola_tag</span><span class="o">=</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">fig_zm</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_intensity</span><span class="p">(</span><span class="n">zero_mode</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="c"># save</span>
+<span class="n">save_chain</span> <span class="o">=</span> <span class="n">saveFigTB</span><span class="p">(</span><span class="n">sys</span><span class="o">=</span><span class="n">eig_lieb</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;t&#39;</span><span class="p">:</span> <span class="n">t</span><span class="p">},</span> <span class="n">dir_name</span><span class="o">=</span><span class="s">&#39;lieb&#39;</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s">&#39;png&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_lat_ind</span><span class="p">,</span> <span class="s">&#39;lat_ind&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_lat</span><span class="p">,</span> <span class="s">&#39;lat&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_spec</span><span class="p">,</span> <span class="s">&#39;spec&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_zm</span><span class="p">,</span> <span class="s">&#39;zero_mode&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/spec_ea0j_eb-0,2j_ec-0,2j_t(2+0j).png"><img alt="_images/spec_ea0j_eb-0,2j_ec-0,2j_t(2+0j).png" class="align-center" src="_images/spec_ea0j_eb-0,2j_ec-0,2j_t(2+0j).png" style="width: 55%;" /></a>
+<a class="reference internal image-reference" href="_images/zero_mode_ea0j_eb-0,2j_ec-0,2j_t(2+0j).png"><img alt="_images/zero_mode_ea0j_eb-0,2j_ec-0,2j_t(2+0j).png" class="align-center" src="_images/zero_mode_ea0j_eb-0,2j_ec-0,2j_t(2+0j).png" style="width: 55%;" /></a>
+<p>The zero-mode has an maximal amplitude at the defect site.</p>
+</div>
+</div>
+<div class="section" id="alternative-hoppings">
+<h2>Alternative hoppings<a class="headerlink" href="#alternative-hoppings" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/lat_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png"><img alt="_images/lat_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" class="align-center" src="_images/lat_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" style="width: 55%;" /></a>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">liebTB</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span>
+<span class="n">ri</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="n">tags</span> <span class="o">=</span> <span class="p">[</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="n">b</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="n">b</span><span class="s">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">lat_lieb</span> <span class="o">=</span> <span class="n">latticeTB</span><span class="p">(</span><span class="n">tags</span><span class="o">=</span><span class="n">tags</span><span class="p">,</span> <span class="n">ri</span><span class="o">=</span><span class="n">ri</span><span class="p">,</span> <span class="n">nor</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ang</span><span class="o">=</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">lat_lieb</span><span class="o">.</span><span class="n">get_lattice</span><span class="p">(</span><span class="n">nx</span><span class="o">=</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="n">ny</span><span class="p">)</span>
+<span class="n">lat_lieb</span><span class="o">.</span><span class="n">remove_dangling</span><span class="p">(</span><span class="n">nor_bond</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c"># eigenvalue problem</span>
+<span class="n">eig_lieb</span> <span class="o">=</span> <span class="n">eigLieb</span><span class="p">(</span><span class="n">lat_lieb</span><span class="p">)</span>
+<span class="n">on</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0j</span><span class="p">,</span> <span class="o">-.</span><span class="mi">2j</span><span class="p">,</span> <span class="o">-.</span><span class="mi">2j</span><span class="p">]</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_onsite</span><span class="p">(</span><span class="n">on</span><span class="o">=</span><span class="n">on</span><span class="p">)</span>
+<span class="n">ta</span><span class="p">,</span> <span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="p">,</span> <span class="n">td</span> <span class="o">=</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_hop_alt</span><span class="p">(</span><span class="n">ta</span><span class="o">=</span><span class="n">ta</span><span class="p">,</span> <span class="n">tb</span><span class="o">=</span><span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="o">=</span><span class="n">tc</span><span class="p">,</span> <span class="n">td</span><span class="o">=</span><span class="n">td</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_ham</span><span class="p">(</span><span class="n">compl_trans</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_eig</span><span class="p">(</span><span class="n">eigenvec</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">zero_mode</span> <span class="o">=</span> <span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_state_pola</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="c"># plots</span>
+<span class="n">plt_lieb</span> <span class="o">=</span> <span class="n">plotLieb</span><span class="p">(</span><span class="n">eig_lieb</span><span class="p">)</span>
+<span class="n">fig_lat</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_lattice</span><span class="p">(</span><span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">plt_hop</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>  <span class="n">c</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+<span class="n">fig_dispersion</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_dispersion</span><span class="p">(</span><span class="n">ta</span><span class="o">=</span><span class="n">ta</span><span class="p">,</span> <span class="n">tb</span><span class="o">=</span><span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="o">=</span><span class="n">tc</span><span class="p">,</span> <span class="n">td</span><span class="o">=</span><span class="n">td</span><span class="p">)</span>
+<span class="n">fig_spec</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_spec</span><span class="p">(</span><span class="n">pola_tag</span><span class="o">=</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">fig_zm</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_intensity</span><span class="p">(</span><span class="n">zero_mode</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="c"># save</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="n">save_chain</span> <span class="o">=</span> <span class="n">saveFigTB</span><span class="p">(</span><span class="n">sys</span><span class="o">=</span><span class="n">eig_lieb</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="s">&#39;ta&#39;</span><span class="p">,</span> <span class="n">ta</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;tb&#39;</span><span class="p">,</span> <span class="n">tb</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;tc&#39;</span><span class="p">,</span> <span class="n">tc</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;td&#39;</span><span class="p">,</span> <span class="n">td</span><span class="p">)]),</span> <span class="n">dir_name</span><span class="o">=</span><span class="s">&#39;lieb&#39;</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s">&#39;png&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_lat</span><span class="p">,</span> <span class="s">&#39;lat&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_dispersion</span><span class="p">,</span> <span class="s">&#39;dispersion&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_spec</span><span class="p">,</span> <span class="s">&#39;spec&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_zm</span><span class="p">,</span> <span class="s">&#39;zero_mode&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/dispersion_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png"><img alt="_images/dispersion_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" class="align-center" src="_images/dispersion_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" style="width: 55%;" /></a>
+<a class="reference internal image-reference" href="_images/spec_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png"><img alt="_images/spec_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" class="align-center" src="_images/spec_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" style="width: 55%;" /></a>
+<a class="reference internal image-reference" href="_images/zero_mode_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png"><img alt="_images/zero_mode_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" class="align-center" src="_images/zero_mode_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" style="width: 55%;" /></a>
+<p>Zero-mode localized at the top left corner ending with weak hoppings along <img class="math" src="_images/math/188c175aac0a8a9c22499336711b5d7256407254.png" alt="x"/> and <img class="math" src="_images/math/b124ff74afb0914bb434e8fb849eb56d734412f8.png" alt="y"/>.</p>
+<div class="section" id="dimerization-defect-along">
+<h3>Dimerization defect along <img class="math" src="_images/math/188c175aac0a8a9c22499336711b5d7256407254.png" alt="x"/><a class="headerlink" href="#dimerization-defect-along" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="_images/latX_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png"><img alt="_images/latX_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" class="align-center" src="_images/latX_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" style="width: 55%;" /></a>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">liebTB</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span>
+<span class="n">ri</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="n">tags</span> <span class="o">=</span> <span class="p">[</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="n">b</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="n">b</span><span class="s">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">lat_lieb</span> <span class="o">=</span> <span class="n">latticeTB</span><span class="p">(</span><span class="n">tags</span><span class="o">=</span><span class="n">tags</span><span class="p">,</span> <span class="n">ri</span><span class="o">=</span><span class="n">ri</span><span class="p">,</span> <span class="n">nor</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ang</span><span class="o">=</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">lat_lieb</span><span class="o">.</span><span class="n">get_lattice</span><span class="p">(</span><span class="n">nx</span><span class="o">=</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="n">ny</span><span class="p">)</span>
+<span class="n">lat_lieb</span><span class="o">.</span><span class="n">remove_dangling</span><span class="p">(</span><span class="n">nor_bond</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c"># eigenvalue problem</span>
+<span class="n">eig_lieb</span> <span class="o">=</span> <span class="n">eigLieb</span><span class="p">(</span><span class="n">lat_lieb</span><span class="p">)</span>
+<span class="n">on</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0j</span><span class="p">,</span> <span class="o">-.</span><span class="mi">2j</span><span class="p">,</span> <span class="o">-.</span><span class="mi">2j</span><span class="p">]</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_onsite</span><span class="p">(</span><span class="n">on</span><span class="o">=</span><span class="n">on</span><span class="p">)</span>
+<span class="n">ta</span><span class="p">,</span> <span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="p">,</span> <span class="n">td</span> <span class="o">=</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_hop_alt</span><span class="p">(</span><span class="n">ta</span><span class="o">=</span><span class="n">ta</span><span class="p">,</span> <span class="n">tb</span><span class="o">=</span><span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="o">=</span><span class="n">tc</span><span class="p">,</span> <span class="n">td</span><span class="o">=</span><span class="n">td</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_ham</span><span class="p">(</span><span class="n">compl_trans</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_eig</span><span class="p">(</span><span class="n">eigenvec</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">zero_mode</span> <span class="o">=</span> <span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_state_pola</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="c"># plots</span>
+<span class="n">plt_lieb</span> <span class="o">=</span> <span class="n">plotLieb</span><span class="p">(</span><span class="n">eig_lieb</span><span class="p">)</span>
+<span class="n">fig_lat</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_lattice</span><span class="p">(</span><span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">plt_hop</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>  <span class="n">c</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+<span class="n">fig_dispersion</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_dispersion</span><span class="p">(</span><span class="n">ta</span><span class="o">=</span><span class="n">ta</span><span class="p">,</span> <span class="n">tb</span><span class="o">=</span><span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="o">=</span><span class="n">tc</span><span class="p">,</span> <span class="n">td</span><span class="o">=</span><span class="n">td</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_dim_defect</span><span class="p">(</span><span class="n">dim_x</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">fig_spec</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_spec</span><span class="p">(</span><span class="n">pola_tag</span><span class="o">=</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">fig_zm</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_intensity</span><span class="p">(</span><span class="n">zero_mode</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="c"># save</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="n">save_chain</span> <span class="o">=</span> <span class="n">saveFigTB</span><span class="p">(</span><span class="n">sys</span><span class="o">=</span><span class="n">eig_lieb</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="s">&#39;ta&#39;</span><span class="p">,</span> <span class="n">ta</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;tb&#39;</span><span class="p">,</span> <span class="n">tb</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;tc&#39;</span><span class="p">,</span> <span class="n">tc</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;td&#39;</span><span class="p">,</span> <span class="n">td</span><span class="p">)]),</span> <span class="n">dir_name</span><span class="o">=</span><span class="s">&#39;lieb&#39;</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s">&#39;png&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_lat</span><span class="p">,</span> <span class="s">&#39;lat&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_dispersion</span><span class="p">,</span> <span class="s">&#39;dispersion&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_spec</span><span class="p">,</span> <span class="s">&#39;spec&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_zm</span><span class="p">,</span> <span class="s">&#39;zero_mode&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/specX_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png"><img alt="_images/specX_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" class="align-center" src="_images/specX_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" style="width: 55%;" /></a>
+<a class="reference internal image-reference" href="_images/zero_modeX_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png"><img alt="_images/zero_modeX_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" class="align-center" src="_images/zero_modeX_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" style="width: 55%;" /></a>
+<p>Zero-mode localized in the edge with two weak adjacent hoppings along:math:<cite>x</cite> and one weak coupling and <img class="math" src="_images/math/b124ff74afb0914bb434e8fb849eb56d734412f8.png" alt="y"/>.</p>
+</div>
+<div class="section" id="dimerization-defect-along-and">
+<h3>Dimerization defect along <img class="math" src="_images/math/188c175aac0a8a9c22499336711b5d7256407254.png" alt="x"/> and <img class="math" src="_images/math/b124ff74afb0914bb434e8fb849eb56d734412f8.png" alt="y"/><a class="headerlink" href="#dimerization-defect-along-and" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="_images/latXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png"><img alt="_images/latXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" class="align-center" src="_images/latXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" style="width: 55%;" /></a>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">liebTB</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span>
+<span class="n">ri</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="n">tags</span> <span class="o">=</span> <span class="p">[</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="n">b</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="n">b</span><span class="s">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">lat_lieb</span> <span class="o">=</span> <span class="n">latticeTB</span><span class="p">(</span><span class="n">tags</span><span class="o">=</span><span class="n">tags</span><span class="p">,</span> <span class="n">ri</span><span class="o">=</span><span class="n">ri</span><span class="p">,</span> <span class="n">nor</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ang</span><span class="o">=</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">lat_lieb</span><span class="o">.</span><span class="n">get_lattice</span><span class="p">(</span><span class="n">nx</span><span class="o">=</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="n">ny</span><span class="p">)</span>
+<span class="n">lat_lieb</span><span class="o">.</span><span class="n">remove_dangling</span><span class="p">(</span><span class="n">nor_bond</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c"># eigenvalue problem</span>
+<span class="n">eig_lieb</span> <span class="o">=</span> <span class="n">eigLieb</span><span class="p">(</span><span class="n">lat_lieb</span><span class="p">)</span>
+<span class="n">on</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0j</span><span class="p">,</span> <span class="o">-.</span><span class="mi">2j</span><span class="p">,</span> <span class="o">-.</span><span class="mi">2j</span><span class="p">]</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_onsite</span><span class="p">(</span><span class="n">on</span><span class="o">=</span><span class="n">on</span><span class="p">)</span>
+<span class="n">ta</span><span class="p">,</span> <span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="p">,</span> <span class="n">td</span> <span class="o">=</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_hop_alt</span><span class="p">(</span><span class="n">ta</span><span class="o">=</span><span class="n">ta</span><span class="p">,</span> <span class="n">tb</span><span class="o">=</span><span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="o">=</span><span class="n">tc</span><span class="p">,</span> <span class="n">td</span><span class="o">=</span><span class="n">td</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_dim_defect</span><span class="p">(</span><span class="n">dim_x</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">dim_y</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_ham</span><span class="p">(</span><span class="n">compl_trans</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_eig</span><span class="p">(</span><span class="n">eigenvec</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">zero_mode</span> <span class="o">=</span> <span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_state_pola</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="c"># plots</span>
+<span class="n">plt_lieb</span> <span class="o">=</span> <span class="n">plotLieb</span><span class="p">(</span><span class="n">eig_lieb</span><span class="p">)</span>
+<span class="n">fig_lat</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_lattice</span><span class="p">(</span><span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">plt_hop</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>  <span class="n">c</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+<span class="n">fig_dispersion</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_dispersion</span><span class="p">(</span><span class="n">ta</span><span class="o">=</span><span class="n">ta</span><span class="p">,</span> <span class="n">tb</span><span class="o">=</span><span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="o">=</span><span class="n">tc</span><span class="p">,</span> <span class="n">td</span><span class="o">=</span><span class="n">td</span><span class="p">)</span>
+<span class="n">fig_spec</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_spec</span><span class="p">(</span><span class="n">pola_tag</span><span class="o">=</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">fig_zm</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_intensity</span><span class="p">(</span><span class="n">zero_mode</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="c"># save</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="n">save_chain</span> <span class="o">=</span> <span class="n">saveFigTB</span><span class="p">(</span><span class="n">sys</span><span class="o">=</span><span class="n">eig_lieb</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="s">&#39;ta&#39;</span><span class="p">,</span> <span class="n">ta</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;tb&#39;</span><span class="p">,</span> <span class="n">tb</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;tc&#39;</span><span class="p">,</span> <span class="n">tc</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;td&#39;</span><span class="p">,</span> <span class="n">td</span><span class="p">)]),</span> <span class="n">dir_name</span><span class="o">=</span><span class="s">&#39;lieb&#39;</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s">&#39;png&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_lat</span><span class="p">,</span> <span class="s">&#39;lat&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_dispersion</span><span class="p">,</span> <span class="s">&#39;dispersion&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_spec</span><span class="p">,</span> <span class="s">&#39;spec&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_zm</span><span class="p">,</span> <span class="s">&#39;zero_mode&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png"><img alt="_images/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" class="align-center" src="_images/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" style="width: 55%;" /></a>
+<a class="reference internal image-reference" href="_images/zero_modeXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png"><img alt="_images/zero_modeXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" class="align-center" src="_images/zero_modeXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" style="width: 55%;" /></a>
+<p>Zero-mode localized in the bulk, centered on the site with two adjacent weak hoppings along <img class="math" src="_images/math/188c175aac0a8a9c22499336711b5d7256407254.png" alt="x"/> and two adjacent weak hoppings along <img class="math" src="_images/math/b124ff74afb0914bb434e8fb849eb56d734412f8.png" alt="y"/>.</p>
+</div>
+</div>
+<div class="section" id="diagonal-hopping">
+<h2>Diagonal hopping<a class="headerlink" href="#diagonal-hopping" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/latXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_nn(0,6+0j).png"><img alt="_images/latXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_nn(0,6+0j).png" class="align-center" src="_images/latXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_nn(0,6+0j).png" style="width: 55%;" /></a>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">liebTB</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span>
+<span class="n">ri</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="n">tags</span> <span class="o">=</span> <span class="p">[</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="n">b</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="n">b</span><span class="s">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">lat_lieb</span> <span class="o">=</span> <span class="n">latticeTB</span><span class="p">(</span><span class="n">tags</span><span class="o">=</span><span class="n">tags</span><span class="p">,</span> <span class="n">ri</span><span class="o">=</span><span class="n">ri</span><span class="p">,</span> <span class="n">nor</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ang</span><span class="o">=</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">lat_lieb</span><span class="o">.</span><span class="n">get_lattice</span><span class="p">(</span><span class="n">nx</span><span class="o">=</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="n">ny</span><span class="p">)</span>
+<span class="n">lat_lieb</span><span class="o">.</span><span class="n">remove_dangling</span><span class="p">(</span><span class="n">nor_bond</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c"># eigenvalue problem</span>
+<span class="n">eig_lieb</span> <span class="o">=</span> <span class="n">eigLieb</span><span class="p">(</span><span class="n">lat_lieb</span><span class="p">)</span>
+<span class="n">on</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0j</span><span class="p">,</span> <span class="o">-.</span><span class="mi">2j</span><span class="p">,</span> <span class="o">-.</span><span class="mi">2j</span><span class="p">]</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_onsite</span><span class="p">(</span><span class="n">on</span><span class="o">=</span><span class="n">on</span><span class="p">)</span>
+<span class="n">ta</span><span class="p">,</span> <span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="p">,</span> <span class="n">td</span> <span class="o">=</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_hop_alt</span><span class="p">(</span><span class="n">ta</span><span class="o">=</span><span class="n">ta</span><span class="p">,</span> <span class="n">tb</span><span class="o">=</span><span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="o">=</span><span class="n">tc</span><span class="p">,</span> <span class="n">td</span><span class="o">=</span><span class="n">td</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_dim_defect</span><span class="p">(</span><span class="n">dim_x</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">dim_y</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_hop_alt_nn</span><span class="p">(</span><span class="n">nn</span><span class="o">=.</span><span class="mi">6</span><span class="p">)</span>  <span class="c"># diagonal hoppings</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_ham</span><span class="p">(</span><span class="n">compl_trans</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_eig</span><span class="p">(</span><span class="n">eigenvec</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">zero_mode</span> <span class="o">=</span> <span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_state_pola</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="c"># plots</span>
+<span class="n">plt_lieb</span> <span class="o">=</span> <span class="n">plotLieb</span><span class="p">(</span><span class="n">eig_lieb</span><span class="p">)</span>
+<span class="n">fig_lat</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_lattice</span><span class="p">(</span><span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">plt_hop</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>  <span class="n">c</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">fig_dispersion</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_dispersion</span><span class="p">(</span><span class="n">ta</span><span class="o">=</span><span class="n">ta</span><span class="p">,</span> <span class="n">tb</span><span class="o">=</span><span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="o">=</span><span class="n">tc</span><span class="p">,</span> <span class="n">td</span><span class="o">=</span><span class="n">td</span><span class="p">)</span>
+<span class="n">fig_spec</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_spec</span><span class="p">(</span><span class="n">pola_tag</span><span class="o">=</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">fig_zm</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_intensity</span><span class="p">(</span><span class="n">zero_mode</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="c"># save</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="n">save_chain</span> <span class="o">=</span> <span class="n">saveFigTB</span><span class="p">(</span><span class="n">sys</span><span class="o">=</span><span class="n">eig_lieb</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="s">&#39;ta&#39;</span><span class="p">,</span> <span class="n">ta</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;tb&#39;</span><span class="p">,</span> <span class="n">tb</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;tc&#39;</span><span class="p">,</span> <span class="n">tc</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;td&#39;</span><span class="p">,</span> <span class="n">td</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;nn&#39;</span><span class="p">,</span> <span class="o">.</span><span class="mi">6</span><span class="p">)]),</span> <span class="n">dir_name</span><span class="o">=</span><span class="s">&#39;lieb&#39;</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s">&#39;png&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_lat</span><span class="p">,</span> <span class="s">&#39;latXY&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_spec</span><span class="p">,</span> <span class="s">&#39;specXY&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_zm</span><span class="p">,</span> <span class="s">&#39;zero_modeXY&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_nn(0,6+0j).png"><img alt="_images/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_nn(0,6+0j).png" class="align-center" src="_images/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_nn(0,6+0j).png" style="width: 55%;" /></a>
+<a class="reference internal image-reference" href="_images/zero_modeXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_nn(0,6+0j).png"><img alt="_images/zero_modeXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_nn(0,6+0j).png" class="align-center" src="_images/zero_modeXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_nn(0,6+0j).png" style="width: 55%;" /></a>
+<p>In presence of intracell diagonal hopping, the flat band is destroyed but the zero-mode remains.</p>
+</div>
+<div class="section" id="hopping-disorder">
+<h2>Hopping disorder<a class="headerlink" href="#hopping-disorder" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="generic-disorder">
+<h3>Generic disorder<a class="headerlink" href="#generic-disorder" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="_images/lat_hopXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_gen(0,9+0j).png"><img alt="_images/lat_hopXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_gen(0,9+0j).png" class="align-center" src="_images/lat_hopXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_gen(0,9+0j).png" style="width: 55%;" /></a>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">liebTB</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span>
+<span class="n">ri</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="n">tags</span> <span class="o">=</span> <span class="p">[</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="n">b</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="n">b</span><span class="s">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">lat_lieb</span> <span class="o">=</span> <span class="n">latticeTB</span><span class="p">(</span><span class="n">tags</span><span class="o">=</span><span class="n">tags</span><span class="p">,</span> <span class="n">ri</span><span class="o">=</span><span class="n">ri</span><span class="p">,</span> <span class="n">nor</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ang</span><span class="o">=</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">lat_lieb</span><span class="o">.</span><span class="n">get_lattice</span><span class="p">(</span><span class="n">nx</span><span class="o">=</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="n">ny</span><span class="p">)</span>
+<span class="n">lat_lieb</span><span class="o">.</span><span class="n">remove_dangling</span><span class="p">(</span><span class="n">nor_bond</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c"># eigenvalue problem</span>
+<span class="n">eig_lieb</span> <span class="o">=</span> <span class="n">eigLieb</span><span class="p">(</span><span class="n">lat_lieb</span><span class="p">)</span>
+<span class="n">on</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0j</span><span class="p">,</span> <span class="o">-.</span><span class="mi">2j</span><span class="p">,</span> <span class="o">-.</span><span class="mi">2j</span><span class="p">]</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_onsite</span><span class="p">(</span><span class="n">on</span><span class="o">=</span><span class="n">on</span><span class="p">)</span>
+<span class="n">ta</span><span class="p">,</span> <span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="p">,</span> <span class="n">td</span> <span class="o">=</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_hop_alt</span><span class="p">(</span><span class="n">ta</span><span class="o">=</span><span class="n">ta</span><span class="p">,</span> <span class="n">tb</span><span class="o">=</span><span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="o">=</span><span class="n">tc</span><span class="p">,</span> <span class="n">td</span><span class="o">=</span><span class="n">td</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_dim_defect</span><span class="p">(</span><span class="n">dim_x</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">dim_y</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="o">.</span><span class="mi">9</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_disorder</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_hop_alt_nn</span><span class="p">(</span><span class="n">nn</span><span class="o">=.</span><span class="mi">6</span><span class="p">)</span>  <span class="c"># diagonal hoppings</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_ham</span><span class="p">(</span><span class="n">compl_trans</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_eig</span><span class="p">(</span><span class="n">eigenvec</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">zero_mode</span> <span class="o">=</span> <span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_state_pola</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="c"># plots</span>
+<span class="n">plt_lieb</span> <span class="o">=</span> <span class="n">plotLieb</span><span class="p">(</span><span class="n">eig_lieb</span><span class="p">)</span>
+<span class="n">fig_lat</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_lattice</span><span class="p">(</span><span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">plt_hop</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>  <span class="n">c</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">fig_dispersion</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_dispersion</span><span class="p">(</span><span class="n">ta</span><span class="o">=</span><span class="n">ta</span><span class="p">,</span> <span class="n">tb</span><span class="o">=</span><span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="o">=</span><span class="n">tc</span><span class="p">,</span> <span class="n">td</span><span class="o">=</span><span class="n">td</span><span class="p">)</span>
+<span class="n">fig_spec</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_spec</span><span class="p">(</span><span class="n">pola_tag</span><span class="o">=</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">fig_zm</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_intensity</span><span class="p">(</span><span class="n">zero_mode</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="c"># save</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="n">save_chain</span> <span class="o">=</span> <span class="n">saveFigTB</span><span class="p">(</span><span class="n">sys</span><span class="o">=</span><span class="n">eig_lieb</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="s">&#39;ta&#39;</span><span class="p">,</span> <span class="n">ta</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;tb&#39;</span><span class="p">,</span> <span class="n">tb</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;tc&#39;</span><span class="p">,</span> <span class="n">tc</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;td&#39;</span><span class="p">,</span> <span class="n">td</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;nn&#39;</span><span class="p">,</span> <span class="o">.</span><span class="mi">6</span><span class="p">)]),</span> <span class="n">dir_name</span><span class="o">=</span><span class="s">&#39;lieb&#39;</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s">&#39;png&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_lat</span><span class="p">,</span> <span class="s">&#39;latXY&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_spec</span><span class="p">,</span> <span class="s">&#39;specXY&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_zm</span><span class="p">,</span> <span class="s">&#39;zero_modeXY&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_gen(0,9+0j).png"><img alt="_images/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_gen(0,9+0j).png" class="align-center" src="_images/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_gen(0,9+0j).png" style="width: 55%;" /></a>
+<a class="reference internal image-reference" href="_images/zero_modeXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_gen(0,9+0j).png"><img alt="_images/zero_modeXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_gen(0,9+0j).png" class="align-center" src="_images/zero_modeXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_gen(0,9+0j).png" style="width: 55%;" /></a>
+<p>In the presence of generic disorder, the localized state remains strongly localized on the A sublattice (<img class="math" src="_images/math/1d344ac5689ed1f6ca668e666d4e2e5fa95bb644.png" alt="\langle A| A \rangle \geq 0.95"/>), and becomes slightly localized on the B and C sublattice. Note that, even though the real part of the eigenenergy remains zero, its imaginary part is now non zero.</p>
+</div>
+<div class="section" id="uniform-disorder">
+<h3>&#8220;Uniform disorder&#8221;<a class="headerlink" href="#uniform-disorder" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="_images/lat_hopXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_uni(0,95+0j).png"><img alt="_images/lat_hopXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_uni(0,95+0j).png" class="align-center" src="_images/lat_hopXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_uni(0,95+0j).png" style="width: 55%;" /></a>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">liebTB</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span>
+<span class="n">ri</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="n">tags</span> <span class="o">=</span> <span class="p">[</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="n">b</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="n">b</span><span class="s">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">lat_lieb</span> <span class="o">=</span> <span class="n">latticeTB</span><span class="p">(</span><span class="n">tags</span><span class="o">=</span><span class="n">tags</span><span class="p">,</span> <span class="n">ri</span><span class="o">=</span><span class="n">ri</span><span class="p">,</span> <span class="n">nor</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ang</span><span class="o">=</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">lat_lieb</span><span class="o">.</span><span class="n">get_lattice</span><span class="p">(</span><span class="n">nx</span><span class="o">=</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="n">ny</span><span class="p">)</span>
+<span class="n">lat_lieb</span><span class="o">.</span><span class="n">remove_dangling</span><span class="p">(</span><span class="n">nor_bond</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c"># eigenvalue problem</span>
+<span class="n">eig_lieb</span> <span class="o">=</span> <span class="n">eigLieb</span><span class="p">(</span><span class="n">lat_lieb</span><span class="p">)</span>
+<span class="n">on</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0j</span><span class="p">,</span> <span class="o">-.</span><span class="mi">2j</span><span class="p">,</span> <span class="o">-.</span><span class="mi">2j</span><span class="p">]</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_onsite</span><span class="p">(</span><span class="n">on</span><span class="o">=</span><span class="n">on</span><span class="p">)</span>
+<span class="n">ta</span><span class="p">,</span> <span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="p">,</span> <span class="n">td</span> <span class="o">=</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_hop_alt</span><span class="p">(</span><span class="n">ta</span><span class="o">=</span><span class="n">ta</span><span class="p">,</span> <span class="n">tb</span><span class="o">=</span><span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="o">=</span><span class="n">tc</span><span class="p">,</span> <span class="n">td</span><span class="o">=</span><span class="n">td</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_dim_defect</span><span class="p">(</span><span class="n">dim_x</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">dim_y</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="o">.</span><span class="mi">95</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_disorder_uniform</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_ham</span><span class="p">(</span><span class="n">compl_trans</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_eig</span><span class="p">(</span><span class="n">eigenvec</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">zero_mode</span> <span class="o">=</span> <span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_state_pola</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="c"># plots</span>
+<span class="n">plt_lieb</span> <span class="o">=</span> <span class="n">plotLieb</span><span class="p">(</span><span class="n">eig_lieb</span><span class="p">)</span>
+<span class="n">fig_lat</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_lattice</span><span class="p">(</span><span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">plt_hop</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>  <span class="n">c</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">fig_spec</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_spec</span><span class="p">(</span><span class="n">pola_tag</span><span class="o">=</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">fig_zm</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_intensity</span><span class="p">(</span><span class="n">zero_mode</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="c"># save</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="n">save_chain</span> <span class="o">=</span> <span class="n">saveFigTB</span><span class="p">(</span><span class="n">sys</span><span class="o">=</span><span class="n">eig_lieb</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="s">&#39;ta&#39;</span><span class="p">,</span> <span class="n">ta</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;tb&#39;</span><span class="p">,</span> <span class="n">tb</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;tc&#39;</span><span class="p">,</span> <span class="n">tc</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;td&#39;</span><span class="p">,</span> <span class="n">td</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;uni&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)]),</span> <span class="n">dir_name</span><span class="o">=</span><span class="s">&#39;lieb&#39;</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s">&#39;png&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_lat</span><span class="p">,</span> <span class="s">&#39;lat_hopXY&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_spec</span><span class="p">,</span> <span class="s">&#39;specXY&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_zm</span><span class="p">,</span> <span class="s">&#39;zero_modeXY&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_uni(0,95+0j).png"><img alt="_images/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_uni(0,95+0j).png" class="align-center" src="_images/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_uni(0,95+0j).png" style="width: 55%;" /></a>
+<a class="reference internal image-reference" href="_images/zero_modeXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_uni(0,95+0j).png"><img alt="_images/zero_modeXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_uni(0,95+0j).png" class="align-center" src="_images/zero_modeXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_uni(0,95+0j).png" style="width: 55%;" /></a>
+<p>The zero-mode is robust to the uniform disorder.</p>
+</div>
+<div class="section" id="pair-disorder">
+<h3>&#8220;Pair disorder&#8221;<a class="headerlink" href="#pair-disorder" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="_images/lat_hopXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_pair(0,7+0j).png"><img alt="_images/lat_hopXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_pair(0,7+0j).png" class="align-center" src="_images/lat_hopXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_pair(0,7+0j).png" style="width: 55%;" /></a>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">liebTB</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span>
+<span class="n">ri</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="n">tags</span> <span class="o">=</span> <span class="p">[</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="n">b</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="n">b</span><span class="s">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">lat_lieb</span> <span class="o">=</span> <span class="n">latticeTB</span><span class="p">(</span><span class="n">tags</span><span class="o">=</span><span class="n">tags</span><span class="p">,</span> <span class="n">ri</span><span class="o">=</span><span class="n">ri</span><span class="p">,</span> <span class="n">nor</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ang</span><span class="o">=</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">lat_lieb</span><span class="o">.</span><span class="n">get_lattice</span><span class="p">(</span><span class="n">nx</span><span class="o">=</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="n">ny</span><span class="p">)</span>
+<span class="n">lat_lieb</span><span class="o">.</span><span class="n">remove_dangling</span><span class="p">(</span><span class="n">nor_bond</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c"># eigenvalue problem</span>
+<span class="n">eig_lieb</span> <span class="o">=</span> <span class="n">eigLieb</span><span class="p">(</span><span class="n">lat_lieb</span><span class="p">)</span>
+<span class="n">on</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0j</span><span class="p">,</span> <span class="o">-.</span><span class="mi">2j</span><span class="p">,</span> <span class="o">-.</span><span class="mi">2j</span><span class="p">]</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_onsite</span><span class="p">(</span><span class="n">on</span><span class="o">=</span><span class="n">on</span><span class="p">)</span>
+<span class="n">ta</span><span class="p">,</span> <span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="p">,</span> <span class="n">td</span> <span class="o">=</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_hop_alt</span><span class="p">(</span><span class="n">ta</span><span class="o">=</span><span class="n">ta</span><span class="p">,</span> <span class="n">tb</span><span class="o">=</span><span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="o">=</span><span class="n">tc</span><span class="p">,</span> <span class="n">td</span><span class="o">=</span><span class="n">td</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_dim_defect</span><span class="p">(</span><span class="n">dim_x</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">dim_y</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="o">.</span><span class="mi">7</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_disorder_placket</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_ham</span><span class="p">(</span><span class="n">compl_trans</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_eig</span><span class="p">(</span><span class="n">eigenvec</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">zero_mode</span> <span class="o">=</span> <span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_state_pola</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="c"># plots</span>
+<span class="n">plt_lieb</span> <span class="o">=</span> <span class="n">plotLieb</span><span class="p">(</span><span class="n">eig_lieb</span><span class="p">)</span>
+<span class="n">fig_lat</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_lattice</span><span class="p">(</span><span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">plt_hop</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>  <span class="n">c</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">fig_spec</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_spec</span><span class="p">(</span><span class="n">pola_tag</span><span class="o">=</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">fig_zm</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_intensity</span><span class="p">(</span><span class="n">zero_mode</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="c"># save</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="n">save_chain</span> <span class="o">=</span> <span class="n">saveFigTB</span><span class="p">(</span><span class="n">sys</span><span class="o">=</span><span class="n">eig_lieb</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="s">&#39;ta&#39;</span><span class="p">,</span> <span class="n">ta</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;tb&#39;</span><span class="p">,</span> <span class="n">tb</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;tc&#39;</span><span class="p">,</span> <span class="n">tc</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;td&#39;</span><span class="p">,</span> <span class="n">td</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;pair&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)]),</span> <span class="n">dir_name</span><span class="o">=</span><span class="s">&#39;lieb&#39;</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s">&#39;png&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_lat</span><span class="p">,</span> <span class="s">&#39;lat_hopXY&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_spec</span><span class="p">,</span> <span class="s">&#39;specXY&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_zm</span><span class="p">,</span> <span class="s">&#39;zero_modeXY&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_pair(0,7+0j).png"><img alt="_images/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_pair(0,7+0j).png" class="align-center" src="_images/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_pair(0,7+0j).png" style="width: 55%;" /></a>
+<a class="reference internal image-reference" href="_images/zero_modeXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_pair(0,7+0j).png"><img alt="_images/zero_modeXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_pair(0,7+0j).png" class="align-center" src="_images/zero_modeXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_pair(0,7+0j).png" style="width: 55%;" /></a>
+<p>The zero-mode is robust to the pair disorder.</p>
+</div>
+<div class="section" id="placket-disorder">
+<h3>&#8220;Placket disorder&#8221;<a class="headerlink" href="#placket-disorder" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="_images/lat_hopXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_plack(0,6+0j).png"><img alt="_images/lat_hopXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_plack(0,6+0j).png" class="align-center" src="_images/lat_hopXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_plack(0,6+0j).png" style="width: 55%;" /></a>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">liebTB</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span>
+<span class="n">ri</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="n">tags</span> <span class="o">=</span> <span class="p">[</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="n">b</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="n">b</span><span class="s">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">lat_lieb</span> <span class="o">=</span> <span class="n">latticeTB</span><span class="p">(</span><span class="n">tags</span><span class="o">=</span><span class="n">tags</span><span class="p">,</span> <span class="n">ri</span><span class="o">=</span><span class="n">ri</span><span class="p">,</span> <span class="n">nor</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ang</span><span class="o">=</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">lat_lieb</span><span class="o">.</span><span class="n">get_lattice</span><span class="p">(</span><span class="n">nx</span><span class="o">=</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="n">ny</span><span class="p">)</span>
+<span class="n">lat_lieb</span><span class="o">.</span><span class="n">remove_dangling</span><span class="p">(</span><span class="n">nor_bond</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c"># eigenvalue problem</span>
+<span class="n">eig_lieb</span> <span class="o">=</span> <span class="n">eigLieb</span><span class="p">(</span><span class="n">lat_lieb</span><span class="p">)</span>
+<span class="n">on</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0j</span><span class="p">,</span> <span class="o">-.</span><span class="mi">2j</span><span class="p">,</span> <span class="o">-.</span><span class="mi">2j</span><span class="p">]</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_onsite</span><span class="p">(</span><span class="n">on</span><span class="o">=</span><span class="n">on</span><span class="p">)</span>
+<span class="n">ta</span><span class="p">,</span> <span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="p">,</span> <span class="n">td</span> <span class="o">=</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_hop_alt</span><span class="p">(</span><span class="n">ta</span><span class="o">=</span><span class="n">ta</span><span class="p">,</span> <span class="n">tb</span><span class="o">=</span><span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="o">=</span><span class="n">tc</span><span class="p">,</span> <span class="n">td</span><span class="o">=</span><span class="n">td</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_dim_defect</span><span class="p">(</span><span class="n">dim_x</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">dim_y</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="o">.</span><span class="mi">7</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_disorder_placket</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_ham</span><span class="p">(</span><span class="n">compl_trans</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_eig</span><span class="p">(</span><span class="n">eigenvec</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">zero_mode</span> <span class="o">=</span> <span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_state_pola</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="c"># plots</span>
+<span class="n">plt_lieb</span> <span class="o">=</span> <span class="n">plotLieb</span><span class="p">(</span><span class="n">eig_lieb</span><span class="p">)</span>
+<span class="n">fig_lat</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_lattice_hop</span><span class="p">(</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">fig_spec</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_spec</span><span class="p">(</span><span class="n">pola_tag</span><span class="o">=</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">fig_zm</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_intensity</span><span class="p">(</span><span class="n">zero_mode</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+<span class="c"># save</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="n">save_chain</span> <span class="o">=</span> <span class="n">saveFigTB</span><span class="p">(</span><span class="n">sys</span><span class="o">=</span><span class="n">eig_lieb</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="s">&#39;ta&#39;</span><span class="p">,</span> <span class="n">ta</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;tb&#39;</span><span class="p">,</span> <span class="n">tb</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;tc&#39;</span><span class="p">,</span> <span class="n">tc</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;td&#39;</span><span class="p">,</span> <span class="n">td</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;plack&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)]),</span> <span class="n">dir_name</span><span class="o">=</span><span class="s">&#39;lieb&#39;</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s">&#39;png&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_lat</span><span class="p">,</span> <span class="s">&#39;lat_hopXY&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_spec</span><span class="p">,</span> <span class="s">&#39;specXY&#39;</span><span class="p">)</span>
+<span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_zm</span><span class="p">,</span> <span class="s">&#39;zero_modeXY&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_plack(0,6+0j).png"><img alt="_images/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_plack(0,6+0j).png" class="align-center" src="_images/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_plack(0,6+0j).png" style="width: 55%;" /></a>
+<a class="reference internal image-reference" href="_images/zero_modeXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_plack(0,6+0j).png"><img alt="_images/zero_modeXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_plack(0,6+0j).png" class="align-center" src="_images/zero_modeXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_plack(0,6+0j).png" style="width: 55%;" /></a>
+<p>The zero-mode is robust to the placket disorder.</p>
+</div>
+</div>
+<div class="section" id="adiabatic-pumping">
+<h2>Adiabatic pumping<a class="headerlink" href="#adiabatic-pumping" title="Permalink to this headline">¶</a></h2>
+<p>Change hoppings continuously to obtain the three different configurations:</p>
+<a class="reference internal image-reference" href="_images/latXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)1.png"><img alt="_images/latXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)1.png" class="align-center" src="_images/latXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)1.png" style="width: 65%;" /></a>
+<a class="reference internal image-reference" href="_images/latXY0_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png"><img alt="_images/latXY0_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" src="_images/latXY0_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" style="width: 45%;" /></a>
+<a class="reference internal image-reference" href="_images/latXY1_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png"><img alt="_images/latXY1_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" src="_images/latXY1_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" style="width: 45%;" /></a>
+<a class="reference internal image-reference" href="_images/latXY2_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png"><img alt="_images/latXY2_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" src="_images/latXY2_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" style="width: 45%;" /></a>
+<a class="reference internal image-reference" href="_images/latXY3_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png"><img alt="_images/latXY3_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" src="_images/latXY3_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" style="width: 45%;" /></a>
+<dl class="docutils">
+<dt>Configurations:</dt>
+<dd><ul class="first last simple">
+<li>Initial configuration: zero mode localized at the bottom left of the lattice.</li>
+<li>Second configuration: localized state at the bottom right of the lattice.</li>
+<li>Thrird configuration: localized state at the top right of the lattice.</li>
+<li>Last configuration: localized state at the center of the lattice.</li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">liebTB</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="c"># lattice</span>
+<span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span>
+<span class="n">ri</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="n">tags</span> <span class="o">=</span> <span class="p">[</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="n">b</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="n">b</span><span class="s">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">lat_lieb</span> <span class="o">=</span> <span class="n">latticeTB</span><span class="p">(</span><span class="n">tags</span><span class="o">=</span><span class="n">tags</span><span class="p">,</span> <span class="n">ri</span><span class="o">=</span><span class="n">ri</span><span class="p">,</span> <span class="n">nor</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ang</span><span class="o">=</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">lat_lieb</span><span class="o">.</span><span class="n">get_lattice</span><span class="p">(</span><span class="n">nx</span><span class="o">=</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="n">ny</span><span class="p">)</span>
+<span class="n">lat_lieb</span><span class="o">.</span><span class="n">remove_dangling</span><span class="p">(</span><span class="n">nor_bond</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ta</span><span class="p">,</span> <span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="p">,</span> <span class="n">td</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span>
+<span class="c"># first configuration</span>
+<span class="n">eig_lieb</span> <span class="o">=</span> <span class="n">eigLieb</span><span class="p">(</span><span class="n">lat_lieb</span><span class="p">)</span>
+<span class="n">on</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0j</span><span class="p">,</span> <span class="o">-.</span><span class="mi">2j</span><span class="p">,</span> <span class="o">-.</span><span class="mi">2j</span><span class="p">]</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_onsite</span><span class="p">(</span><span class="n">on</span><span class="o">=</span><span class="n">on</span><span class="p">)</span>
+<span class="n">ta</span><span class="p">,</span> <span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="p">,</span> <span class="n">td</span> <span class="o">=</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_hop_alt</span><span class="p">(</span><span class="n">ta</span><span class="o">=</span><span class="n">ta</span><span class="p">,</span> <span class="n">tb</span><span class="o">=</span><span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="o">=</span><span class="n">tc</span><span class="p">,</span> <span class="n">td</span><span class="o">=</span><span class="n">td</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_dim_defect</span><span class="p">(</span><span class="n">dim_x</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dim_y</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_ham</span><span class="p">(</span><span class="n">compl_trans</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">ham0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">eig_lieb</span><span class="o">.</span><span class="n">ham</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_eig</span><span class="p">(</span><span class="n">eigenvec</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">zero_mode</span> <span class="o">=</span> <span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_state_pola</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">plt_lieb</span> <span class="o">=</span> <span class="n">plotLieb</span><span class="p">(</span><span class="n">eig_lieb</span><span class="p">)</span>
+<span class="n">fig_lat</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_lattice</span><span class="p">(</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">plt_index</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">fig_lat0</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_lattice</span><span class="p">(</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">plt_hop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">fig_zm0</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_intensity</span><span class="p">(</span><span class="n">zero_mode</span><span class="p">)</span>
+<span class="c"># second configuration</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_hop_alt</span><span class="p">(</span><span class="n">ta</span><span class="o">=</span><span class="n">ta</span><span class="p">,</span> <span class="n">tb</span><span class="o">=</span><span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="o">=</span><span class="n">tc</span><span class="p">,</span> <span class="n">td</span><span class="o">=</span><span class="n">td</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_dim_defect</span><span class="p">(</span><span class="n">dim_x</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">dim_y</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_ham</span><span class="p">(</span><span class="n">compl_trans</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">ham1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">eig_lieb</span><span class="o">.</span><span class="n">ham</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_eig</span><span class="p">(</span><span class="n">eigenvec</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">zero_mode</span> <span class="o">=</span> <span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_state_pola</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">fig_lat1</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_lattice</span><span class="p">(</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">plt_hop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">fig_zm1</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_intensity</span><span class="p">(</span><span class="n">zero_mode</span><span class="p">)</span>
+<span class="c"># third configuration</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_hop_alt</span><span class="p">(</span><span class="n">ta</span><span class="o">=</span><span class="n">ta</span><span class="p">,</span> <span class="n">tb</span><span class="o">=</span><span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="o">=</span><span class="n">tc</span><span class="p">,</span> <span class="n">td</span><span class="o">=</span><span class="n">td</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_dim_defect</span><span class="p">(</span><span class="n">dim_x</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">dim_y</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_ham</span><span class="p">(</span><span class="n">compl_trans</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">ham2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">eig_lieb</span><span class="o">.</span><span class="n">ham</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_eig</span><span class="p">(</span><span class="n">eigenvec</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">zero_mode</span> <span class="o">=</span> <span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_state_pola</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">fig_lat2</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_lattice</span><span class="p">(</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">plt_hop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">fig_zm2</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_intensity</span><span class="p">(</span><span class="n">zero_mode</span><span class="p">)</span>
+<span class="c"># fourth configuration</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_hop_alt</span><span class="p">(</span><span class="n">ta</span><span class="o">=</span><span class="n">ta</span><span class="p">,</span> <span class="n">tb</span><span class="o">=</span><span class="n">tb</span><span class="p">,</span> <span class="n">tc</span><span class="o">=</span><span class="n">tc</span><span class="p">,</span> <span class="n">td</span><span class="o">=</span><span class="n">td</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">set_dim_defect</span><span class="p">(</span><span class="n">dim_x</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">dim_y</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_ham</span><span class="p">(</span><span class="n">compl_trans</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">ham3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">eig_lieb</span><span class="o">.</span><span class="n">ham</span><span class="p">)</span>
+<span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_eig</span><span class="p">(</span><span class="n">eigenvec</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">zero_mode</span> <span class="o">=</span> <span class="n">eig_lieb</span><span class="o">.</span><span class="n">get_state_pola</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">fig_lat3</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_lattice</span><span class="p">(</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">plt_hop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">fig_zm3</span> <span class="o">=</span> <span class="n">plt_lieb</span><span class="o">.</span><span class="n">plt_intensity</span><span class="p">(</span><span class="n">zero_mode</span><span class="p">)</span>
+<span class="c"># adiabatic pumping</span>
+<span class="n">psi_init</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">eig_lieb</span><span class="o">.</span><span class="n">sites</span><span class="p">)</span> <span class="o">/</span> <span class="n">eig_lieb</span><span class="o">.</span><span class="n">sites</span>
+<span class="n">psi_init</span><span class="p">[</span><span class="mi">25</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.</span>
+<span class="n">hams</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">ham0</span><span class="p">,</span> <span class="n">ham1</span><span class="p">,</span> <span class="n">ham2</span><span class="p">,</span> <span class="n">ham3</span><span class="p">])</span>
+<span class="n">prop_lieb</span> <span class="o">=</span> <span class="n">propTB</span><span class="p">(</span><span class="n">lat_lieb</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">dz</span><span class="o">=.</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">prop_lieb</span><span class="o">.</span><span class="n">get_pump</span><span class="p">(</span><span class="n">hams</span><span class="p">,</span> <span class="n">psi_init</span><span class="o">=</span><span class="n">psi_init</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">ani</span> <span class="o">=</span> <span class="n">prop_lieb</span><span class="o">.</span><span class="n">get_ani</span><span class="p">(</span><span class="n">s</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="c"># save</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="n">save_lieb</span> <span class="o">=</span> <span class="n">saveFigTB</span><span class="p">(</span><span class="n">sys</span><span class="o">=</span><span class="n">eig_lieb</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="s">&#39;ta&#39;</span><span class="p">,</span> <span class="n">ta</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;tb&#39;</span><span class="p">,</span> <span class="n">tb</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;tc&#39;</span><span class="p">,</span> <span class="n">tc</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;td&#39;</span><span class="p">,</span> <span class="n">td</span><span class="p">)]),</span> <span class="n">dir_name</span><span class="o">=</span><span class="s">&#39;lieb&#39;</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s">&#39;png&#39;</span><span class="p">)</span>
+<span class="n">save_lieb</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_lat</span><span class="p">,</span> <span class="s">&#39;latXY&#39;</span><span class="p">)</span>
+<span class="n">save_lieb</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_lat0</span><span class="p">,</span> <span class="s">&#39;latXY0&#39;</span><span class="p">)</span>
+<span class="n">save_lieb</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_lat1</span><span class="p">,</span> <span class="s">&#39;latXY1&#39;</span><span class="p">)</span>
+<span class="n">save_lieb</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_lat2</span><span class="p">,</span> <span class="s">&#39;latXY2&#39;</span><span class="p">)</span>
+<span class="n">save_lieb</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_lat3</span><span class="p">,</span> <span class="s">&#39;latXY3&#39;</span><span class="p">)</span>
+<span class="n">save_lieb</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_zm0</span><span class="p">,</span> <span class="s">&#39;zm0&#39;</span><span class="p">)</span>
+<span class="n">save_lieb</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_zm1</span><span class="p">,</span> <span class="s">&#39;zm1&#39;</span><span class="p">)</span>
+<span class="n">save_lieb</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_zm2</span><span class="p">,</span> <span class="s">&#39;zm2&#39;</span><span class="p">)</span>
+<span class="n">save_lieb</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_zm3</span><span class="p">,</span> <span class="s">&#39;zm3&#39;</span><span class="p">)</span>
+<span class="n">save_lieb</span><span class="o">.</span><span class="n">save_ani</span><span class="p">(</span><span class="n">ani</span><span class="p">,</span> <span class="s">&#39;pump3&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/zm0_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png"><img alt="_images/zm0_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" src="_images/zm0_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" style="width: 45%;" /></a>
+<a class="reference internal image-reference" href="_images/zm1_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png"><img alt="_images/zm1_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" src="_images/zm1_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" style="width: 45%;" /></a>
+<a class="reference internal image-reference" href="_images/zm2_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png"><img alt="_images/zm2_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" src="_images/zm2_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" style="width: 45%;" /></a>
+<a class="reference internal image-reference" href="_images/zm3_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png"><img alt="_images/zm3_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" src="_images/zm3_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png" style="width: 45%;" /></a>
+</div>
+</div>
+
+<center>
+<video width="800" controls>
+  <source src="../images/lieb_pump3.mp4" type="video/mp4">
+</video>
+</center>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="codeLiebTB.html" class="btn btn-neutral" title="liebTB code"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Charles Poli.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

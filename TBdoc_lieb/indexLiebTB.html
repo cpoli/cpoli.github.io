@@ -1,0 +1,242 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tight-Binding Lieb &mdash; liebTB  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="liebTB  documentation" href="index.html"/>
+        <link rel="next" title="liebTB code" href="codeLiebTB.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+                  <center>
+              <a href="../index.html"><div class="test"> <img src = "../images/house.jpg"
+                  height="30px"/></a>
+          </center>
+          <a href="#" class="fa fa-home"> liebTB</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="codeLiebTB.html">liebTB code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examplesLieb.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examplesLieb.html#identical-hoppings">Identical hoppings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examplesLieb.html#identical-hoppings-with-an-impurity">Identical hoppings with an impurity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examplesLieb.html#alternative-hoppings">Alternative hoppings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examplesLieb.html#diagonal-hopping">Diagonal hopping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examplesLieb.html#hopping-disorder">Hopping disorder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examplesLieb.html#adiabatic-pumping">Adiabatic pumping</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">liebTB</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+      
+    <li>Tight-Binding Lieb</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/indexLiebTB.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="tight-binding-lieb">
+<h1>Tight-Binding Lieb<a class="headerlink" href="#tight-binding-lieb" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="motivations">
+<h2>Motivations<a class="headerlink" href="#motivations" title="Permalink to this headline">¶</a></h2>
+<p><strong>liebTB</strong> is a module providing a Python implementation of a face centered square lattice within the tight-binding framework. It can be used to build up and solve tight-binding models with complex valued onsite energies and/or hoppings. As such, this package can be used to analyze the concepts of Parity-Time symmetry, Parity-Time symmetry breaking, zero-modes, and topologically protection.</p>
+<p>The lattice is defined by:</p>
+<blockquote>
+<div><ul class="simple">
+<li>three sublattices named A, B and C. The unit cell is given by:</li>
+</ul>
+<a class="reference internal image-reference" href="_images/unit_cell.png"><img alt="_images/unit_cell.png" class="align-center" src="_images/unit_cell.png" style="width: 300px; height: 300px;" /></a>
+<ul>
+<li><p class="first">four hoppings:</p>
+<blockquote>
+<div><ul class="simple">
+<li>In the <img class="math" src="_images/math/188c175aac0a8a9c22499336711b5d7256407254.png" alt="x"/> direction: the intradimer coupling <img class="math" src="_images/math/de71ae4a7633b48e499c7f7255ce1de9790179ad.png" alt="t_{ab}"/> which links the A sites to the B sites, and the interdimer hopping <img class="math" src="_images/math/e99147ba5b8079a584eff8c27145aa9cec73bb31.png" alt="t_{ba}"/> which links the B sites to the A sites.</li>
+<li>In the <img class="math" src="_images/math/b124ff74afb0914bb434e8fb849eb56d734412f8.png" alt="y"/> direction: the intradimer coupling <img class="math" src="_images/math/625ba6e4ec0672d36c1ac7e2d41349b73ee80799.png" alt="t_{ac}"/> which links the A sites to the B sites, and the interdimer hopping <img class="math" src="_images/math/96072ba6e83dbb1d0408600b819b0c520978997d.png" alt="t_{ca}"/> which links the C sites to the A sites.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p><strong>liebTB</strong> can</p>
+<blockquote>
+<div><ul class="simple">
+<li>obtain the spectrum (eigenenergies of the tight-binding Hamiltonian) and the probability densities of the states of the system (absolute value squared eigenvectors of the Hamiltonian).</li>
+<li>obtain the polarization of the A sublattice (the sum of the probability densities of the A sites)</li>
+<li>select states by introducing a condition on the A sublattice polarization (revealing zero modes and/or localized states).</li>
+<li>test the robustness to disorder by implementing hopping disorder.</li>
+<li>get the time evolution of the field (using the Crank-Nicolson method).</li>
+<li>get the time evolution of the field with adiabatic pumping (smooth variation of the hoppings).</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p><strong>liebTB</strong> is available at <a class="reference external" href="https://github.com/cpoli/TB">https://github.com/cpoli/TB</a></p>
+<p>To use <strong>liebTB</strong>,  you need to install the programming language python and three additional packages:</p>
+<blockquote>
+<div><ul class="simple">
+<li>python 3.x</li>
+<li>numpy</li>
+<li>scipy</li>
+<li>matplotlib</li>
+</ul>
+</div></blockquote>
+<p>See <a class="reference external" href="https://cpoli.github.io/python-doc.html">https://cpoli.github.io/python-doc.html</a> for details, and the TB module <a class="reference external" href="https://github.com/cpoli/TB">https://github.com/cpoli/TB</a>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>latticeTB</li>
+<li>eigTB</li>
+<li>plotTB</li>
+<li>propTB</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="feedback">
+<h2>Feedback<a class="headerlink" href="#feedback" title="Permalink to this headline">¶</a></h2>
+<p>Please send comments or suggestions for improvement to cpoli83 at hotmail dot fr</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="codeLiebTB.html" class="btn btn-neutral float-right" title="liebTB code">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Charles Poli.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

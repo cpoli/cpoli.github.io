@@ -1,0 +1,710 @@
+
+
+Examples
+==========    
+
+This section contents examples of the face-centered square tight-binding lattice. These examples illustrate the conditions under which a zero energy exists, the shape of the zero-mode, its robustness to disorder, and how to amplify it.
+
+.. note::
+
+    Throughout these examples, the A sublattice displays a positive imaginary onsite energy while the B and C sublattices have a negative imaginary onsite energy, such that :math:`\bar{\epsilon}_a=-\bar{\epsilon}_b=-\bar{\epsilon}_c`. The zero-mode, if any, is actually the only state localized uniquely on the A sublattice. By choosing such onsite energies, the zero-mode will amplified while all the other states get absorbed.
+
+Identical hoppings
+---------------------------------------------
+
+
+Even number of sites along :math:`x` and :math:`y`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. image:: ../TBfig/lieb_n75/lat_ea0j_eb-0,2j_ec-0,2j_t(1+0j).png
+    :width:  55%
+    :align: center
+
+.. code-block:: python
+
+    from liebTB import *
+    nx, ny = 5, 5
+    ri = [[0, 0], [1, 0], [0, 1]]
+    tags = [b'a', b'b', b'c']
+    lat_lieb = latticeTB(tags=tags, ri=ri, nor=2, ang=pi/2)
+    lat_lieb.get_lattice(nx=nx, ny=ny)
+    # eigenvalue problem
+    eig_lieb = eigLieb(lat_lieb)
+    t = 1.
+    eig_lieb.set_hop([t])
+    on = [0j, -.2j, -.2j]
+    eig_lieb.set_onsite(on=on)
+    eig_lieb.get_ham()
+    eig_lieb.get_eig(eigenvec=True)
+    zero_mode = eig_lieb.get_state_pola(b'a')
+    # plots
+    plt_lieb = plotLieb(eig_lieb)
+    fig_lat = plt_lieb.plt_lattice(ms=20, plt_hop=True, c=5.)
+    fig_spec = plt_lieb.plt_spec(pola_tag=b'a')
+    fig_dispersion = plt_lieb.plt_dispersion(ta=1., tb=1., tc=1., td=1., nn=0.)
+    save_chain = saveFigTB(sys=eig_lieb, params={'t': t}, dir_name='lieb', ext='png')
+    save_chain.save_fig(fig_lat, 'lat')
+    save_chain.save_fig(fig_spec, 'spec')
+    save_chain.save_fig(fig_dispersion, 'dispersion')
+    plt.show() 
+
+.. image:: ../TBfig/lieb_n75/dispersion_ea0j_eb-0,2j_ec-0,2j_t(1+0j).png
+    :width: 55%
+    :align: center
+
+.. image:: ../TBfig/lieb_n75/spec_ea0j_eb-0,2j_ec-0,2j_t(1+0j).png
+    :width: 55%
+    :align: center
+
+In the case of an even number of sites along x and y, no zero-mode is encountered. Note that the spectrum is composed of one flat band and two parabolic branches.The spectrum and the polarization on the A sublattice reveal that the flat band states are not localized on the A sublattice. One can actually show that the states are equally distributed on the B and C sublattice :math:`\langle B | B \rangle = \langle C | C \rangle = 1/2`. The states belonging to the parabolic branches are distributed on three sublattice :math:`\langle A | A \rangle = 2\langle B | B \rangle = 2\langle C | C \rangle = 1/2`.
+
+
+Odd number of sites along :math:`x` and :math:`y`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. image:: ../TBfig/lieb_n65/lat_ea0j_eb-0,2j_ec-0,2j_t(1+0j).png
+    :width:  55%
+    :align: center
+
+.. code-block:: python
+
+    from liebTB import *
+    nx, ny = 5, 5
+    ri = [[0, 0], [1, 0], [0, 1]]
+    tags = [b'a', b'b', b'c']
+    lat_lieb = latticeTB(tags=tags, ri=ri, nor=2, ang=pi/2)
+    lat_lieb.get_lattice(nx=nx, ny=ny)
+    lat_lieb.remove_dangling(nor_bond=1)
+    # eigenvalue problem
+    eig_lieb = eigLieb(lat_lieb)
+    on = [0j, -.2j, -.2j]
+    eig_lieb.set_onsite(on=on)
+    t = 1.
+    eig_lieb.set_hop([t])
+    eig_lieb.get_ham()
+    eig_lieb.get_eig(eigenvec=True)
+    zero_mode = eig_lieb.get_state_pola(b'a')
+    # plots
+    plt_lieb = plotLieb(eig_lieb)
+    fig_lat = plt_lieb.plt_lattice(ms=20, plt_hop=True, c=5.)
+    fig_spec = plt_lieb.plt_spec(pola_tag=b'a')
+    fig_zm = plt_lieb.plt_intensity(zero_mode, s=500)
+    save_chain = saveFigTB(sys=eig_lieb, params={'t': t}, dir_name='lieb', ext='png')
+    save_chain.save_fig(fig_lat, 'lat')
+    save_chain.save_fig(fig_spec, 'spec')
+    save_chain.save_fig(fig_zm, 'zero_mode')
+    plt.show() 
+
+.. image:: ../TBfig/lieb_n65/spec_ea0j_eb-0,2j_ec-0,2j_t(1+0j).png
+    :width: 55%
+    :align: center
+
+.. image:: ../TBfig/lieb_n65/zero_mode_ea0j_eb-0,2j_ec-0,2j_t(1+0j).png
+    :width: 55%
+    :align: center
+
+Zero-mode only on A sublattice, and uniformly distributed. Zero-mode located in the flat band, note that  flat band states are on the B and C sites.
+
+
+Identical hoppings with an impurity
+------------------------------------------------------------------------------------------
+
+
+The impurity is modeled by changing two adjacent hoppings of a given site.
+
+Odd number of sites :math:`x` and :math:`y`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. image:: ../TBfig/lieb_n65/lat_ind_ea0j_eb-0,2j_ec-0,2j_t(2+0j).png
+    :width:  55%
+    :align: center
+
+.. image:: ../TBfig/lieb_n65/lat_ea0j_eb-0,2j_ec-0,2j_t(2+0j).png
+    :width:  55%
+    :align: center
+
+.. code-block:: python
+
+    from liebTB import *
+    nx, ny = 5, 5
+    ri = [[0, 0], [1, 0], [0, 1]]
+    tags = [b'a', b'b', b'c']
+    lat_lieb = latticeTB(tags=tags, ri=ri, nor=2, ang=pi/2)
+    lat_lieb.get_lattice(nx=nx, ny=ny)
+    lat_lieb.remove_dangling(nor_bond=1)
+    # eigenvalue problem
+    eig_lieb = eigLieb(lat_lieb)
+    on = [0j, -.2j, -.2j]
+    eig_lieb.set_onsite(on=on)
+    t = 2.
+    eig_lieb.set_hop([t])
+    eig_lieb.set_hop_def([[31, 32] ,[32, 33], [25, 32] ,[32, 39]], [1., 1., 1., 1.])
+    eig_lieb.get_ham()
+    eig_lieb.get_eig(eigenvec=True)
+    zero_mode = eig_lieb.get_state_pola(b'a')
+    # plots
+    plt_lieb = plotLieb(eig_lieb)
+    fig_lat_ind = plt_lieb.plt_lattice(ms=20, plt_index=True, c=2.5)
+    fig_lat = plt_lieb.plt_lattice(ms=20, plt_hop=True,  c=2.5)
+    fig_spec = plt_lieb.plt_spec(pola_tag=b'a')
+    fig_zm = plt_lieb.plt_intensity(zero_mode, s=500)
+    # save
+    save_chain = saveFigTB(sys=eig_lieb, params={'t': t}, dir_name='lieb', ext='png')
+    save_chain.save_fig(fig_lat_ind, 'lat_ind')
+    save_chain.save_fig(fig_lat, 'lat')
+    save_chain.save_fig(fig_spec, 'spec')
+    save_chain.save_fig(fig_zm, 'zero_mode')
+    plt.show() 
+
+
+.. image:: ../TBfig/lieb_n65/spec_ea0j_eb-0,2j_ec-0,2j_t(2+0j).png
+    :width: 55%
+    :align: center
+
+.. image:: ../TBfig/lieb_n65/zero_mode_ea0j_eb-0,2j_ec-0,2j_t(2+0j).png
+    :width: 55%
+    :align: center
+
+The zero-mode has an maximal amplitude at the defect site.
+
+Alternative hoppings
+------------------------------------------------------------------------------------------
+
+.. image:: ../TBfig/lieb_n65/lat_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png
+    :width:  55%
+    :align: center
+
+.. code-block:: python
+
+    from liebTB import *
+    nx, ny = 5, 5
+    ri = [[0, 0], [1, 0], [0, 1]]
+    tags = [b'a', b'b', b'c']
+    lat_lieb = latticeTB(tags=tags, ri=ri, nor=2, ang=pi/2)
+    lat_lieb.get_lattice(nx=nx, ny=ny)
+    lat_lieb.remove_dangling(nor_bond=1)
+    # eigenvalue problem
+    eig_lieb = eigLieb(lat_lieb)
+    on = [0j, -.2j, -.2j]
+    eig_lieb.set_onsite(on=on)
+    ta, tb, tc, td = 2., 1., 2., 1.
+    eig_lieb.set_hop_alt(ta=ta, tb=tb, tc=tc, td=td)
+    eig_lieb.get_ham(compl_trans=True)
+    eig_lieb.get_eig(eigenvec=True)
+    zero_mode = eig_lieb.get_state_pola(b'a')
+    # plots
+    plt_lieb = plotLieb(eig_lieb)
+    fig_lat = plt_lieb.plt_lattice(ms=20, plt_hop=True,  c=2.5)
+    fig_dispersion = plt_lieb.plt_dispersion(ta=ta, tb=tb, tc=tc, td=td)
+    fig_spec = plt_lieb.plt_spec(pola_tag=b'a')
+    fig_zm = plt_lieb.plt_intensity(zero_mode, s=500)
+    # save
+    from collections import OrderedDict
+    save_chain = saveFigTB(sys=eig_lieb, params=OrderedDict([('ta', ta), ('tb', tb), ('tc', tc), ('td', td)]), dir_name='lieb', ext='png')
+    save_chain.save_fig(fig_lat, 'lat')
+    save_chain.save_fig(fig_dispersion, 'dispersion')
+    save_chain.save_fig(fig_spec, 'spec')
+    save_chain.save_fig(fig_zm, 'zero_mode')
+    plt.show() 
+
+
+.. image:: ../TBfig/lieb_n65/dispersion_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png
+    :width: 55%
+    :align: center
+
+.. image:: ../TBfig/lieb_n65/spec_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png
+    :width: 55%
+    :align: center
+
+.. image:: ../TBfig/lieb_n65/zero_mode_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png
+    :width: 55%
+    :align: center
+
+Zero-mode localized at the top left corner ending with weak hoppings along :math:`x` and :math:`y`.
+
+
+Dimerization defect along :math:`x`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: ../TBfig/lieb_n65/latX_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png
+    :width:  55%
+    :align: center
+
+.. code-block:: python
+
+    from liebTB import *
+    nx, ny = 5, 5
+    ri = [[0, 0], [1, 0], [0, 1]]
+    tags = [b'a', b'b', b'c']
+    lat_lieb = latticeTB(tags=tags, ri=ri, nor=2, ang=pi/2)
+    lat_lieb.get_lattice(nx=nx, ny=ny)
+    lat_lieb.remove_dangling(nor_bond=1)
+    # eigenvalue problem
+    eig_lieb = eigLieb(lat_lieb)
+    on = [0j, -.2j, -.2j]
+    eig_lieb.set_onsite(on=on)
+    ta, tb, tc, td = 2., 1., 2., 1.
+    eig_lieb.set_hop_alt(ta=ta, tb=tb, tc=tc, td=td)
+    eig_lieb.get_ham(compl_trans=True)
+    eig_lieb.get_eig(eigenvec=True)
+    zero_mode = eig_lieb.get_state_pola(b'a')
+    # plots
+    plt_lieb = plotLieb(eig_lieb)
+    fig_lat = plt_lieb.plt_lattice(ms=20, plt_hop=True,  c=2.5)
+    fig_dispersion = plt_lieb.plt_dispersion(ta=ta, tb=tb, tc=tc, td=td)
+    eig_lieb.set_dim_defect(dim_x=4)
+    fig_spec = plt_lieb.plt_spec(pola_tag=b'a')
+    fig_zm = plt_lieb.plt_intensity(zero_mode, s=500)
+    # save
+    from collections import OrderedDict
+    save_chain = saveFigTB(sys=eig_lieb, params=OrderedDict([('ta', ta), ('tb', tb), ('tc', tc), ('td', td)]), dir_name='lieb', ext='png')
+    save_chain.save_fig(fig_lat, 'lat')
+    save_chain.save_fig(fig_dispersion, 'dispersion')
+    save_chain.save_fig(fig_spec, 'spec')
+    save_chain.save_fig(fig_zm, 'zero_mode')
+    plt.show() 
+
+
+.. image:: ../TBfig/lieb_n65/specX_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png
+    :width: 55%
+    :align: center
+
+.. image:: ../TBfig/lieb_n65/zero_modeX_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png
+    :width: 55%
+    :align: center
+
+Zero-mode localized in the edge with two weak adjacent hoppings along:math:`x` and one weak coupling and :math:`y`.
+
+
+Dimerization defect along :math:`x` and :math:`y`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. image:: ../TBfig/lieb_n65/latXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png
+    :width:  55%
+    :align: center
+
+.. code-block:: python
+
+    from liebTB import *
+    nx, ny = 5, 5
+    ri = [[0, 0], [1, 0], [0, 1]]
+    tags = [b'a', b'b', b'c']
+    lat_lieb = latticeTB(tags=tags, ri=ri, nor=2, ang=pi/2)
+    lat_lieb.get_lattice(nx=nx, ny=ny)
+    lat_lieb.remove_dangling(nor_bond=1)
+    # eigenvalue problem
+    eig_lieb = eigLieb(lat_lieb)
+    on = [0j, -.2j, -.2j]
+    eig_lieb.set_onsite(on=on)
+    ta, tb, tc, td = 2., 1., 2., 1.
+    eig_lieb.set_hop_alt(ta=ta, tb=tb, tc=tc, td=td)
+    eig_lieb.set_dim_defect(dim_x=4, dim_y=4)
+    eig_lieb.get_ham(compl_trans=True)
+    eig_lieb.get_eig(eigenvec=True)
+    zero_mode = eig_lieb.get_state_pola(b'a')
+    # plots
+    plt_lieb = plotLieb(eig_lieb)
+    fig_lat = plt_lieb.plt_lattice(ms=20, plt_hop=True,  c=2.5)
+    fig_dispersion = plt_lieb.plt_dispersion(ta=ta, tb=tb, tc=tc, td=td)
+    fig_spec = plt_lieb.plt_spec(pola_tag=b'a')
+    fig_zm = plt_lieb.plt_intensity(zero_mode, s=500)
+    # save
+    from collections import OrderedDict
+    save_chain = saveFigTB(sys=eig_lieb, params=OrderedDict([('ta', ta), ('tb', tb), ('tc', tc), ('td', td)]), dir_name='lieb', ext='png')
+    save_chain.save_fig(fig_lat, 'lat')
+    save_chain.save_fig(fig_dispersion, 'dispersion')
+    save_chain.save_fig(fig_spec, 'spec')
+    save_chain.save_fig(fig_zm, 'zero_mode')
+    plt.show() 
+
+.. image:: ../TBfig/lieb_n65/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png
+    :width: 55%
+    :align: center
+
+.. image:: ../TBfig/lieb_n65/zero_modeXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png
+    :width: 55%
+    :align: center
+
+Zero-mode localized in the bulk, centered on the site with two adjacent weak hoppings along :math:`x` and two adjacent weak hoppings along :math:`y`.
+
+Diagonal hopping
+------------------------------------------------------------------------------------------
+
+.. image:: ../TBfig/lieb_n65/latXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_nn(0,6+0j).png
+    :width:  55%
+    :align: center
+
+.. code-block:: python
+
+    from liebTB import *
+    nx, ny = 5, 5
+    ri = [[0, 0], [1, 0], [0, 1]]
+    tags = [b'a', b'b', b'c']
+    lat_lieb = latticeTB(tags=tags, ri=ri, nor=2, ang=pi/2)
+    lat_lieb.get_lattice(nx=nx, ny=ny)
+    lat_lieb.remove_dangling(nor_bond=1)
+    # eigenvalue problem
+    eig_lieb = eigLieb(lat_lieb)
+    on = [0j, -.2j, -.2j]
+    eig_lieb.set_onsite(on=on)
+    ta, tb, tc, td = 2., 1., 2., 1.
+    eig_lieb.set_hop_alt(ta=ta, tb=tb, tc=tc, td=td)
+    eig_lieb.set_dim_defect(dim_x=4, dim_y=4)
+    eig_lieb.set_hop_alt_nn(nn=.6)  # diagonal hoppings
+    eig_lieb.get_ham(compl_trans=True)
+    eig_lieb.get_eig(eigenvec=True)
+    zero_mode = eig_lieb.get_state_pola(b'a')
+    # plots
+    plt_lieb = plotLieb(eig_lieb)
+    fig_lat = plt_lieb.plt_lattice(ms=20, plt_hop=True,  c=5)
+    fig_dispersion = plt_lieb.plt_dispersion(ta=ta, tb=tb, tc=tc, td=td)
+    fig_spec = plt_lieb.plt_spec(pola_tag=b'a')
+    fig_zm = plt_lieb.plt_intensity(zero_mode, s=500)
+    # save
+    from collections import OrderedDict
+    save_chain = saveFigTB(sys=eig_lieb, params=OrderedDict([('ta', ta), ('tb', tb), ('tc', tc), ('td', td), ('nn', .6)]), dir_name='lieb', ext='png')
+    save_chain.save_fig(fig_lat, 'latXY')
+    save_chain.save_fig(fig_spec, 'specXY')
+    save_chain.save_fig(fig_zm, 'zero_modeXY')
+    plt.show() 
+
+
+.. image:: ../TBfig/lieb_n65/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_nn(0,6+0j).png
+    :width: 55%
+    :align: center
+
+.. image:: ../TBfig/lieb_n65/zero_modeXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_nn(0,6+0j).png
+    :width: 55%
+    :align: center
+
+In presence of intracell diagonal hopping, the flat band is destroyed but the zero-mode remains.
+
+
+Hopping disorder
+---------------------------------------------
+
+
+
+Generic disorder
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: ../TBfig/lieb_n65/lat_hopXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_gen(0,9+0j).png
+    :width:  55%
+    :align: center
+
+.. code-block:: python
+
+    from liebTB import *
+    nx, ny = 5, 5
+    ri = [[0, 0], [1, 0], [0, 1]]
+    tags = [b'a', b'b', b'c']
+    lat_lieb = latticeTB(tags=tags, ri=ri, nor=2, ang=pi/2)
+    lat_lieb.get_lattice(nx=nx, ny=ny)
+    lat_lieb.remove_dangling(nor_bond=1)
+    # eigenvalue problem
+    eig_lieb = eigLieb(lat_lieb)
+    on = [0j, -.2j, -.2j]
+    eig_lieb.set_onsite(on=on)
+    ta, tb, tc, td = 2., 1., 2., 1.
+    eig_lieb.set_hop_alt(ta=ta, tb=tb, tc=tc, td=td)
+    eig_lieb.set_dim_defect(dim_x=4, dim_y=4)
+    alpha = .9
+    eig_lieb.set_disorder(alpha=alpha)
+    eig_lieb.set_hop_alt_nn(nn=.6)  # diagonal hoppings
+    eig_lieb.get_ham(compl_trans=True)
+    eig_lieb.get_eig(eigenvec=True)
+    zero_mode = eig_lieb.get_state_pola(b'a')
+    # plots
+    plt_lieb = plotLieb(eig_lieb)
+    fig_lat = plt_lieb.plt_lattice(ms=20, plt_hop=True,  c=5)
+    fig_dispersion = plt_lieb.plt_dispersion(ta=ta, tb=tb, tc=tc, td=td)
+    fig_spec = plt_lieb.plt_spec(pola_tag=b'a')
+    fig_zm = plt_lieb.plt_intensity(zero_mode, s=500)
+    # save
+    from collections import OrderedDict
+    save_chain = saveFigTB(sys=eig_lieb, params=OrderedDict([('ta', ta), ('tb', tb), ('tc', tc), ('td', td), ('nn', .6)]), dir_name='lieb', ext='png')
+    save_chain.save_fig(fig_lat, 'latXY')
+    save_chain.save_fig(fig_spec, 'specXY')
+    save_chain.save_fig(fig_zm, 'zero_modeXY')
+    plt.show() 
+
+
+.. image:: ../TBfig/lieb_n65/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_gen(0,9+0j).png
+    :width: 55%
+    :align: center
+
+.. image:: ../TBfig/lieb_n65/zero_modeXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_gen(0,9+0j).png
+    :width: 55%
+    :align: center
+
+In the presence of generic disorder, the localized state remains strongly localized on the A sublattice (:math:`\langle A| A \rangle \geq 0.95`), and becomes slightly localized on the B and C sublattice. Note that, even though the real part of the eigenenergy remains zero, its imaginary part is now non zero.
+
+"Uniform disorder"
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: ../TBfig/lieb_n65/lat_hopXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_uni(0,95+0j).png
+    :width:  55%
+    :align: center
+
+.. code-block:: python
+
+    from liebTB import *
+    nx, ny = 5, 5
+    ri = [[0, 0], [1, 0], [0, 1]]
+    tags = [b'a', b'b', b'c']
+    lat_lieb = latticeTB(tags=tags, ri=ri, nor=2, ang=pi/2)
+    lat_lieb.get_lattice(nx=nx, ny=ny)
+    lat_lieb.remove_dangling(nor_bond=1)
+    # eigenvalue problem
+    eig_lieb = eigLieb(lat_lieb)
+    on = [0j, -.2j, -.2j]
+    eig_lieb.set_onsite(on=on)
+    ta, tb, tc, td = 2., 1., 2., 1.
+    eig_lieb.set_hop_alt(ta=ta, tb=tb, tc=tc, td=td)
+    eig_lieb.set_dim_defect(dim_x=4, dim_y=4)
+    alpha = .95
+    eig_lieb.set_disorder_uniform(alpha=alpha)
+    eig_lieb.get_ham(compl_trans=True)
+    eig_lieb.get_eig(eigenvec=True)
+    zero_mode = eig_lieb.get_state_pola(b'a')
+    # plots
+    plt_lieb = plotLieb(eig_lieb)
+    fig_lat = plt_lieb.plt_lattice(ms=20, plt_hop=True,  c=5)
+    fig_spec = plt_lieb.plt_spec(pola_tag=b'a')
+    fig_zm = plt_lieb.plt_intensity(zero_mode, s=500)
+    # save
+    from collections import OrderedDict
+    save_chain = saveFigTB(sys=eig_lieb, params=OrderedDict([('ta', ta), ('tb', tb), ('tc', tc), ('td', td), ('uni', alpha)]), dir_name='lieb', ext='png')
+    save_chain.save_fig(fig_lat, 'lat_hopXY')
+    save_chain.save_fig(fig_spec, 'specXY')
+    save_chain.save_fig(fig_zm, 'zero_modeXY')
+    plt.show() 
+
+
+.. image:: ../TBfig/lieb_n65/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_uni(0,95+0j).png
+    :width: 55%
+    :align: center
+
+.. image:: ../TBfig/lieb_n65/zero_modeXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_uni(0,95+0j).png
+    :width: 55%
+    :align: center
+
+The zero-mode is robust to the uniform disorder.
+
+"Pair disorder"
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. image:: ../TBfig/lieb_n65/lat_hopXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_pair(0,7+0j).png
+    :width:  55%
+    :align: center
+
+.. code-block:: python
+
+    from liebTB import *
+    nx, ny = 5, 5
+    ri = [[0, 0], [1, 0], [0, 1]]
+    tags = [b'a', b'b', b'c']
+    lat_lieb = latticeTB(tags=tags, ri=ri, nor=2, ang=pi/2)
+    lat_lieb.get_lattice(nx=nx, ny=ny)
+    lat_lieb.remove_dangling(nor_bond=1)
+    # eigenvalue problem
+    eig_lieb = eigLieb(lat_lieb)
+    on = [0j, -.2j, -.2j]
+    eig_lieb.set_onsite(on=on)
+    ta, tb, tc, td = 2., 1., 2., 1.
+    eig_lieb.set_hop_alt(ta=ta, tb=tb, tc=tc, td=td)
+    eig_lieb.set_dim_defect(dim_x=4, dim_y=4)
+    alpha = .7
+    eig_lieb.set_disorder_placket(alpha=alpha)
+    eig_lieb.get_ham(compl_trans=True)
+    eig_lieb.get_eig(eigenvec=True)
+    zero_mode = eig_lieb.get_state_pola(b'a')
+    # plots
+    plt_lieb = plotLieb(eig_lieb)
+    fig_lat = plt_lieb.plt_lattice(ms=20, plt_hop=True,  c=5)
+    fig_spec = plt_lieb.plt_spec(pola_tag=b'a')
+    fig_zm = plt_lieb.plt_intensity(zero_mode, s=500)
+    # save
+    from collections import OrderedDict
+    save_chain = saveFigTB(sys=eig_lieb, params=OrderedDict([('ta', ta), ('tb', tb), ('tc', tc), ('td', td), ('pair', alpha)]), dir_name='lieb', ext='png')
+    save_chain.save_fig(fig_lat, 'lat_hopXY')
+    save_chain.save_fig(fig_spec, 'specXY')
+    save_chain.save_fig(fig_zm, 'zero_modeXY')
+    plt.show() 
+
+
+.. image:: ../TBfig/lieb_n65/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_pair(0,7+0j).png
+    :width: 55%
+    :align: center
+.. image:: ../TBfig/lieb_n65/zero_modeXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_pair(0,7+0j).png
+    :width: 55%
+    :align: center
+
+The zero-mode is robust to the pair disorder.
+
+"Placket disorder"
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. image:: ../TBfig/lieb_n65/lat_hopXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_plack(0,6+0j).png
+    :width:  55%
+    :align: center
+
+.. code-block:: python
+
+    from liebTB import *
+    nx, ny = 5, 5
+    ri = [[0, 0], [1, 0], [0, 1]]
+    tags = [b'a', b'b', b'c']
+    lat_lieb = latticeTB(tags=tags, ri=ri, nor=2, ang=pi/2)
+    lat_lieb.get_lattice(nx=nx, ny=ny)
+    lat_lieb.remove_dangling(nor_bond=1)
+    # eigenvalue problem
+    eig_lieb = eigLieb(lat_lieb)
+    on = [0j, -.2j, -.2j]
+    eig_lieb.set_onsite(on=on)
+    ta, tb, tc, td = 2., 1., 2., 1.
+    eig_lieb.set_hop_alt(ta=ta, tb=tb, tc=tc, td=td)
+    eig_lieb.set_dim_defect(dim_x=4, dim_y=4)
+    alpha = .7
+    eig_lieb.set_disorder_placket(alpha=alpha)
+    eig_lieb.get_ham(compl_trans=True)
+    eig_lieb.get_eig(eigenvec=True)
+    zero_mode = eig_lieb.get_state_pola(b'a')
+    # plots
+    plt_lieb = plotLieb(eig_lieb)
+    fig_lat = plt_lieb.plt_lattice_hop(ms=10, lw=2)
+    fig_spec = plt_lieb.plt_spec(pola_tag=b'a')
+    fig_zm = plt_lieb.plt_intensity(zero_mode, s=500)
+    # save
+    from collections import OrderedDict
+    save_chain = saveFigTB(sys=eig_lieb, params=OrderedDict([('ta', ta), ('tb', tb), ('tc', tc), ('td', td), ('plack', alpha)]), dir_name='lieb', ext='png')
+    save_chain.save_fig(fig_lat, 'lat_hopXY')
+    save_chain.save_fig(fig_spec, 'specXY')
+    save_chain.save_fig(fig_zm, 'zero_modeXY')
+    plt.show() 
+
+
+
+.. image:: ../TBfig/lieb_n65/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_plack(0,6+0j).png
+    :width: 55%
+    :align: center
+.. image:: ../TBfig/lieb_n65/zero_modeXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_plack(0,6+0j).png
+    :width: 55%
+    :align: center
+
+The zero-mode is robust to the placket disorder.
+
+
+Adiabatic pumping
+---------------------------------------------
+
+Change hoppings continuously to obtain the three different configurations:
+
+.. image:: ../TBfig/lieb_n176/latXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png
+    :width: 65%
+    :align: center
+
+.. image:: ../TBfig/lieb_n176/latXY0_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png
+    :width: 45%
+.. image:: ../TBfig/lieb_n176/latXY1_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png
+    :width: 45%
+.. image:: ../TBfig/lieb_n176/latXY2_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png
+    :width: 45%
+.. image:: ../TBfig/lieb_n176/latXY3_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png
+    :width: 45%
+
+Configurations:
+    * Initial configuration: zero mode localized at the bottom left of the lattice.
+    * Second configuration: localized state at the bottom right of the lattice.
+    * Thrird configuration: localized state at the top right of the lattice.
+    * Last configuration: localized state at the center of the lattice.
+
+.. code-block:: python
+
+    from liebTB import *
+    # lattice
+    nx, ny = 8, 8
+    ri = [[0, 0], [1, 0], [0, 1]]
+    tags = [b'a', b'b', b'c']
+    lat_lieb = latticeTB(tags=tags, ri=ri, nor=2, ang=pi/2)
+    lat_lieb.get_lattice(nx=nx, ny=ny)
+    lat_lieb.remove_dangling(nor_bond=1)
+    ta, tb, tc, td = 2, 1, 2, 1
+    # first configuration
+    eig_lieb = eigLieb(lat_lieb)
+    on = [0j, -.2j, -.2j]
+    eig_lieb.set_onsite(on=on)
+    ta, tb, tc, td = 2., 1., 2., 1.
+    eig_lieb.set_hop_alt(ta=ta, tb=tb, tc=tc, td=td)
+    eig_lieb.set_dim_defect(dim_x=2, dim_y=2)
+    eig_lieb.get_ham(compl_trans=True)
+    ham0 = np.copy(eig_lieb.ham)
+    eig_lieb.get_eig(eigenvec=True)
+    zero_mode = eig_lieb.get_state_pola(b'a')
+    plt_lieb = plotLieb(eig_lieb)
+    fig_lat = plt_lieb.plt_lattice(ms=10, plt_index=True, fs=14)
+    fig_lat0 = plt_lieb.plt_lattice(ms=10, plt_hop=True)
+    fig_zm0 = plt_lieb.plt_intensity(zero_mode)
+    # second configuration
+    eig_lieb.set_hop_alt(ta=ta, tb=tb, tc=tc, td=td)
+    eig_lieb.set_dim_defect(dim_x=12, dim_y=2)
+    eig_lieb.get_ham(compl_trans=True)
+    ham1 = np.copy(eig_lieb.ham)
+    eig_lieb.get_eig(eigenvec=True)
+    zero_mode = eig_lieb.get_state_pola(b'a')
+    fig_lat1 = plt_lieb.plt_lattice(ms=10, plt_hop=True)
+    fig_zm1 = plt_lieb.plt_intensity(zero_mode)
+    # third configuration
+    eig_lieb.set_hop_alt(ta=ta, tb=tb, tc=tc, td=td)
+    eig_lieb.set_dim_defect(dim_x=12, dim_y=12)
+    eig_lieb.get_ham(compl_trans=True)
+    ham2 = np.copy(eig_lieb.ham)
+    eig_lieb.get_eig(eigenvec=True)
+    zero_mode = eig_lieb.get_state_pola(b'a')
+    fig_lat2 = plt_lieb.plt_lattice(ms=10, plt_hop=True)
+    fig_zm2 = plt_lieb.plt_intensity(zero_mode)
+    # fourth configuration
+    eig_lieb.set_hop_alt(ta=ta, tb=tb, tc=tc, td=td)
+    eig_lieb.set_dim_defect(dim_x=7, dim_y=7)
+    eig_lieb.get_ham(compl_trans=True)
+    ham3 = np.copy(eig_lieb.ham)
+    eig_lieb.get_eig(eigenvec=True)
+    zero_mode = eig_lieb.get_state_pola(b'a')
+    fig_lat3 = plt_lieb.plt_lattice(ms=10, plt_hop=True)
+    fig_zm3 = plt_lieb.plt_intensity(zero_mode)
+    # adiabatic pumping
+    psi_init = np.zeros(eig_lieb.sites) / eig_lieb.sites
+    psi_init[25] = 1.
+    hams = np.array([ham0, ham1, ham2, ham3])
+    prop_lieb = propTB(lat_lieb, steps=300, dz=.15)
+    prop_lieb.get_pump(hams, psi_init=psi_init, norm=True)
+    ani = prop_lieb.get_ani(s=180, fs=20)
+    # save
+    from collections import OrderedDict
+    save_lieb = saveFigTB(sys=eig_lieb, params=OrderedDict([('ta', ta), ('tb', tb), ('tc', tc), ('td', td)]), dir_name='lieb', ext='png')
+    save_lieb.save_fig(fig_lat, 'latXY')
+    save_lieb.save_fig(fig_lat0, 'latXY0')
+    save_lieb.save_fig(fig_lat1, 'latXY1')
+    save_lieb.save_fig(fig_lat2, 'latXY2')
+    save_lieb.save_fig(fig_lat3, 'latXY3')
+    save_lieb.save_fig(fig_zm0, 'zm0')
+    save_lieb.save_fig(fig_zm1, 'zm1')
+    save_lieb.save_fig(fig_zm2, 'zm2')
+    save_lieb.save_fig(fig_zm3, 'zm3')
+    save_lieb.save_ani(ani, 'pump3')
+    plt.show() 
+
+.. image:: ../TBfig/lieb_n176/zm0_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png
+    :width: 45%
+.. image:: ../TBfig/lieb_n176/zm1_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png
+    :width: 45%
+.. image:: ../TBfig/lieb_n176/zm2_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png
+    :width: 45%
+.. image:: ../TBfig/lieb_n176/zm3_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png
+    :width: 45%
