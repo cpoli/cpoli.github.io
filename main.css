@@ -148,14 +148,15 @@ p { padding-left: 20px; }
 
 #about0 {
     float: left;
+    padding-left: 20px;
     height: 140px;
-    background-color: #CCD;
 }
 
 #about1 {
     float: left;
     width: 424px;
-    margin-left: 20px;
+    margin-left: 10px;
+    margin-top: -5px;
     font-size: 18px;
 
 }
