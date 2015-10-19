@@ -146,6 +146,49 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">dz</span> <span class="o">=</span> <span class="n">dz</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">prop</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">lat</span><span class="o">.</span><span class="n">sites</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps</span><span class="p">),</span> <span class="s">&#39;c16&#39;</span><span class="p">)</span>
 
+<div class="viewcode-block" id="propTB.get_prop_nonlin"><a class="viewcode-back" href="../codePropTB.html#propTB.propTB.get_prop_nonlin">[docs]</a>    <span class="k">def</span> <span class="nf">get_prop_nonlin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ham</span><span class="p">,</span> <span class="n">psi_init</span><span class="p">,</span> <span class="n">nu</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Get the time evolution.</span>
+
+<span class="sd">        :param ham: Tight-Binding Hamilonian.</span>
+<span class="sd">        :param psi_init: Initial state.</span>
+<span class="sd">        :param norm: Default value True. Normalize the norm to 1 at each step.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
+        <span class="n">sites</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lat</span><span class="o">.</span><span class="n">sites</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">sites</span>
+        <span class="k">def</span> <span class="nf">eq_motion</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">nu</span><span class="p">):</span>
+            <span class="n">non_lin</span> <span class="o">=</span> <span class="n">y</span> <span class="o">**</span> <span class="mi">2</span>
+            <span class="n">non_lin</span> <span class="o">=</span> <span class="n">nu</span> <span class="o">*</span><span class="p">(</span><span class="n">non_lin</span><span class="p">[:</span><span class="n">sites</span><span class="p">]</span> <span class="o">+</span> <span class="n">non_lin</span><span class="p">[</span><span class="n">sites</span><span class="p">:])</span>
+            <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+            <span class="n">T</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="n">sites</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="n">sites</span><span class="p">,</span> <span class="n">N</span><span class="p">)]</span> <span class="o">+=</span> <span class="n">non_lin</span>
+            <span class="n">T</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="n">sites</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="n">sites</span><span class="p">)]</span> <span class="o">-=</span> <span class="n">non_lin</span>
+            <span class="n">dy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">dy</span>
+
+        <span class="n">ham</span> <span class="o">=</span> <span class="n">ham</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+        <span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+        <span class="n">H</span><span class="p">[:</span><span class="n">sites</span><span class="p">,</span> <span class="p">:</span><span class="n">sites</span><span class="p">]</span> <span class="o">=</span> <span class="n">ham</span><span class="o">.</span><span class="n">imag</span>
+        <span class="n">H</span><span class="p">[:</span><span class="n">sites</span><span class="p">,</span> <span class="n">sites</span><span class="p">:]</span> <span class="o">=</span> <span class="n">ham</span><span class="o">.</span><span class="n">real</span>
+        <span class="n">H</span><span class="p">[</span><span class="n">sites</span><span class="p">:,</span> <span class="p">:</span><span class="n">sites</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">ham</span><span class="o">.</span><span class="n">real</span>
+        <span class="n">H</span><span class="p">[</span><span class="n">sites</span><span class="p">:,</span> <span class="n">sites</span><span class="p">:]</span> <span class="o">=</span> <span class="n">ham</span><span class="o">.</span><span class="n">imag</span>
+        <span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+        <span class="n">y0</span><span class="p">[:</span><span class="n">sites</span><span class="p">]</span> <span class="o">=</span> <span class="n">psi_init</span><span class="o">.</span><span class="n">real</span>
+        <span class="n">y0</span><span class="p">[</span><span class="n">sites</span><span class="p">:]</span> <span class="o">=</span> <span class="n">psi_init</span><span class="o">.</span><span class="n">imag</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dz</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">steps</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dz</span><span class="p">)</span>
+        <span class="n">param</span><span class="o">=</span> <span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">nu</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">eq_motion</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">param</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prop</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:,</span> <span class="p">:</span><span class="n">sites</span><span class="p">]</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span><span class="mi">1j</span><span class="o">*</span><span class="n">y</span><span class="p">[:,</span> <span class="n">sites</span><span class="p">:]</span><span class="o">.</span><span class="n">T</span>
+       <span class="c"># print(self.prop.shape)</span>
+        <span class="c">#self.prop = y[:, :sites]+1j*y[:, sites:]</span>
+        <span class="c">#fig = plt.figure()</span>
+        <span class="c">#extent = (0, self.steps*self.dz, -self.lat.sites//2+0.5, self.lat.sites-self.lat.sites//2+0.5)</span>
+        <span class="c">#plt.imshow(np.abs(self.prop), extent=extent)</span>
+        <span class="c">#fig = plt.figure()</span>
+        <span class="c">#plt.plot(np.abs(self.prop[-1, :]))</span>
+        <span class="c">#plt.show()</span>
+
+</div>
 <div class="viewcode-block" id="propTB.get_prop"><a class="viewcode-back" href="../codePropTB.html#propTB.propTB.get_prop">[docs]</a>    <span class="k">def</span> <span class="nf">get_prop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ham</span><span class="p">,</span> <span class="n">psi_init</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Get the time evolution.</span>
@@ -165,7 +208,7 @@
             <span class="k">if</span> <span class="n">norm</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">prop</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prop</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
 </div>
-<div class="viewcode-block" id="propTB.get_pump"><a class="viewcode-back" href="../codePropTB.html#propTB.propTB.get_pump">[docs]</a>    <span class="k">def</span> <span class="nf">get_pump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hams</span><span class="p">,</span> <span class="n">psi_init</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+<div class="viewcode-block" id="propTB.get_pump"><a class="viewcode-back" href="../codePropTB.html#propTB.propTB.get_pump">[docs]</a>    <span class="k">def</span> <span class="nf">get_pump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hams</span><span class="p">,</span> <span class="n">psi_init</span><span class="p">,</span> <span class="n">nu</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Get the time evolution under adiabatic pumpings.</span>
 
@@ -175,7 +218,7 @@
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="n">ham</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">hams</span><span class="p">])</span>
         <span class="n">psi_init</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">psi_init</span><span class="p">])</span>
-        <span class="n">no</span><span class="p">,</span> <span class="o">=</span> <span class="n">hams</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">no</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">hams</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">prop</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">psi_init</span>
         <span class="n">diag</span> <span class="o">=</span> <span class="mi">1j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lat</span><span class="o">.</span><span class="n">sites</span><span class="p">,</span> <span class="s">&#39;c16&#39;</span><span class="p">)</span>
         <span class="n">delta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">steps</span> <span class="o">//</span><span class="p">(</span><span class="n">no</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>

@@ -43,13 +43,11 @@ In the case :math:`\gamma=0`, the Hamiltonian is real symmetric, the eigenenergi
     eig_chain = eigChain(lat=chain_tb)
     t = 1.
     eig_chain.set_hop(ho=[t])
-
     eig_chain.get_ham()
     eig_chain.get_eig(eigenvec=True)
     # plots
     plot_chain = plotTB(sys=eig_chain)
     lattice  = plot_chain.plt_lattice(plt_index=True, ms=50, fs=20)
-
     fig_spec = plot_chain.plt_spec(ms=20, pola_tag=b'a')
     #propagation
     prop_chain = propTB(lat=chain_tb, steps=1400, dz=0.02)
@@ -57,12 +55,13 @@ In the case :math:`\gamma=0`, the Hamiltonian is real symmetric, the eigenenergi
     prop_chain.get_prop(ham=eig_chain.ham, psi_init=psi_init, norm=True)
     fig_prop = prop_chain.plt_prop1d()
     fig_prop_dimer = prop_chain.plt_prop_dimer()
+    plt.show()
     # save figures
     save_chain = saveFigTB(sys=eig_chain, params={'t': t}, dir_name='chain', ext='png')
     save_chain.save_fig(fig_spec, 'spec')
     save_chain.save_fig(fig_prop_dimer, 'prop_dimer')
     save_chain.save_fig(fig_prop, 'prop')
-    plt.show()
+
 
 
 .. image:: ../TBfig/chain_n2/spec_t(1+0j)_ea0j_eb0j.png
@@ -119,12 +118,12 @@ Below the PT-symmetry breaking point, the eigenenergies are real: :math:`E_\pm=\
     prop_chain.get_prop(ham=eig_chain.ham, psi_init=psi_init, norm=True)
     fig_prop = prop_chain.plt_prop1d()
     fig_prop_dimer = prop_chain.plt_prop_dimer()
+    plt.show()
     # save figures
     save_chain = saveFigTB(sys=eig_chain, params={'t': t}, dir_name='chain', ext='png')
     save_chain.save_fig(fig_spec, 'spec')
     save_chain.save_fig(fig_prop_dimer, 'prop_dimer')
     save_chain.save_fig(fig_prop, 'prop')
-    plt.show()
 
 
 .. image:: ../TBfig/chain_n2/spec_ea0,8j_eb-0,8j_t(1+0j).png
@@ -169,12 +168,12 @@ At the breaking point, :math:`\gamma=t`, the eigenenergies coincide: :math:`E_\p
     prop_chain.get_prop(ham=eig_chain.ham, psi_init=psi_init, norm=True)
     fig_prop = prop_chain.plt_prop1d()
     fig_prop_dimer = prop_chain.plt_prop_dimer()
+    plt.show()
     # save figures
     save_chain = saveFigTB(sys=eig_chain, params={'t': t}, dir_name='chain', ext='png')
     save_chain.save_fig(fig_spec, 'spec')
     save_chain.save_fig(fig_prop_dimer, 'prop_dimer')
     save_chain.save_fig(fig_prop, 'prop')
-    plt.show()
 
 
 .. image:: ../TBfig/chain_n2/spec_ea1j_eb-1j_t(1+0j).png
@@ -225,6 +224,7 @@ Above the PT-symmetry breaking point, :math:`\gamma>t`, the eigenenergies are co
     prop_chain.get_prop(ham=eig_chain.ham, psi_init=psi_init, norm=True)
     fig_prop1 = prop_chain.plt_prop1d()
     fig_prop_dimer1 = prop_chain.plt_prop_dimer()
+    plt.show()
     # save figures
     save_chain = saveFigTB(sys=eig_chain, params={'t': t}, dir_name='chain', ext='png')
     save_chain.save_fig(fig_spec, 'spec')
@@ -232,7 +232,6 @@ Above the PT-symmetry breaking point, :math:`\gamma>t`, the eigenenergies are co
     save_chain.save_fig(fig_prop0, 'prop0')
     save_chain.save_fig(fig_prop_dimer1, 'prop_dimer1')
     save_chain.save_fig(fig_prop1, 'prop1')
-    plt.show()
 
 
 .. image:: ../TBfig/chain_n2/spec_ea1,2j_eb-1,2j_t(1+0j).png
@@ -289,12 +288,12 @@ Hermitian case
     psi_init =  np.ones(eig_chain.sites) / np.sqrt(eig_chain.sites)
     prop_chain.get_prop(ham=eig_chain.ham, psi_init=psi_init, norm=True)
     fig_prop = prop_chain.plt_prop1d()
+    plt.show()
     # save figures
     save_chain = saveFigTB(sys=eig_chain, params={'t': t}, dir_name='chain', ext='png')
     save_chain.save_fig_lat(fig_lat, 'lattice')
     save_chain.save_fig(fig_spec, 'spec')
     save_chain.save_fig(fig_prop, 'prop')
-    plt.show()
 
 .. image:: ../TBfig/chain_n20/spec_t(1+0j).png
     :width: 45%
@@ -336,6 +335,7 @@ PT-symmetry
     psi_init =  np.ones(eig_chain.sites) / np.sqrt(eig_chain.sites)
     prop_chain.get_prop(ham=eig_chain.ham, psi_init=psi_init, norm=True)
     fig_prop = prop_chain.plt_prop1d()
+    plt.show()
     # save figures
     save_chain = saveFigTB(sys=eig_chain, params={'t': t}, dir_name='chain', ext='png')
     save_chain.save_fig(fig_spec, 'spec')
@@ -380,6 +380,7 @@ broken PT-symmetry
     psi_init =  np.ones(eig_chain.sites) / np.sqrt(eig_chain.sites)
     prop_chain.get_prop(ham=eig_chain.ham, psi_init=psi_init, norm=True)
     fig_prop = prop_chain.plt_prop1d()
+    plt.show()
     # save figures
     save_chain = saveFigTB(sys=eig_chain, params={'t': t}, dir_name='chain', ext='png')
     save_chain.save_fig(fig_spec, 'spec')

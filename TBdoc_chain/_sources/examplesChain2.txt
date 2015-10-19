@@ -23,6 +23,7 @@ Identical hoppings
 .. code-block:: python
 
     from chainTB import *
+    # lattice
     tags = [b'a', b'b']
     ri = [[0, 0], [1, 0]]
     nx = 10
@@ -47,6 +48,7 @@ Identical hoppings
     psi_init =  np.ones(eig_chain.sites) / np.sqrt(eig_chain.sites)
     prop_chain.get_prop(ham=eig_chain.ham, psi_init=psi_init, norm=True)
     fig_prop = prop_chain.plt_prop1d()
+    plt.show()
     # save figures
     save_chain = saveFigTB(sys=eig_chain, params={'t': t}, dir_name='chain', ext='png')
     save_chain.save_fig(fig_lattice, 'lattice')
@@ -54,7 +56,6 @@ Identical hoppings
     save_chain.save_fig(fig_spec, 'spec')
     save_chain.save_fig(fig_zero_mode, 'zero_mode')
     save_chain.save_fig(fig_prop, 'prop')
-    plt.show()
 
 .. image:: ../TBfig/chain_n21/dispersion_t(2+0j)_ea0,2j_eb-0,2j.png
     :width: 45%
@@ -85,6 +86,7 @@ The impurity is modeled by changing two adjacent hoppings of a given site.
 .. code-block:: python
 
     from chainTB import *
+    # lattice
     tags = [b'a', b'b']
     ri = [[0, 0], [1, 0]]
     nx = 11
@@ -112,13 +114,13 @@ The impurity is modeled by changing two adjacent hoppings of a given site.
     psi_init[eig_chain.sites//2] = 1.
     prop_chain.get_prop(ham=eig_chain.ham, psi_init=psi_init, norm=True)
     fig_prop = prop_chain.plt_prop1d()
+    plt.show()
     # save figures
     save_chain = saveFigTB(sys=eig_chain, params={'t': t}, dir_name='chain', ext='png')
     save_chain.save_fig(fig_lat_hop, 'lat_hop_imp')
     save_chain.save_fig(fig_spec, 'spec_imp')
     save_chain.save_fig(fig_zero_mode, 'zero_mode_imp')
     save_chain.save_fig(fig_prop, 'prop_imp')
-    plt.show()
 
 .. image:: ../TBfig/chain_n21/spec_imp_t(2+0j)_ea0,1j_eb-0,1j.png
         :width: 45%
@@ -143,6 +145,7 @@ The infinite chain can be viewed as an isolator in the condensed-matter language
 .. code-block:: python
     
     from chainTB import *
+    # lattice
     tags = [b'a', b'b']
     ri = [[0, 0], [1, 0]]
     nx = 11
@@ -168,6 +171,7 @@ The infinite chain can be viewed as an isolator in the condensed-matter language
     psi_init =  np.ones(eig_chain.sites) / np.sqrt(eig_chain.sites)
     prop_chain.get_prop(ham=eig_chain.ham, psi_init=psi_init, norm=True)
     fig_prop = prop_chain.plt_prop1d()
+    plt.show()
     # save figures
     from collections import OrderedDict
     save_chain = saveFigTB(sys=eig_chain, params=OrderedDict([('ta', ta), ('tb', tb)]), dir_name='chain', ext='png')
@@ -175,7 +179,6 @@ The infinite chain can be viewed as an isolator in the condensed-matter language
     save_chain.save_fig(fig_spec, 'spec')
     save_chain.save_fig(fig_zero_mode, 'zero_mode')
     save_chain.save_fig(fig_prop, 'prop')
-    plt.show()
 
 
 .. image:: ../TBfig/chain_n21/spec_ta(2+0j)_tb(1+0j)_ea0,2j_eb-0,2j.png
@@ -203,6 +206,7 @@ Without disorder
 .. code-block:: python
 
     from chainTB import *
+    # lattice
     tags = [b'a', b'b']
     ri = [[0, 0], [1, 0]]
     nx = 11
@@ -229,6 +233,7 @@ Without disorder
     psi_init =  np.ones(eig_chain.sites) / np.sqrt(eig_chain.sites)
     prop_chain.get_prop(ham=eig_chain.ham, psi_init=psi_init, norm=True)
     fig_prop = prop_chain.plt_prop1d()
+    plt.show()
     # save figures
     from collections import OrderedDict
     save_chain = saveFigTB(sys=eig_chain, params=OrderedDict([('ta', ta), ('tb', tb)]), dir_name='chain', ext='png')
@@ -236,7 +241,6 @@ Without disorder
     save_chain.save_fig(fig_spec, 'spec_dim')
     save_chain.save_fig(fig_zero_mode, 'zero_mode_dim')
     save_chain.save_fig(fig_prop, 'prop_dim')
-    plt.show()
 
 
 .. image:: ../TBfig/chain_n21/spec_dim_ea0,2j_eb-0,2j_ta(2+0j)_tb(1+0j).png
@@ -262,6 +266,7 @@ with disorder
 .. code-block:: python
 
     from chainTB import *
+    # lattice
     tags = [b'a', b'b']
     ri = [[0, 0], [1, 0]]
     nx = 11
@@ -290,6 +295,7 @@ with disorder
     psi_init =  np.ones(eig_chain.sites) / np.sqrt(eig_chain.sites)
     prop_chain.get_prop(ham=eig_chain.ham, psi_init=psi_init, norm=True)
     fig_prop = prop_chain.plt_prop1d()
+    plt.show()
     # save figures
     from collections import OrderedDict
     save_chain = saveFigTB(sys=eig_chain, params=OrderedDict([('ta', ta), ('tb', tb), ('alpha', alpha)]), dir_name='chain', ext='png')
@@ -297,7 +303,6 @@ with disorder
     save_chain.save_fig(fig_spec, 'spec_dim')
     save_chain.save_fig(fig_zero_mode, 'zero_mode_dim')
     save_chain.save_fig(fig_prop, 'prop_dim')
-    plt.show()
 
 
 .. image:: ../TBfig/chain_n21/spec_dim_ta(2+0j)_tb(1+0j)_ea0,2j_eb-0,2j_d_h_0,95.png
@@ -320,6 +325,7 @@ Visit three different hopping configurations:
 .. code-block:: python
 
     from chainTB import *
+    # lattice
     tags = [b'a', b'b']
     ri = [[0, 0], [1, 0]]
     nx = 11
@@ -350,11 +356,11 @@ Visit three different hopping configurations:
     psi_init[16] = 0.5
     prop_chain.get_pump(hams=hams, psi_init=psi_init)
     fig_pump = prop_chain.plt_prop1d()
+    plt.show()
     # save figures
     from collections import OrderedDict
     save_chain = saveFigTB(sys=eig_chain, params=OrderedDict([('ta', ta), ('tb', tb), ('pump', 3)]), dir_name='chain', ext='png')
     save_chain.save_fig(fig_pump, 'pumping')
-    plt.show()
 
 
 .. image:: ../TBfig/chain_n21/pumping_ta(2,5+0j)_tb(1+0j)_ea0,1j_eb-0,1j.png

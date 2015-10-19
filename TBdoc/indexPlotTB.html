@@ -46,10 +46,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-                  <center>
-              <a href="../index.html"><div class="test"> <img src = "../images/house.jpg"
-                  height="30px"/></a>
-          </center>
+        
           <a href="indexTB.html" class="fa fa-home"> TB</a>
         
         
@@ -166,14 +163,13 @@
 <span class="n">psi_init</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">eig_chain</span><span class="o">.</span><span class="n">sites</span><span class="p">,</span> <span class="s">&#39;c16&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">eig_chain</span><span class="o">.</span><span class="n">sites</span><span class="p">)</span>
 <span class="n">prop</span><span class="o">.</span><span class="n">get_prop</span><span class="p">(</span><span class="n">ham</span><span class="o">=</span><span class="n">eig_chain</span><span class="o">.</span><span class="n">ham</span><span class="p">,</span> <span class="n">psi_init</span><span class="o">=</span><span class="n">psi_init</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">fig_prop</span> <span class="o">=</span> <span class="n">prop</span><span class="o">.</span><span class="n">plt_prop1d</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 <span class="n">save_chain</span> <span class="o">=</span> <span class="n">saveFigTB</span><span class="p">(</span><span class="n">sys</span><span class="o">=</span><span class="n">eig_chain</span><span class="p">,</span> <span class="n">dir_name</span><span class="o">=</span><span class="s">&#39;chain&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;t1&#39;</span><span class="p">:</span> <span class="n">t1</span><span class="p">})</span>
 <span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig_lat</span><span class="p">(</span><span class="n">fig_lat</span><span class="p">,</span> <span class="s">&#39;lattice&#39;</span><span class="p">)</span>
 <span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_spec</span><span class="p">,</span> <span class="s">&#39;spec&#39;</span><span class="p">)</span>
 <span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_zero_mode</span><span class="p">,</span> <span class="s">&#39;zero_mode&#39;</span><span class="p">)</span>
 <span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_prop</span><span class="p">,</span> <span class="s">&#39;prop&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/lattice5.png"><img alt="_images/lattice5.png" class="align-center" src="_images/lattice5.png" style="width: 95%; height: 100px;" /></a>
@@ -211,6 +207,7 @@
 <span class="n">fig_flat_band_hlc</span> <span class="o">=</span> <span class="n">plt_hlc</span><span class="o">.</span><span class="n">plt_intensity</span><span class="p">(</span><span class="n">flat_band</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">)</span>
 <span class="n">fig_banch_pos_hlc</span> <span class="o">=</span> <span class="n">plt_hlc</span><span class="o">.</span><span class="n">plt_intensity</span><span class="p">(</span><span class="n">branch_pos</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">)</span>
 <span class="n">fig_branch_neg_disk_hlc</span> <span class="o">=</span> <span class="n">plt_hlc</span><span class="o">.</span><span class="n">plt_intensity_disk</span><span class="p">(</span><span class="n">branch_neg</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 <span class="n">save_hlc</span> <span class="o">=</span> <span class="n">saveFigTB</span><span class="p">(</span><span class="n">sys</span><span class="o">=</span><span class="n">hlc</span><span class="p">,</span> <span class="n">dir_name</span><span class="o">=</span><span class="s">&#39;hexa_lc&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="s">&#39;t1&#39;</span><span class="p">,</span> <span class="n">t1</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;t2&#39;</span><span class="p">,</span> <span class="n">t2</span><span class="p">)]))</span>
 <span class="n">save_hlc</span><span class="o">.</span><span class="n">save_fig_lat</span><span class="p">(</span><span class="n">fig_lat_hlc</span><span class="p">,</span> <span class="s">&#39;lattice&#39;</span><span class="p">)</span>
@@ -220,8 +217,6 @@
 <span class="n">save_hlc</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_flat_band_hlc</span><span class="p">,</span> <span class="s">&#39;flat_band&#39;</span><span class="p">)</span>
 <span class="n">save_hlc</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_banch_pos_hlc</span><span class="p">,</span> <span class="s">&#39;banch_pos&#39;</span><span class="p">)</span>
 <span class="n">save_hlc</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_branch_neg_disk_hlc</span><span class="p">,</span> <span class="s">&#39;banch_neg_disk&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/lattice6.png"><img alt="_images/lattice6.png" class="align-center" src="_images/lattice6.png" style="width: 65%; height: 100px;" /></a>

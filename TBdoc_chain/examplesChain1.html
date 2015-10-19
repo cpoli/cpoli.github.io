@@ -46,10 +46,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-                  <center>
-              <a href="../index.html"><div class="test"> <img src = "../images/house.jpg"
-                  height="30px"/></a>
-          </center>
+        
           <a href="indexChainTB.html" class="fa fa-home"> chainTB</a>
         
         
@@ -144,13 +141,11 @@ t &amp; i\gamma \end{array} \right)"/></p>
 <span class="n">eig_chain</span> <span class="o">=</span> <span class="n">eigChain</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="n">chain_tb</span><span class="p">)</span>
 <span class="n">t</span> <span class="o">=</span> <span class="mf">1.</span>
 <span class="n">eig_chain</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span><span class="n">ho</span><span class="o">=</span><span class="p">[</span><span class="n">t</span><span class="p">])</span>
-
 <span class="n">eig_chain</span><span class="o">.</span><span class="n">get_ham</span><span class="p">()</span>
 <span class="n">eig_chain</span><span class="o">.</span><span class="n">get_eig</span><span class="p">(</span><span class="n">eigenvec</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="c"># plots</span>
 <span class="n">plot_chain</span> <span class="o">=</span> <span class="n">plotTB</span><span class="p">(</span><span class="n">sys</span><span class="o">=</span><span class="n">eig_chain</span><span class="p">)</span>
 <span class="n">lattice</span>  <span class="o">=</span> <span class="n">plot_chain</span><span class="o">.</span><span class="n">plt_lattice</span><span class="p">(</span><span class="n">plt_index</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-
 <span class="n">fig_spec</span> <span class="o">=</span> <span class="n">plot_chain</span><span class="o">.</span><span class="n">plt_spec</span><span class="p">(</span><span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">pola_tag</span><span class="o">=</span><span class="n">b</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
 <span class="c">#propagation</span>
 <span class="n">prop_chain</span> <span class="o">=</span> <span class="n">propTB</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="n">chain_tb</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">1400</span><span class="p">,</span> <span class="n">dz</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
@@ -158,12 +153,12 @@ t &amp; i\gamma \end{array} \right)"/></p>
 <span class="n">prop_chain</span><span class="o">.</span><span class="n">get_prop</span><span class="p">(</span><span class="n">ham</span><span class="o">=</span><span class="n">eig_chain</span><span class="o">.</span><span class="n">ham</span><span class="p">,</span> <span class="n">psi_init</span><span class="o">=</span><span class="n">psi_init</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">fig_prop</span> <span class="o">=</span> <span class="n">prop_chain</span><span class="o">.</span><span class="n">plt_prop1d</span><span class="p">()</span>
 <span class="n">fig_prop_dimer</span> <span class="o">=</span> <span class="n">prop_chain</span><span class="o">.</span><span class="n">plt_prop_dimer</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="c"># save figures</span>
 <span class="n">save_chain</span> <span class="o">=</span> <span class="n">saveFigTB</span><span class="p">(</span><span class="n">sys</span><span class="o">=</span><span class="n">eig_chain</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;t&#39;</span><span class="p">:</span> <span class="n">t</span><span class="p">},</span> <span class="n">dir_name</span><span class="o">=</span><span class="s">&#39;chain&#39;</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s">&#39;png&#39;</span><span class="p">)</span>
 <span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_spec</span><span class="p">,</span> <span class="s">&#39;spec&#39;</span><span class="p">)</span>
 <span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_prop_dimer</span><span class="p">,</span> <span class="s">&#39;prop_dimer&#39;</span><span class="p">)</span>
 <span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_prop</span><span class="p">,</span> <span class="s">&#39;prop&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/spec_t(1+0j)_ea0j_eb0j.png"><img alt="_images/spec_t(1+0j)_ea0j_eb0j.png" class="align-center" src="_images/spec_t(1+0j)_ea0j_eb0j.png" style="width: 55%;" /></a>
@@ -205,12 +200,12 @@ and display the space-time reflection symmetry. The eigenenergies are given by: 
 <span class="n">prop_chain</span><span class="o">.</span><span class="n">get_prop</span><span class="p">(</span><span class="n">ham</span><span class="o">=</span><span class="n">eig_chain</span><span class="o">.</span><span class="n">ham</span><span class="p">,</span> <span class="n">psi_init</span><span class="o">=</span><span class="n">psi_init</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">fig_prop</span> <span class="o">=</span> <span class="n">prop_chain</span><span class="o">.</span><span class="n">plt_prop1d</span><span class="p">()</span>
 <span class="n">fig_prop_dimer</span> <span class="o">=</span> <span class="n">prop_chain</span><span class="o">.</span><span class="n">plt_prop_dimer</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="c"># save figures</span>
 <span class="n">save_chain</span> <span class="o">=</span> <span class="n">saveFigTB</span><span class="p">(</span><span class="n">sys</span><span class="o">=</span><span class="n">eig_chain</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;t&#39;</span><span class="p">:</span> <span class="n">t</span><span class="p">},</span> <span class="n">dir_name</span><span class="o">=</span><span class="s">&#39;chain&#39;</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s">&#39;png&#39;</span><span class="p">)</span>
 <span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_spec</span><span class="p">,</span> <span class="s">&#39;spec&#39;</span><span class="p">)</span>
 <span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_prop_dimer</span><span class="p">,</span> <span class="s">&#39;prop_dimer&#39;</span><span class="p">)</span>
 <span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_prop</span><span class="p">,</span> <span class="s">&#39;prop&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/spec_ea0,8j_eb-0,8j_t(1+0j).png"><img alt="_images/spec_ea0,8j_eb-0,8j_t(1+0j).png" class="align-center" src="_images/spec_ea0,8j_eb-0,8j_t(1+0j).png" style="width: 55%;" /></a>
@@ -244,12 +239,12 @@ and display the space-time reflection symmetry. The eigenenergies are given by: 
 <span class="n">prop_chain</span><span class="o">.</span><span class="n">get_prop</span><span class="p">(</span><span class="n">ham</span><span class="o">=</span><span class="n">eig_chain</span><span class="o">.</span><span class="n">ham</span><span class="p">,</span> <span class="n">psi_init</span><span class="o">=</span><span class="n">psi_init</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">fig_prop</span> <span class="o">=</span> <span class="n">prop_chain</span><span class="o">.</span><span class="n">plt_prop1d</span><span class="p">()</span>
 <span class="n">fig_prop_dimer</span> <span class="o">=</span> <span class="n">prop_chain</span><span class="o">.</span><span class="n">plt_prop_dimer</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="c"># save figures</span>
 <span class="n">save_chain</span> <span class="o">=</span> <span class="n">saveFigTB</span><span class="p">(</span><span class="n">sys</span><span class="o">=</span><span class="n">eig_chain</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;t&#39;</span><span class="p">:</span> <span class="n">t</span><span class="p">},</span> <span class="n">dir_name</span><span class="o">=</span><span class="s">&#39;chain&#39;</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s">&#39;png&#39;</span><span class="p">)</span>
 <span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_spec</span><span class="p">,</span> <span class="s">&#39;spec&#39;</span><span class="p">)</span>
 <span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_prop_dimer</span><span class="p">,</span> <span class="s">&#39;prop_dimer&#39;</span><span class="p">)</span>
 <span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_prop</span><span class="p">,</span> <span class="s">&#39;prop&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/spec_ea1j_eb-1j_t(1+0j).png"><img alt="_images/spec_ea1j_eb-1j_t(1+0j).png" class="align-center" src="_images/spec_ea1j_eb-1j_t(1+0j).png" style="width: 55%;" /></a>
@@ -287,6 +282,7 @@ and display the space-time reflection symmetry. The eigenenergies are given by: 
 <span class="n">prop_chain</span><span class="o">.</span><span class="n">get_prop</span><span class="p">(</span><span class="n">ham</span><span class="o">=</span><span class="n">eig_chain</span><span class="o">.</span><span class="n">ham</span><span class="p">,</span> <span class="n">psi_init</span><span class="o">=</span><span class="n">psi_init</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">fig_prop1</span> <span class="o">=</span> <span class="n">prop_chain</span><span class="o">.</span><span class="n">plt_prop1d</span><span class="p">()</span>
 <span class="n">fig_prop_dimer1</span> <span class="o">=</span> <span class="n">prop_chain</span><span class="o">.</span><span class="n">plt_prop_dimer</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="c"># save figures</span>
 <span class="n">save_chain</span> <span class="o">=</span> <span class="n">saveFigTB</span><span class="p">(</span><span class="n">sys</span><span class="o">=</span><span class="n">eig_chain</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;t&#39;</span><span class="p">:</span> <span class="n">t</span><span class="p">},</span> <span class="n">dir_name</span><span class="o">=</span><span class="s">&#39;chain&#39;</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s">&#39;png&#39;</span><span class="p">)</span>
 <span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_spec</span><span class="p">,</span> <span class="s">&#39;spec&#39;</span><span class="p">)</span>
@@ -294,7 +290,6 @@ and display the space-time reflection symmetry. The eigenenergies are given by: 
 <span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_prop0</span><span class="p">,</span> <span class="s">&#39;prop0&#39;</span><span class="p">)</span>
 <span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_prop_dimer1</span><span class="p">,</span> <span class="s">&#39;prop_dimer1&#39;</span><span class="p">)</span>
 <span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_prop1</span><span class="p">,</span> <span class="s">&#39;prop1&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/spec_ea1,2j_eb-1,2j_t(1+0j).png"><img alt="_images/spec_ea1,2j_eb-1,2j_t(1+0j).png" class="align-center" src="_images/spec_ea1,2j_eb-1,2j_t(1+0j).png" style="width: 55%;" /></a>
@@ -333,12 +328,12 @@ and display the space-time reflection symmetry. The eigenenergies are given by: 
 <span class="n">psi_init</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">eig_chain</span><span class="o">.</span><span class="n">sites</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">eig_chain</span><span class="o">.</span><span class="n">sites</span><span class="p">)</span>
 <span class="n">prop_chain</span><span class="o">.</span><span class="n">get_prop</span><span class="p">(</span><span class="n">ham</span><span class="o">=</span><span class="n">eig_chain</span><span class="o">.</span><span class="n">ham</span><span class="p">,</span> <span class="n">psi_init</span><span class="o">=</span><span class="n">psi_init</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">fig_prop</span> <span class="o">=</span> <span class="n">prop_chain</span><span class="o">.</span><span class="n">plt_prop1d</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="c"># save figures</span>
 <span class="n">save_chain</span> <span class="o">=</span> <span class="n">saveFigTB</span><span class="p">(</span><span class="n">sys</span><span class="o">=</span><span class="n">eig_chain</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;t&#39;</span><span class="p">:</span> <span class="n">t</span><span class="p">},</span> <span class="n">dir_name</span><span class="o">=</span><span class="s">&#39;chain&#39;</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s">&#39;png&#39;</span><span class="p">)</span>
 <span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig_lat</span><span class="p">(</span><span class="n">fig_lat</span><span class="p">,</span> <span class="s">&#39;lattice&#39;</span><span class="p">)</span>
 <span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_spec</span><span class="p">,</span> <span class="s">&#39;spec&#39;</span><span class="p">)</span>
 <span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_prop</span><span class="p">,</span> <span class="s">&#39;prop&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/spec_t(1+0j).png"><img alt="_images/spec_t(1+0j).png" src="_images/spec_t(1+0j).png" style="width: 45%;" /></a>
@@ -374,6 +369,7 @@ and display the space-time reflection symmetry. The eigenenergies are given by: 
 <span class="n">psi_init</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">eig_chain</span><span class="o">.</span><span class="n">sites</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">eig_chain</span><span class="o">.</span><span class="n">sites</span><span class="p">)</span>
 <span class="n">prop_chain</span><span class="o">.</span><span class="n">get_prop</span><span class="p">(</span><span class="n">ham</span><span class="o">=</span><span class="n">eig_chain</span><span class="o">.</span><span class="n">ham</span><span class="p">,</span> <span class="n">psi_init</span><span class="o">=</span><span class="n">psi_init</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">fig_prop</span> <span class="o">=</span> <span class="n">prop_chain</span><span class="o">.</span><span class="n">plt_prop1d</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="c"># save figures</span>
 <span class="n">save_chain</span> <span class="o">=</span> <span class="n">saveFigTB</span><span class="p">(</span><span class="n">sys</span><span class="o">=</span><span class="n">eig_chain</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;t&#39;</span><span class="p">:</span> <span class="n">t</span><span class="p">},</span> <span class="n">dir_name</span><span class="o">=</span><span class="s">&#39;chain&#39;</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s">&#39;png&#39;</span><span class="p">)</span>
 <span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_spec</span><span class="p">,</span> <span class="s">&#39;spec&#39;</span><span class="p">)</span>
@@ -413,6 +409,7 @@ and display the space-time reflection symmetry. The eigenenergies are given by: 
 <span class="n">psi_init</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">eig_chain</span><span class="o">.</span><span class="n">sites</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">eig_chain</span><span class="o">.</span><span class="n">sites</span><span class="p">)</span>
 <span class="n">prop_chain</span><span class="o">.</span><span class="n">get_prop</span><span class="p">(</span><span class="n">ham</span><span class="o">=</span><span class="n">eig_chain</span><span class="o">.</span><span class="n">ham</span><span class="p">,</span> <span class="n">psi_init</span><span class="o">=</span><span class="n">psi_init</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">fig_prop</span> <span class="o">=</span> <span class="n">prop_chain</span><span class="o">.</span><span class="n">plt_prop1d</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="c"># save figures</span>
 <span class="n">save_chain</span> <span class="o">=</span> <span class="n">saveFigTB</span><span class="p">(</span><span class="n">sys</span><span class="o">=</span><span class="n">eig_chain</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;t&#39;</span><span class="p">:</span> <span class="n">t</span><span class="p">},</span> <span class="n">dir_name</span><span class="o">=</span><span class="s">&#39;chain&#39;</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s">&#39;png&#39;</span><span class="p">)</span>
 <span class="n">save_chain</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_spec</span><span class="p">,</span> <span class="s">&#39;spec&#39;</span><span class="p">)</span>

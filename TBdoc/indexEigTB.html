@@ -46,10 +46,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-                  <center>
-              <a href="../index.html"><div class="test"> <img src = "../images/house.jpg"
-                  height="30px"/></a>
-          </center>
+        
           <a href="indexTB.html" class="fa fa-home"> TB</a>
         
         
@@ -182,6 +179,7 @@
 <span class="n">plot</span> <span class="o">=</span> <span class="n">plotTB</span><span class="p">(</span><span class="n">eig</span><span class="p">)</span>
 <span class="n">fig_lat_bonds</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">plt_lattice</span><span class="p">(</span><span class="n">ms</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
 <span class="n">fig_spec</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">plt_spec</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="c"># save</span>
 <span class="n">save</span> <span class="o">=</span> <span class="n">saveFigTB</span><span class="p">(</span><span class="n">sys</span><span class="o">=</span><span class="n">eig</span><span class="p">,</span> <span class="n">dir_name</span><span class="o">=</span><span class="s">&#39;square&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;t1&#39;</span><span class="p">:</span> <span class="n">t1</span><span class="p">})</span>
 <span class="n">save</span><span class="o">.</span><span class="n">save_fig_lat</span><span class="p">(</span><span class="n">fig_lat</span><span class="p">,</span> <span class="s">&#39;lat&#39;</span><span class="p">)</span>
@@ -204,6 +202,7 @@
 <span class="n">fig_lat_bonds</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">plt_lattice</span><span class="p">(</span><span class="n">ms</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
 <span class="n">fig_spec</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">plt_spec</span><span class="p">()</span>
 <span class="n">fig_zero</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">plt_intensity</span><span class="p">(</span><span class="n">zero</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="c"># save</span>
 <span class="n">save</span> <span class="o">=</span> <span class="n">saveFigTB</span><span class="p">(</span><span class="n">sys</span><span class="o">=</span><span class="n">eig</span><span class="p">,</span> <span class="n">dir_name</span><span class="o">=</span><span class="s">&#39;square&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="s">&#39;t1&#39;</span><span class="p">,</span> <span class="n">t1</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;t2&#39;</span><span class="p">,</span> <span class="n">t2</span><span class="p">)]))</span>
 <span class="n">save</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_lat_bonds</span><span class="p">,</span> <span class="s">&#39;lattice&#39;</span><span class="p">)</span>
@@ -226,6 +225,7 @@
 <span class="n">plot</span> <span class="o">=</span> <span class="n">plotTB</span><span class="p">(</span><span class="n">eig</span><span class="p">)</span>
 <span class="n">fig_lat_bonds</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">plt_lattice</span><span class="p">(</span><span class="n">ms</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
 <span class="n">fig_spec</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">plt_spec</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="c"># save</span>
 <span class="n">save</span> <span class="o">=</span> <span class="n">saveFigTB</span><span class="p">(</span><span class="n">sys</span><span class="o">=</span><span class="n">eig</span><span class="p">,</span> <span class="n">dir_name</span><span class="o">=</span><span class="s">&#39;square&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="s">&#39;t1&#39;</span><span class="p">,</span> <span class="n">t1</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;t2&#39;</span><span class="p">,</span> <span class="n">t2</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;t3&#39;</span><span class="p">,</span> <span class="n">t3</span><span class="p">)]))</span>
 <span class="n">save</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_lat_bonds</span><span class="p">,</span> <span class="s">&#39;lattice&#39;</span><span class="p">)</span>
@@ -245,6 +245,7 @@
 <span class="n">plot</span> <span class="o">=</span> <span class="n">plotTB</span><span class="p">(</span><span class="n">eig</span><span class="p">)</span>
 <span class="n">fig_lat_bonds</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">plt_lattice</span><span class="p">(</span><span class="n">ms</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
 <span class="n">fig_spec</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">plt_spec</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="c"># save</span>
 <span class="n">save</span> <span class="o">=</span> <span class="n">saveFigTB</span><span class="p">(</span><span class="n">sys</span><span class="o">=</span><span class="n">eig</span><span class="p">,</span> <span class="n">dir_name</span><span class="o">=</span><span class="s">&#39;square&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="s">&#39;t1&#39;</span><span class="p">,</span> <span class="n">t1</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;t2&#39;</span><span class="p">,</span> <span class="n">t2</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;t3&#39;</span><span class="p">,</span> <span class="n">t3</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;t4&#39;</span><span class="p">,</span> <span class="n">t4</span><span class="p">)]))</span>
 <span class="n">save</span><span class="o">.</span><span class="n">save_fig</span><span class="p">(</span><span class="n">fig_lat_bonds</span><span class="p">,</span> <span class="s">&#39;lattice&#39;</span><span class="p">)</span>

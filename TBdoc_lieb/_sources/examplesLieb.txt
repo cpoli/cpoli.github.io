@@ -24,6 +24,7 @@ Even number of sites along :math:`x` and :math:`y`
 .. code-block:: python
 
     from liebTB import *
+    # lattice
     nx, ny = 5, 5
     ri = [[0, 0], [1, 0], [0, 1]]
     tags = [b'a', b'b', b'c']
@@ -43,11 +44,12 @@ Even number of sites along :math:`x` and :math:`y`
     fig_lat = plt_lieb.plt_lattice(ms=20, plt_hop=True, c=5.)
     fig_spec = plt_lieb.plt_spec(pola_tag=b'a')
     fig_dispersion = plt_lieb.plt_dispersion(ta=1., tb=1., tc=1., td=1., nn=0.)
-    save_chain = saveFigTB(sys=eig_lieb, params={'t': t}, dir_name='lieb', ext='png')
-    save_chain.save_fig(fig_lat, 'lat')
-    save_chain.save_fig(fig_spec, 'spec')
-    save_chain.save_fig(fig_dispersion, 'dispersion')
     plt.show() 
+    # save
+    save_lieb = saveFigTB(sys=eig_lieb, params={'t': t}, dir_name='lieb', ext='png')
+    save_lieb.save_fig(fig_lat, 'lat')
+    save_lieb.save_fig(fig_spec, 'spec')
+    save_lieb.save_fig(fig_dispersion, 'dispersion')
 
 .. image:: ../TBfig/lieb_n75/dispersion_ea0j_eb-0,2j_ec-0,2j_t(1+0j).png
     :width: 55%
@@ -71,6 +73,7 @@ Odd number of sites along :math:`x` and :math:`y`
 .. code-block:: python
 
     from liebTB import *
+    # lattice
     nx, ny = 5, 5
     ri = [[0, 0], [1, 0], [0, 1]]
     tags = [b'a', b'b', b'c']
@@ -91,11 +94,12 @@ Odd number of sites along :math:`x` and :math:`y`
     fig_lat = plt_lieb.plt_lattice(ms=20, plt_hop=True, c=5.)
     fig_spec = plt_lieb.plt_spec(pola_tag=b'a')
     fig_zm = plt_lieb.plt_intensity(zero_mode, s=500)
-    save_chain = saveFigTB(sys=eig_lieb, params={'t': t}, dir_name='lieb', ext='png')
-    save_chain.save_fig(fig_lat, 'lat')
-    save_chain.save_fig(fig_spec, 'spec')
-    save_chain.save_fig(fig_zm, 'zero_mode')
     plt.show() 
+    # save
+    save_lieb = saveFigTB(sys=eig_lieb, params={'t': t}, dir_name='lieb', ext='png')
+    save_lieb.save_fig(fig_lat, 'lat')
+    save_lieb.save_fig(fig_spec, 'spec')
+    save_lieb.save_fig(fig_zm, 'zero_mode')
 
 .. image:: ../TBfig/lieb_n65/spec_ea0j_eb-0,2j_ec-0,2j_t(1+0j).png
     :width: 55%
@@ -105,14 +109,14 @@ Odd number of sites along :math:`x` and :math:`y`
     :width: 55%
     :align: center
 
-Zero-mode only on A sublattice, and uniformly distributed. Zero-mode located in the flat band, note that  flat band states are on the B and C sites.
+Zero-mode is only on the A sublattice and uniformly distributed. Zero-mode located in the flat band.
 
 
 Identical hoppings with an impurity
 ------------------------------------------------------------------------------------------
 
 
-The impurity is modeled by changing two adjacent hoppings of a given site.
+The impurity is modeled by changing the nearest neighbor hoppings of a given site.
 
 Odd number of sites :math:`x` and :math:`y`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -129,6 +133,7 @@ Odd number of sites :math:`x` and :math:`y`
 .. code-block:: python
 
     from liebTB import *
+    # lattice
     nx, ny = 5, 5
     ri = [[0, 0], [1, 0], [0, 1]]
     tags = [b'a', b'b', b'c']
@@ -147,18 +152,17 @@ Odd number of sites :math:`x` and :math:`y`
     zero_mode = eig_lieb.get_state_pola(b'a')
     # plots
     plt_lieb = plotLieb(eig_lieb)
-    fig_lat_ind = plt_lieb.plt_lattice(ms=20, plt_index=True, c=2.5)
-    fig_lat = plt_lieb.plt_lattice(ms=20, plt_hop=True,  c=2.5)
+    fig_lat_ind = plt_lieb.plt_lattice(ms=20, plt_index=True, c=5)
+    fig_lat = plt_lieb.plt_lattice(ms=20, plt_hop=True,  c=5)
     fig_spec = plt_lieb.plt_spec(pola_tag=b'a')
     fig_zm = plt_lieb.plt_intensity(zero_mode, s=500)
     # save
-    save_chain = saveFigTB(sys=eig_lieb, params={'t': t}, dir_name='lieb', ext='png')
-    save_chain.save_fig(fig_lat_ind, 'lat_ind')
-    save_chain.save_fig(fig_lat, 'lat')
-    save_chain.save_fig(fig_spec, 'spec')
-    save_chain.save_fig(fig_zm, 'zero_mode')
     plt.show() 
-
+    save_lieb = saveFigTB(sys=eig_lieb, params={'t': t}, dir_name='lieb', ext='png')
+    save_lieb.save_fig(fig_lat_ind, 'lat_ind')
+    save_lieb.save_fig(fig_lat, 'lat')
+    save_lieb.save_fig(fig_spec, 'spec')
+    save_lieb.save_fig(fig_zm, 'zero_mode')
 
 .. image:: ../TBfig/lieb_n65/spec_ea0j_eb-0,2j_ec-0,2j_t(2+0j).png
     :width: 55%
@@ -168,7 +172,7 @@ Odd number of sites :math:`x` and :math:`y`
     :width: 55%
     :align: center
 
-The zero-mode has an maximal amplitude at the defect site.
+The zero-mode has an maximal amplitude at the impurity site.
 
 Alternative hoppings
 ------------------------------------------------------------------------------------------
@@ -180,6 +184,7 @@ Alternative hoppings
 .. code-block:: python
 
     from liebTB import *
+    # lattice
     nx, ny = 5, 5
     ri = [[0, 0], [1, 0], [0, 1]]
     tags = [b'a', b'b', b'c']
@@ -197,18 +202,18 @@ Alternative hoppings
     zero_mode = eig_lieb.get_state_pola(b'a')
     # plots
     plt_lieb = plotLieb(eig_lieb)
-    fig_lat = plt_lieb.plt_lattice(ms=20, plt_hop=True,  c=2.5)
+    fig_lat = plt_lieb.plt_lattice(ms=20, plt_hop=True,  c=5)
     fig_dispersion = plt_lieb.plt_dispersion(ta=ta, tb=tb, tc=tc, td=td)
     fig_spec = plt_lieb.plt_spec(pola_tag=b'a')
     fig_zm = plt_lieb.plt_intensity(zero_mode, s=500)
+    plt.show() 
     # save
     from collections import OrderedDict
-    save_chain = saveFigTB(sys=eig_lieb, params=OrderedDict([('ta', ta), ('tb', tb), ('tc', tc), ('td', td)]), dir_name='lieb', ext='png')
-    save_chain.save_fig(fig_lat, 'lat')
-    save_chain.save_fig(fig_dispersion, 'dispersion')
-    save_chain.save_fig(fig_spec, 'spec')
-    save_chain.save_fig(fig_zm, 'zero_mode')
-    plt.show() 
+    save_lieb = saveFigTB(sys=eig_lieb, params=OrderedDict([('ta', ta), ('tb', tb), ('tc', tc), ('td', td)]), dir_name='lieb', ext='png')
+    save_lieb.save_fig(fig_lat, 'lat')
+    save_lieb.save_fig(fig_dispersion, 'dispersion')
+    save_lieb.save_fig(fig_spec, 'spec')
+    save_lieb.save_fig(fig_zm, 'zero_mode')
 
 
 .. image:: ../TBfig/lieb_n65/dispersion_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png
@@ -236,6 +241,7 @@ Dimerization defect along :math:`x`
 .. code-block:: python
 
     from liebTB import *
+    # lattice
     nx, ny = 5, 5
     ri = [[0, 0], [1, 0], [0, 1]]
     tags = [b'a', b'b', b'c']
@@ -248,24 +254,22 @@ Dimerization defect along :math:`x`
     eig_lieb.set_onsite(on=on)
     ta, tb, tc, td = 2., 1., 2., 1.
     eig_lieb.set_hop_alt(ta=ta, tb=tb, tc=tc, td=td)
+    eig_lieb.set_dim_defect(dim_x=4)
     eig_lieb.get_ham(compl_trans=True)
     eig_lieb.get_eig(eigenvec=True)
     zero_mode = eig_lieb.get_state_pola(b'a')
     # plots
     plt_lieb = plotLieb(eig_lieb)
-    fig_lat = plt_lieb.plt_lattice(ms=20, plt_hop=True,  c=2.5)
-    fig_dispersion = plt_lieb.plt_dispersion(ta=ta, tb=tb, tc=tc, td=td)
-    eig_lieb.set_dim_defect(dim_x=4)
+    fig_lat = plt_lieb.plt_lattice(ms=20, plt_hop=True,  c=5)
     fig_spec = plt_lieb.plt_spec(pola_tag=b'a')
     fig_zm = plt_lieb.plt_intensity(zero_mode, s=500)
+    plt.show() 
     # save
     from collections import OrderedDict
-    save_chain = saveFigTB(sys=eig_lieb, params=OrderedDict([('ta', ta), ('tb', tb), ('tc', tc), ('td', td)]), dir_name='lieb', ext='png')
-    save_chain.save_fig(fig_lat, 'lat')
-    save_chain.save_fig(fig_dispersion, 'dispersion')
-    save_chain.save_fig(fig_spec, 'spec')
-    save_chain.save_fig(fig_zm, 'zero_mode')
-    plt.show() 
+    save_lieb = saveFigTB(sys=eig_lieb, params=OrderedDict([('ta', ta), ('tb', tb), ('tc', tc), ('td', td)]), dir_name='lieb', ext='png')
+    save_lieb.save_fig(fig_lat, 'lat')
+    save_lieb.save_fig(fig_spec, 'spec')
+    save_lieb.save_fig(fig_zm, 'zero_mode')
 
 
 .. image:: ../TBfig/lieb_n65/specX_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png
@@ -290,6 +294,7 @@ Dimerization defect along :math:`x` and :math:`y`
 .. code-block:: python
 
     from liebTB import *
+    # lattice
     nx, ny = 5, 5
     ri = [[0, 0], [1, 0], [0, 1]]
     tags = [b'a', b'b', b'c']
@@ -308,18 +313,16 @@ Dimerization defect along :math:`x` and :math:`y`
     zero_mode = eig_lieb.get_state_pola(b'a')
     # plots
     plt_lieb = plotLieb(eig_lieb)
-    fig_lat = plt_lieb.plt_lattice(ms=20, plt_hop=True,  c=2.5)
-    fig_dispersion = plt_lieb.plt_dispersion(ta=ta, tb=tb, tc=tc, td=td)
+    fig_lat = plt_lieb.plt_lattice(ms=20, plt_hop=True,  c=5)
     fig_spec = plt_lieb.plt_spec(pola_tag=b'a')
     fig_zm = plt_lieb.plt_intensity(zero_mode, s=500)
+    plt.show() 
     # save
     from collections import OrderedDict
-    save_chain = saveFigTB(sys=eig_lieb, params=OrderedDict([('ta', ta), ('tb', tb), ('tc', tc), ('td', td)]), dir_name='lieb', ext='png')
-    save_chain.save_fig(fig_lat, 'lat')
-    save_chain.save_fig(fig_dispersion, 'dispersion')
-    save_chain.save_fig(fig_spec, 'spec')
-    save_chain.save_fig(fig_zm, 'zero_mode')
-    plt.show() 
+    save_lieb = saveFigTB(sys=eig_lieb, params=OrderedDict([('ta', ta), ('tb', tb), ('tc', tc), ('td', td)]), dir_name='lieb', ext='png')
+    save_lieb.save_fig(fig_lat, 'lat')
+    save_lieb.save_fig(fig_spec, 'spec')
+    save_lieb.save_fig(fig_zm, 'zero_mode')
 
 .. image:: ../TBfig/lieb_n65/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png
     :width: 55%
@@ -341,6 +344,7 @@ Diagonal hopping
 .. code-block:: python
 
     from liebTB import *
+    # lattice
     nx, ny = 5, 5
     ri = [[0, 0], [1, 0], [0, 1]]
     tags = [b'a', b'b', b'c']
@@ -361,17 +365,21 @@ Diagonal hopping
     # plots
     plt_lieb = plotLieb(eig_lieb)
     fig_lat = plt_lieb.plt_lattice(ms=20, plt_hop=True,  c=5)
-    fig_dispersion = plt_lieb.plt_dispersion(ta=ta, tb=tb, tc=tc, td=td)
+    fig_dispersion = plt_lieb.plt_dispersion(ta=ta, tb=tb, tc=tc, td=td, nn=.6)
     fig_spec = plt_lieb.plt_spec(pola_tag=b'a')
     fig_zm = plt_lieb.plt_intensity(zero_mode, s=500)
+    plt.show() 
     # save
     from collections import OrderedDict
-    save_chain = saveFigTB(sys=eig_lieb, params=OrderedDict([('ta', ta), ('tb', tb), ('tc', tc), ('td', td), ('nn', .6)]), dir_name='lieb', ext='png')
-    save_chain.save_fig(fig_lat, 'latXY')
-    save_chain.save_fig(fig_spec, 'specXY')
-    save_chain.save_fig(fig_zm, 'zero_modeXY')
-    plt.show() 
+    save = saveFigTB(sys=eig_lieb, params=OrderedDict([('ta', ta), ('tb', tb), ('tc', tc), ('td', td), ('nn', .6)]), dir_name='lieb', ext='png')
+    save.save_fig(fig_dispersion, 'dispersion')
+    save.save_fig(fig_lat, 'latXY')
+    save.save_fig(fig_spec, 'specXY')
+    save.save_fig(fig_zm, 'zero_modeXY')
 
+.. image:: ../TBfig/lieb_n65/dispersion_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_nn(0,6+0j).png
+    :width: 55%
+    :align: center
 
 .. image:: ../TBfig/lieb_n65/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_nn(0,6+0j).png
     :width: 55%
@@ -399,6 +407,7 @@ Generic disorder
 .. code-block:: python
 
     from liebTB import *
+    # lattice
     nx, ny = 5, 5
     ri = [[0, 0], [1, 0], [0, 1]]
     tags = [b'a', b'b', b'c']
@@ -420,17 +429,16 @@ Generic disorder
     zero_mode = eig_lieb.get_state_pola(b'a')
     # plots
     plt_lieb = plotLieb(eig_lieb)
-    fig_lat = plt_lieb.plt_lattice(ms=20, plt_hop=True,  c=5)
-    fig_dispersion = plt_lieb.plt_dispersion(ta=ta, tb=tb, tc=tc, td=td)
+    fig_lat_hop = plt_lieb.plt_lattice_hop(ms=20, lw=2)
     fig_spec = plt_lieb.plt_spec(pola_tag=b'a')
     fig_zm = plt_lieb.plt_intensity(zero_mode, s=500)
+    plt.show() 
     # save
     from collections import OrderedDict
-    save_chain = saveFigTB(sys=eig_lieb, params=OrderedDict([('ta', ta), ('tb', tb), ('tc', tc), ('td', td), ('nn', .6)]), dir_name='lieb', ext='png')
-    save_chain.save_fig(fig_lat, 'latXY')
-    save_chain.save_fig(fig_spec, 'specXY')
-    save_chain.save_fig(fig_zm, 'zero_modeXY')
-    plt.show() 
+    save_lieb = saveFigTB(sys=eig_lieb, params=OrderedDict([('ta', ta), ('tb', tb), ('tc', tc), ('td', td), ('nn', .6)]), dir_name='lieb', ext='png')
+    save_lieb.save_fig(fig_lat_hop, 'lat_hopXY')
+    save_lieb.save_fig(fig_spec, 'specXY')
+    save_lieb.save_fig(fig_zm, 'zero_modeXY')
 
 
 .. image:: ../TBfig/lieb_n65/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_gen(0,9+0j).png
@@ -453,6 +461,7 @@ In the presence of generic disorder, the localized state remains strongly locali
 .. code-block:: python
 
     from liebTB import *
+    # lattice
     nx, ny = 5, 5
     ri = [[0, 0], [1, 0], [0, 1]]
     tags = [b'a', b'b', b'c']
@@ -473,16 +482,16 @@ In the presence of generic disorder, the localized state remains strongly locali
     zero_mode = eig_lieb.get_state_pola(b'a')
     # plots
     plt_lieb = plotLieb(eig_lieb)
-    fig_lat = plt_lieb.plt_lattice(ms=20, plt_hop=True,  c=5)
+    fig_lat_hop = plt_lieb.plt_lattice_hop(ms=20, lw=2)
     fig_spec = plt_lieb.plt_spec(pola_tag=b'a')
     fig_zm = plt_lieb.plt_intensity(zero_mode, s=500)
+    plt.show() 
     # save
     from collections import OrderedDict
-    save_chain = saveFigTB(sys=eig_lieb, params=OrderedDict([('ta', ta), ('tb', tb), ('tc', tc), ('td', td), ('uni', alpha)]), dir_name='lieb', ext='png')
-    save_chain.save_fig(fig_lat, 'lat_hopXY')
-    save_chain.save_fig(fig_spec, 'specXY')
-    save_chain.save_fig(fig_zm, 'zero_modeXY')
-    plt.show() 
+    save_lieb = saveFigTB(sys=eig_lieb, params=OrderedDict([('ta', ta), ('tb', tb), ('tc', tc), ('td', td), ('uni', alpha)]), dir_name='lieb', ext='png')
+    save_lieb.save_fig(fig_lat_hop, 'lat_hopXY')
+    save_lieb.save_fig(fig_spec, 'specXY')
+    save_lieb.save_fig(fig_zm, 'zero_modeXY')
 
 
 .. image:: ../TBfig/lieb_n65/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_uni(0,95+0j).png
@@ -506,6 +515,7 @@ The zero-mode is robust to the uniform disorder.
 .. code-block:: python
 
     from liebTB import *
+    # lattice
     nx, ny = 5, 5
     ri = [[0, 0], [1, 0], [0, 1]]
     tags = [b'a', b'b', b'c']
@@ -526,17 +536,16 @@ The zero-mode is robust to the uniform disorder.
     zero_mode = eig_lieb.get_state_pola(b'a')
     # plots
     plt_lieb = plotLieb(eig_lieb)
-    fig_lat = plt_lieb.plt_lattice(ms=20, plt_hop=True,  c=5)
+    fig_lat_hop = plt_lieb.plt_lattice_hop(ms=20, lw=2)
     fig_spec = plt_lieb.plt_spec(pola_tag=b'a')
     fig_zm = plt_lieb.plt_intensity(zero_mode, s=500)
+    plt.show() 
     # save
     from collections import OrderedDict
-    save_chain = saveFigTB(sys=eig_lieb, params=OrderedDict([('ta', ta), ('tb', tb), ('tc', tc), ('td', td), ('pair', alpha)]), dir_name='lieb', ext='png')
-    save_chain.save_fig(fig_lat, 'lat_hopXY')
-    save_chain.save_fig(fig_spec, 'specXY')
-    save_chain.save_fig(fig_zm, 'zero_modeXY')
-    plt.show() 
-
+    save_lieb = saveFigTB(sys=eig_lieb, params=OrderedDict([('ta', ta), ('tb', tb), ('tc', tc), ('td', td), ('pair', alpha)]), dir_name='lieb', ext='png')
+    save_lieb.save_fig(fig_lat_hop, 'lat_hopXY')
+    save_lieb.save_fig(fig_spec, 'specXY')
+    save_lieb.save_fig(fig_zm, 'zero_modeXY')
 
 .. image:: ../TBfig/lieb_n65/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_pair(0,7+0j).png
     :width: 55%
@@ -558,6 +567,7 @@ The zero-mode is robust to the pair disorder.
 .. code-block:: python
 
     from liebTB import *
+    # lattice
     nx, ny = 5, 5
     ri = [[0, 0], [1, 0], [0, 1]]
     tags = [b'a', b'b', b'c']
@@ -581,15 +591,13 @@ The zero-mode is robust to the pair disorder.
     fig_lat = plt_lieb.plt_lattice_hop(ms=10, lw=2)
     fig_spec = plt_lieb.plt_spec(pola_tag=b'a')
     fig_zm = plt_lieb.plt_intensity(zero_mode, s=500)
+    plt.show() 
     # save
     from collections import OrderedDict
-    save_chain = saveFigTB(sys=eig_lieb, params=OrderedDict([('ta', ta), ('tb', tb), ('tc', tc), ('td', td), ('plack', alpha)]), dir_name='lieb', ext='png')
-    save_chain.save_fig(fig_lat, 'lat_hopXY')
-    save_chain.save_fig(fig_spec, 'specXY')
-    save_chain.save_fig(fig_zm, 'zero_modeXY')
-    plt.show() 
-
-
+    save_lieb = saveFigTB(sys=eig_lieb, params=OrderedDict([('ta', ta), ('tb', tb), ('tc', tc), ('td', td), ('plack', alpha)]), dir_name='lieb', ext='png')
+    save_lieb.save_fig(fig_lat, 'lat_hopXY')
+    save_lieb.save_fig(fig_spec, 'specXY')
+    save_lieb.save_fig(fig_zm, 'zero_modeXY')
 
 .. image:: ../TBfig/lieb_n65/specXY_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j)_plack(0,6+0j).png
     :width: 55%
@@ -685,6 +693,7 @@ Configurations:
     prop_lieb = propTB(lat_lieb, steps=300, dz=.15)
     prop_lieb.get_pump(hams, psi_init=psi_init, norm=True)
     ani = prop_lieb.get_ani(s=180, fs=20)
+    plt.show() 
     # save
     from collections import OrderedDict
     save_lieb = saveFigTB(sys=eig_lieb, params=OrderedDict([('ta', ta), ('tb', tb), ('tc', tc), ('td', td)]), dir_name='lieb', ext='png')
@@ -698,7 +707,6 @@ Configurations:
     save_lieb.save_fig(fig_zm2, 'zm2')
     save_lieb.save_fig(fig_zm3, 'zm3')
     save_lieb.save_ani(ani, 'pump3')
-    plt.show() 
 
 .. image:: ../TBfig/lieb_n176/zm0_ea0j_eb-0,2j_ec-0,2j_ta(2+0j)_tb(1+0j)_tc(2+0j)_td(1+0j).png
     :width: 45%
