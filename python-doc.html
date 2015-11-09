@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>cpoli</title>
+        <link rel="stylesheet" href="main.css" >
+            <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Serif">
+                <link rel="shortcut icon" href="images/cp.ico">
+                    
+    </head>
+    <body id="body">
+        
+        <id id="black-strip">
+        </id>
+        
+        <div id="top_menu">
+            
+            <ul>
+                <li><a href="index.html"><div class="home">Home</div></a></li>
+                <li><a href="publi.html"><div class="publi">lications</div></a></li>
+                <li><a href="thesis.html"> <div class="thesis">sis</div></a></li>
+                <li><a href="vitae.html"> <div class="vitae">ef vitae</div></a></li>
+                <li><a href="prog.html"><div class="prog">gramming</div></a></li>
+            </ul>
+        </div>
+        
+        <header id=top_header>
+            <h1>  Charles Poli, Ph.D. </h1>
+            <h2>Post doc in the Condensed Matter theory Group, </br>
+                Physics Department, Lancaster University.</h2>
+        </header>
+        
+<div id="big_wrapper">
+    
+    <img src="images/python.jpeg" height="150px" style="margin-left:280px;">
+        
+    <article>   
+        <header><h1> <a name="doc"></a> <b> <div class="python">hon installation: a super short documentation  </b></h1></header>
+        </br>
+        
+        
+        <h1>MacOS</h1></br>
+        
+            
+        The Python installation is done using Xcode and MacPorts.
+        </br></br></br>
+        <h2>Get Xcode and Xcode command line tools</h2></br>
+        In a termminal,
+        <div class="shell-wrap">
+            <ul class="shell-body">
+                <li>xcode-select --install </li>
+            </ul>
+        </div>
+        and follow the instructions.
+        </br></br>
+        
+        <h2>Get MacPorts</h2></br>
+
+        Go to  <a href="http://www.macports.org/install.php">http://www.macports.org/install.php</a> and follow the instructions. </br>
+        
+        To upgrade, from time to time, the MacPorts:
+        
+        <div class="shell-wrap">
+        <ul class="shell-body">
+        <li>sudo port selfupdate</li>
+        <li>port upgrade outdated</li>
+        </ul>
+        </div>
+
+        <h2>Get Python</h2></br>
+        The python version that will be installed is the 3.4. </br>
+        If you want to install a version XX, just replace in the commands 34 by XX.</br>
+        In a terminal:
+        <div class="shell-wrap">
+        <ul class="shell-body">
+        <li>sudo port install python34</li>
+        <li># scientific librairies</li>
+        <li>sudo port install py34-scipy py34-numpy py34-matplotlib</li>
+        <li># notebook</li>
+        <li>sudo port install py34-tornado py34-zmq  # to use notebook parallel)</li>
+        <li>sudo port install py34-ipython +notebook +parallel py34-jupyter</li>
+        <li># machine learning librairies</li>
+        <li>sudo port install py34-pandas py34-scikit-learn py34-seaborn</li>
+        </ul>
+        </div>
+        
+        And it's done!
+        
+        </br></br></br>
+        
+        <h2>Check Python</h2></br>
+        
+        In a terminal, launch python:
+        
+        
+        <div class="shell-wrap">
+            <ul class="shell-body">
+                <li>python</li>
+            </ul>
+        </div>
+        
+        and copy paste the following Python commands. </br>
+        
+        To rapidly check the scientific modules:
+        
+        <div class="shell-wrap">
+            <ul class="shell-body">
+                <li>import numpy as np</li>
+                <li>import scipy.sparse  as sparse</li>
+                <li>import matplotlib.pyplot as plt</li>
+                
+                <li>d0 = 9*np.ones(10)</li>
+                <li>d1 = np.arange(9)</li>
+                <li>m = sparse.diags([d1, d0, d1], [-1, 0, 1])</li>
+                <li>print(m.toarray())</li>
+                
+                <li>a_min, a_max = -1.5, 1.5</li>
+                <li>a = np.linspace(a_min, a_max, 100)</li>
+                <li>x, y = np.meshgrid(a, a)</li>
+                <li>z = np.exp(-x*x-y*y)</li>
+                <li>fig, ax = plt.subplots()</li>
+                
+                <li>ax.imshow(z, extent=[a_min, a_max, a_min, a_max])</li>
+                <li>plt.show()</li>
+            </ul>
+        </div>
+        
+        To rapidly check the machine learning modules:
+        <div class="shell-wrap">
+            <ul class="shell-body">
+                <li>import pandas as pd</li>
+                <li>import matplotlib.pyplot as plt</li>
+                <li>import seaborn as sns</li>
+                <li>sns.set_style('whitegrid')</li>
+                <li>from pandas.io.data import DataReader</li>
+                <li>from datetime import datetime</li>
+                </br>
+                <li>stocks = ['AAPL', 'NFLX', 'FB']</li>
+                <li>end = datetime.now()</li>
+                <li>start = datetime(end.year-1, end.month, end.day)</li>
+                <li>closing_df = DataReader(stocks, 'yahoo', start, end)['Adj Close']</li>
+                <li>closing_df.plot(legend=True, figsize=(10, 4), lw=3)</li>
+                <li>return_df = closing_df.pct_change()</li>
+                <li>sns.pairplot(return_df .dropna(), size=3)</li>
+                <li>plt.draw()</li>
+                <li>plt.show()</li>
+            </ul>
+        </div>
+        
+        <h2>Other tools</h2></br>
+        <h3>Git</h3>
+        
+        <div class="shell-wrap">
+        <ul class="shell-body">
+        <li>sudo port install git</li>
+        <li>git config --global user.name "Alex Dumas"</li>
+        <li>git config --global user.email alex@dumas.fr</li>
+        </ul>
+        </div>
+
+        One can then install packages from GitHub:
+        
+        <div class="shell-wrap">
+        <ul class="shell-body">
+        <li>git clone https://github.com/jakevdp/JSAnimation </li>
+        <li># I picked up a package to create animations in python notebooks </li>
+        <li>cd JSAnimation</li>
+        <li>python setup.py build</li>
+        <li>sudo python setup.py install</li>
+        </ul>
+        </div>
+        
+        <h3>Text Editors / IDEs</h3></br>
+
+        Xcode (for mac users)
+        <br>
+        Note that Xcode is aleady installed.
+        <div class="shell-wrap">
+        <ul class="shell-body">
+        <li>touch test.py  # create an empty file</li>
+        <li>open test.py   # open the file with Xcode</li>
+        </ul>
+        </div>
+        
+        Sublime
+        <br>
+        Download <a href="http://www.sublimetext.com/3">http://www.sublimetext.com/3</a> and install Sublime.
+        <br>
+        To call Sublime from the Terminal:
+        <div class="shell-wrap">
+        <ul class="shell-body">
+        <li>sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/bin</li>
+        </ul>
+        </div>
+        Then, to open a file using Sublime:
+        <div class="shell-wrap">
+        <ul class="shell-body">
+        <li>touch test.py</li>
+        <li>subl test.py</li>
+        </ul>
+        </div>
+
+        Emacs
+        <div class="shell-wrap">
+        <ul class="shell-body">
+        <li>sudo port install emacs</li>
+        <li>sudo port install emacs-app</li>
+        <li>emacs test.py  # open the file in the terminal</li>
+        </ul>
+        </div>
+        To use your alt and meta keys as usual <br>
+        Go to “Emacs”  → “Preferences”  → “Environment” → “Ns : GNUstep/Mac OS X specific features”<br>
+        and change the following: <br>
+        &nbsp;&nbsp;“Ns Command Modifier”  → “meta“ <br>
+        &nbsp;&nbsp;“Ns Alternate Modifier”  → “No modifier“ <br>
+        <br>
+        To change the background and mouse color <br>
+        &nbsp;&nbsp;open your “~/.emacs“ <br>
+        &nbsp;&nbsp;paste the following code snippet: <br>
+        &nbsp;&nbsp;(setq default-frame-alist <br>
+        &nbsp;&nbsp;(append default-frame-alist <br>
+        &nbsp;&nbsp;'((foreground-color . "LawnGreen") <br>
+        &nbsp;&nbsp;(background-color . "Black") <br>
+        &nbsp;&nbsp;(cursor-color . "LawnGreen")))) <br>
+         <br>
+        IPython notebook
+        
+        <div class="shell-wrap">
+        <ul class="shell-body">
+        <li>ipython notebook</li>
+        </ul>
+        </div>
+        
+         <h1>Ubuntu</h1></br>
+        Just go to the Mac section and replace
+        <div class="shell-wrap">
+            <ul class="shell-body">
+                <li>sudo port</li>
+            </ul>
+        </div>
+         by
+        <div class="shell-wrap">
+            <ul class="shell-body">
+                <li>sudo get-apt</li>
+            </ul>
+        </div>
+
+    <h1>Debian</h1></br>
+    Just go to the Mac section and replace
+    <div class="shell-wrap">
+             <ul class="shell-body">
+                 <li>sudo port</li>
+             </ul>
+         </div>
+         by
+         <div class="shell-wrap">
+             <ul class="shell-body">
+                 <li>sudo yum</li>
+             </ul>
+         </div>
+
+    <h1>Windows</h1></br>
+    <!--
+    <h2>Get PowerShell</h2></br>
+    Download and install the last version of Windows Management Framework
+    <a href="https://www.microsoft.com/en-us/download/details.aspx?id=40855">https://www.microsoft.com/en-us/download/details.aspx?id=40855</a>.
+    https://www.microsoft.com/en-us/download/details.aspx?id=40855
+    -->
+    <h2>Get Python</h2></br>
+    Download and execute a Python version
+    <a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>. </br>
+    
+    Just go to the Mac section and replace
+    <div class="shell-wrap">
+        <ul class="shell-body">
+            <li>sudo port</li>
+        </ul>
+    </div>
+    by
+    <div class="shell-wrap">
+        <ul class="shell-body">
+            <li>pip</li>
+        </ul>
+    </div>
+    You can also download the unofficial Windows binaries from
+     <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">http://www.lfd.uci.edu/~gohlke/pythonlibs</a>
+
+        </article>
+            
+            
+            
+            

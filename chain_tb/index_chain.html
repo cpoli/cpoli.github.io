@@ -1,0 +1,227 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tight-Binding Chain &mdash; chain_tb  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="author" title="About these documents"
+              href="about.html"/>
+    <link rel="top" title="chain_tb  documentation" href="index.html"/>
+        <link rel="next" title="About" href="about.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="#" class="fa fa-home"> chain_tb</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="about.html#motivations">Motivations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#references">References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#feedback">Feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="code.html">Code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="code.html#chain-tb">chain_tb</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples_1.html">Zero modes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples_1.html#identical-hoppings-with-an-impurity">Identical hoppings with an impurity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples_1.html#alternating-hoppings">Alternating hoppings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples_1.html#dimerization-defect">Dimerization defect</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples_2.html">PT-symmetry / PT-symmetry breaking</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples_2.html#dimer">Dimer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples_2.html#dimer-chain">Dimer chain</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">chain_tb</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+      
+    <li>Tight-Binding Chain</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/index_chain.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="tight-binding-chain">
+<h1>Tight-Binding Chain<a class="headerlink" href="#tight-binding-chain" title="Permalink to this headline">¶</a></h1>
+<p><strong>chain_tb</strong> is a package providing a Python implementation of a finite one dimensional tight-binding chain. It can be used to build up and solve tight-binding models with complex valued onsite energies and/or hoppings. As such, this package can be used to analyze Parity-Time symmetry, Parity-Time symmetry breaking, zero-mode states, and topological protection.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p><strong>chain_tb</strong> is available at <a class="reference external" href="https://github.com/cpoli/chain_tb">https://github.com/cpoli/chain_tb</a></p>
+<p>To use <strong>chain_tb</strong>,  you need to install the programming language python and four additional packages:</p>
+<blockquote>
+<div><ul class="simple">
+<li>python 3.x</li>
+<li>numpy</li>
+<li>scipy</li>
+<li>matplotlib</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="quick-example">
+<h2>Quick example<a class="headerlink" href="#quick-example" title="Permalink to this headline">¶</a></h2>
+<p>This example shows how to define a chain of 21 sites with alternating hoppings and a defect in the dimerization pattern. Below is the source code and some plots. Here you can find more <a class="reference external" href="examples.html">examples</a>.</p>
+<img alt="_images/lattice_dimDef_101.png" src="_images/lattice_dimDef_101.png" />
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">chain_tb</span> <span class="kn">import</span> <span class="o">*</span> <span class="c"># import chain_tb model class</span>
+
+<span class="n">ch</span> <span class="o">=</span> <span class="n">chain_tb</span><span class="p">(</span><span class="n">sites</span><span class="o">=</span><span class="mi">21</span><span class="p">,</span> <span class="n">ta</span><span class="o">=</span><span class="mf">2.</span><span class="p">,</span> <span class="n">tb</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span>
+<span class="n">ch</span><span class="o">.</span><span class="n">set_def_dim</span><span class="p">([</span><span class="mi">10</span><span class="p">])</span>
+<span class="n">ch</span><span class="o">.</span><span class="n">plt_lattice</span><span class="p">(</span><span class="n">ms</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">coef</span><span class="o">=</span><span class="mf">4.</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">ch</span><span class="o">.</span><span class="n">get_eig</span><span class="p">()</span>
+<span class="n">ch</span><span class="o">.</span><span class="n">get_density_selec</span><span class="p">(</span><span class="n">selection</span><span class="o">=</span><span class="s">&#39;max_pola&#39;</span><span class="p">)</span>
+<span class="n">ch</span><span class="o">.</span><span class="n">plt_spec_pola</span><span class="p">(</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">ch</span><span class="o">.</span><span class="n">plt_density_selec</span><span class="p">(</span><span class="n">ms</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">ch</span><span class="o">.</span><span class="n">plt_show</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/spec_pola_dimDef_101.png"><img alt="_images/spec_pola_dimDef_101.png" src="_images/spec_pola_dimDef_101.png" style="width: 48%;" /></a>
+<a class="reference internal image-reference" href="_images/states_dimDef_101.png"><img alt="_images/states_dimDef_101.png" src="_images/states_dimDef_101.png" style="width: 48%;" /></a>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="about.html" class="btn btn-neutral float-right" title="About">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Charles Poli.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

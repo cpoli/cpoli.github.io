@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>cpoli</title>
+        <link rel="stylesheet" href="main.css" >
+            <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Serif">
+                <link rel="shortcut icon" href="images/cp.ico">
+                    
+                    </head>
+    <body id="body">
+        
+        <id id="black-strip">
+        </id>
+        
+        <div id="top_menu">
+            
+            <ul>
+                <li><a href="index.html"><div class="home">Home</div></a></li>
+                <li><a href="publi.html"><div class="publi">lications</div></a></li>
+                <li><a href="thesis.html"> <div class="thesis">sis</div></a></li>
+                <li><a href="vitae.html"> <div class="vitae">ef vitae</div></a></li>
+                <li><a href="prog.html"><div class="prog">gramming</div></a></li>
+            </ul>
+        </div>
+        
+        <header id=top_header>
+            <h1>  Charles Poli, Ph.D. </h1>
+            <h2>Post doc in the Condensed Matter theory Group, </br>
+                Physics Department, Lancaster University.</h2>
+        </header>
+        
+        
+        
+<div id="big_wrapper">	
+		
+    <img src="images/git.png" height="120px" style="margin-left:250px;">
+
+<article>
+    <header><h1> <a name="doc"></a> <b> <div class="git">: a super short documentation  </b></h1></header>
+    </br>
+    
+    Git is a distributed revision control system, it allows to:
+    <ul>
+    <li> keep track of the changes. </li>
+    <li> find out what has been changed.</li>
+    <li> store the project at desired moments in time (i.e. perform backups - produce project versions).</li>
+    <li> recover an earlier version.</li>
+    </ul>
+ To do so, Git stores the different versions of your project in a repository located in your project directory.
+    
+    </br></br>
+    <h1> Installation </h1>
+    </br>
+    Visit the website      <a href="http://git-scm.com">http://git-scm.com</a>
+     to download Git and find the complete documentation. </br>
+    During the installation, select Git from Git bash only. When this is done, </br>
+    for Mac/Linux:</br>
+    &nbsp;&nbsp;launch a Terminal.</br>
+    for Windows: </br>
+    &nbsp;&nbsp;menu → Git → Git Bash</br>
+    
+    </br></br>
+    <header> <h1> Create a Git account </h1> </header>
+    
+    <div class="shell-wrap">
+    <ul class="shell-body">
+        <li>git config --global user.name "Alex Dumas"</li>
+        <li>git config --global user.email ”alex@dumas.fr”</li>
+    </ul>
+    </div>
+
+     <h1> Git commands </h1>
+    </br>
+    <h2>initialize Git</h2>
+    </br>
+Go to the project directory using Terminal/Powershell:
+<div class="shell-wrap">
+<ul class="shell-body">
+<li>cd project </li>
+<li>git init</li>
+</ul>
+</div>
+The last command will create a hidden Git repository.
+</br></br>
+<h2>First backup (commit)</h2>
+</br>
+
+The first commit is done in 2 steps:
+<div class="shell-wrap">
+<ul class="shell-body">
+    <li>git add .</li>
+    <li>git commit -m ”first comments”</li>
+</ul>
+</div>
+The first command sends the files from the Working area to the Staging area. </br>
+The second command sends the files from the Staging area to the Repository. </br>
+</br>
+<h2> Next commits</h2>
+<div class="shell-wrap">
+<ul class="shell-body">
+    <li>git commit -am ”new comments”
+</li>
+</ul>
+</div>
+</br>
+<h2> Useful commands </h2>
+</br>
+Check the difference between the working copy and the repository.
+<div class="shell-wrap">
+<ul class="shell-body">
+    <li>git status</li>
+</ul>
+</div>
+
+Get commit history
+<div class="shell-wrap">
+<ul class="shell-body">
+    <li>git log</li>
+</ul>
+</div>
+
+Delete a Git project
+<div class="shell-wrap">
+<ul class="shell-body">
+    <li>rm -rf .git</li>
+</ul>
+</div>
+
+
+ <h2> An Example </h2>
+<br>
+creation of a folder containing a very simple file:
+<div class="shell-wrap">
+    <ul class="shell-body">
+    <li>mkdir git-test
+    <li>cd git-test
+    <li>emacs file.txt
+</div>
+File.txt:
+<div style="border:3px solid black; margin: 30px 355px 30px 80px; ">
+    one line
+</div>
+
+Git initialization
+<div class="shell-wrap">
+<ul class="shell-body">
+<li> git init <br>
+
+&nbsp;&nbsp;    Initialized empty Git repository in /Users/adumas/git-test/.git/<br>
+</div>
+
+Git first commit
+<div class="shell-wrap">
+    <ul class="shell-body">
+<li> git add . </li>
+<li>git commit -m "first commit: 1 text file" </li>
+&nbsp;&nbsp;[master (root-commit) 209f961] first commit: 1 text file<br>
+&nbsp;&nbsp;1 file changed, 1 insertion(+)<br>
+&nbsp;&nbsp;create mode 100644 file.txt<br>
+</div>
+
+check the repository
+<div class="shell-wrap">
+    <ul class="shell-body">
+<li>git log</li>
+&nbsp;&nbsp;commit 209f961f9c8cfaad8f5689d354faa240ee161f7b<br>
+&nbsp;&nbsp;Author: Alex Dumas "alex@dumas.fr"<br>
+&nbsp;&nbsp;Date:   Sat May 16 17:27:06 2015 +0100
+   </br>
+&nbsp;&nbsp;first commit: 1 text file<br>
+    </ul>
+</div>
+
+modification the text file </br>
+<div style="border:3px solid black; margin: 30px 355px 30px 80px; ">
+    first line </br>
+    second line  </br>
+    third line  </br>
+</div>
+
+check the difference between the working area and the repository:
+<div class="shell-wrap">
+<ul class="shell-body">
+<li>git diff file.txt</li>
+&nbsp;&nbsp;diff --git a/file.txt b/file.txt </br>
+&nbsp;&nbsp;index e3c0674..ae0d792 100644</br>
+&nbsp;&nbsp;--- a/file.txt</br>
+&nbsp;&nbsp;+++ b/file.txt</br>
+&nbsp;&nbsp;@@ -1 +1,3 @@</br>
+&nbsp;&nbsp;-one line</br>
+&nbsp;&nbsp;+first line</br>
+&nbsp;&nbsp;+second line</br>
+&nbsp;&nbsp;+third line</br>
+</ul>
+</div>
+
+Commit the new file
+<div class="shell-wrap">
+<ul class="shell-body">
+<li>    git commit -am "second commit: 3 lines"</li>
+&nbsp;&nbsp;    [master e869c09] second commit: 3 lines <br>
+&nbsp;&nbsp;   1 file changed, 3 insertions(+), 1 deletion(-) <br>
+    </ul>
+</div>
+
+Check the commits history
+<div class="shell-wrap">
+<ul class="shell-body">
+<li> git log</li>
+&nbsp;&nbsp;commit e869c09ec49f611828ac45d48a5ea1106a806ac4 <br>
+&nbsp;&nbsp;Author: Alex Dumas "alex@dumas.fr"<br>
+&nbsp;&nbsp;Date:   Sat May 16 17:28:57 2015 +0100<br>
+&nbsp;&nbsp;second commit: 3 lines<br>
+&nbsp;&nbsp;commit 209f961f9c8cfaad8f5689d354faa240ee161f7b<br>
+&nbsp;&nbsp;Author: Alex Dumas "alex@dumas.fr"<br>
+&nbsp;&nbsp;Date:   Sat May 16 17:27:06 2015 +0100<br>
+&nbsp;&nbsp;first commit: 1 text file<br>
+    </ul>
+</div>
+
+Note that a tracking number is associated to each commit: </br></br>
+
+the first commit has the  tracking number:</br>
+209f961f9c8cfaad8f5689d354faa240ee161f7b</br>
+</br>
+the second commit has the tracking number: </br>
+    e869c09ec49f611828ac45d48a5ea1106a806ac4</br>
+</br>
+Now, let's go back to the first commit:
+<div class="shell-wrap">
+<ul class="shell-body">
+    <li>git checkout 209f961f9c8cf -- file.txt  </li>
+    <li># note that the full tracking number is not needed </li>
+</ul>
+</div>
+
+Commit the new version
+<div class="shell-wrap">
+<ul class="shell-body">
+     <li>git commit -am "third commit: going back to first commit"</li>
+</ul>
+</div>
+Last check of the commits history
+<div class="shell-wrap">
+<ul class="shell-body">
+<li> git log </li>
+&nbsp;&nbsp;commit 7cd3dc1a4c2bf9a974231c666f0c5b9b0ae49987</br>
+&nbsp;&nbsp;Author: Alex Dumas "alex@dumas.fr"</br>
+&nbsp;&nbsp;Date:   Sat May 16 17:30:34 2015 +0100</br>
+&nbsp;&nbsp;third commit: going back to first commit</br>
+&nbsp;&nbsp;commit e869c09ec49f611828ac45d48a5ea1106a806ac4</br>
+&nbsp;&nbsp;Author: Alex Dumas alex@dumas.fr</br>
+&nbsp;&nbsp;Date:   Sat May 16 17:28:57 2015 +0100</br>
+&nbsp;&nbsp;second commit: 3 lines</br>
+&nbsp;&nbsp;commit 209f961f9c8cfaad8f5689d354faa240ee161f7b</br>
+&nbsp;&nbsp;Author: Alex Dumas alex@dumas.fr</br>
+&nbsp;&nbsp;Date:   Sat May 16 17:27:06 2015 +0100</br>
+&nbsp;&nbsp;first commit: 1 text file
+    </ul>
+ </div>
+
+
+<footer id="thefooter">
+	<small>&copy; Copyright cpoli 2014</small>
+</footer>  
+
+
+
+</body>
+
+</html>
+<!--
+ <div class="shell-wrap">
+ <ul class="shell-body">
+ <li>cd /Users/project </li>
+ <li>git init</li>
+ </ul>
+ </div>
+ -->

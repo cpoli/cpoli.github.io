@@ -1,0 +1,521 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Code &mdash; graphene_flake  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="author" title="About these documents"
+              href="about.html"/>
+    <link rel="top" title="graphene_flake  documentation" href="index.html"/>
+        <link rel="next" title="Examples" href="examples.html"/>
+        <link rel="prev" title="About" href="about.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+          <center>
+              <a href="../index.html"><div class="test"> <img src = "../images/house.jpg"
+                  height="30px"/></a>
+          </center>
+          <a href="index_graphene.html" class="fa fa-home"> graphene_flake</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="about.html#motivations">Motivations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#references">References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="about.html#feedback">Feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#graphene-flake">graphene_flake</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#triaxial-linear-strain">Triaxial linear strain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#strained-hexagonal-flake">Strained hexagonal flake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#strained-triangular-flake">Strained triangular flake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#strained-triangular-flake-with-3-cuts">Strained triangular flake with 3 cuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#strained-triangular-flake-with-6-cuts">Strained triangular flake with 6 cuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#strained-hexagonal-flake-with-a-vortex">Strained hexagonal flake with a vortex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#strained-triangular-flake-with-a-vortex">Strained triangular flake with a vortex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#hofstadter-butterfly">Hofstadter butterfly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#vacancy-defect">Vacancy defect</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index_graphene.html">graphene_flake</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index_graphene.html">Docs</a> &raquo;</li>
+      
+    <li>Code</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/code.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="code">
+<h1>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<span class="target" id="module-graphene_flake"></span><div class="section" id="graphene-flake">
+<h2>graphene_flake<a class="headerlink" href="#graphene-flake" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>graphene_flake</strong> package models a tight-binding graphene flake submitted to
+inhomenehous strain leading to a uniform pseudo magnetic field and pseudo Landau
+levels (pLLs).</p>
+<p><strong>graphene_flake</strong> is available at <a class="reference external" href="https://github.com/cpoli/graphene_flake">https://github.com/cpoli/graphene_flake</a></p>
+<dl class="class">
+<dt id="graphene_flake.graphene_flake">
+<em class="property">class </em><code class="descclassname">graphene_flake.</code><code class="descname">graphene_flake</code><span class="sig-paren">(</span><em>t_1</em>, <em>t_2</em>, <em>t_3</em>, <em>ext</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/graphene_flake.html#graphene_flake"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphene_flake.graphene_flake" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>This is the mother class of the <strong>graphene_flake</strong> package which solve
+the eigenvalue problem, plot the spectrum, and get the Hofstater butterfly.
+The methods of this class are generic and works for any kind of flake.</p>
+<p>Example usage:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#           |</span>
+<span class="c">#           B</span>
+<span class="c">#         /   \</span>
+<span class="c">#        A      A</span>
+<span class="c">#</span>
+<span class="c">#   with the three hoppings:</span>
+<span class="c">#        t_1    |</span>
+<span class="c">#        t_2    /</span>
+<span class="c">#        t_3    \</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>t_1</strong> &#8211; Hopping parameter t_1.</li>
+<li><strong>t_2</strong> &#8211; Hopping parameter t_2.</li>
+<li><strong>t_3</strong> &#8211; Hopping parameter t_3.</li>
+<li><strong>ext</strong> &#8211; Format of the figures to be saved.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="graphene_flake.graphene_flake.get_indices">
+<code class="descname">get_indices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/graphene_flake.html#graphene_flake.get_indices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphene_flake.graphene_flake.get_indices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the indices associated with A and B sublattices.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphene_flake.graphene_flake.get_eig_lin_strain">
+<code class="descname">get_eig_lin_strain</code><span class="sig-paren">(</span><em>strain</em>, <em>eig_vec=False</em>, <em>vortex=False</em>, <em>vacancy=False</em>, <em>row_vacancy=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/graphene_flake.html#graphene_flake.get_eig_lin_strain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphene_flake.graphene_flake.get_eig_lin_strain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build up the Hamiltonian <img class="math" src="_images/math/48f75e0b463f2fdb7fca9566cffdc439cae6967f.png" alt="H"/> and solve the eigenvalue problem
+<img class="math" src="_images/math/a7a5314c2eb3407c9df9b87dc6009305a82be68f.png" alt="H|\psi_n\rangle=E_n|\psi_n\rangle"/>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>strain</strong> &#8211; Default value 0. Strength of the strain.</li>
+<li><strong>eig_vec</strong> &#8211; Default value False. Get and store the eigenvectors.</li>
+<li><strong>vortex</strong> &#8211; Default value False. Create a vortex at the middle of flake.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The vortex is created by changing the sign of the hopppings
+<img class="math" src="_images/math/9a391c0b7801da4aa6df13931eebacf5493983fa.png" alt="t_1\rightarrow -t_1"/>, for half of the bonds in the row
+at the middle of the flake.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>vacancy</strong> &#8211; Default value False. Create a vacancy-defect.</li>
+<li><strong>row_vacancy</strong> &#8211; Defect value 0. Row index of the vacancy defect. 
+The vacancy defect is located at the center of the row.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphene_flake.graphene_flake.get_states_selec">
+<code class="descname">get_states_selec</code><span class="sig-paren">(</span><em>e_min</em>, <em>e_max</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/graphene_flake.html#graphene_flake.get_states_selec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphene_flake.graphene_flake.get_states_selec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get, if any, the wave function support of the states between <em>e_min</em> and <em>e_max</em>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphene_flake.graphene_flake.get_butterfly">
+<code class="descname">get_butterfly</code><span class="sig-paren">(</span><em>nbr_points=100, ener_lim=[-2.0, 2.0], vortex=False, save=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/graphene_flake.html#graphene_flake.get_butterfly"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphene_flake.graphene_flake.get_butterfly" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="graphene_flake.graphene_flake.plt_spec">
+<code class="descname">plt_spec</code><span class="sig-paren">(</span><em>nbr_bins=101, ener_lim=[-1.0, 1.0], ms=10, plt_pola=False, save=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/graphene_flake.html#graphene_flake.plt_spec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphene_flake.graphene_flake.plt_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the spectrum in two different ways:</p>
+<blockquote>
+<div><ul class="simple">
+<li>energy level staircase.</li>
+<li>number of states (histogram).</li>
+</ul>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nbr_bins</strong> &#8211; Default value 101. Number of bins of the histogram.</li>
+<li><strong>ener_lim</strong> &#8211; Default value [-1.5, 1.5]. list of the energy min and max.</li>
+<li><strong>ms</strong> &#8211; Default value 10. Size of the markers.</li>
+<li><strong>plt_pola</strong> &#8211; Default value False. Plot the A sublattice polarization.</li>
+<li><strong>save</strong> &#8211; Default value False. Save the two figures.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphene_flake.graphene_flake.plt_states_selec">
+<code class="descname">plt_states_selec</code><span class="sig-paren">(</span><em>lw=1</em>, <em>coef=100000.0</em>, <em>fontsize=20</em>, <em>plt_sites=False</em>, <em>plt_bonds=False</em>, <em>plt_axis=False</em>, <em>save=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/graphene_flake.html#graphene_flake.plt_states_selec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphene_flake.graphene_flake.plt_states_selec" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Plot the sum of the probability densities satisfying the condition</dt>
+<dd>imposed by the method <em>get_states_cond</em>.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lw</strong> &#8211; Default value 1. Line width of the bonds.</li>
+<li><strong>coef</strong> &#8211; Default value 100000. Increase the area of the circles by a factor <em>coef</em>.</li>
+<li><strong>fontsize</strong> &#8211; Default value 20. Size of the font used for the axis labels and the title.</li>
+<li><strong>plt_sites</strong> &#8211; Default True. Plot the sites.</li>
+<li><strong>plt_bonds</strong> &#8211; Default value False. Plot the bonds.</li>
+<li><strong>plt_bonds</strong> &#8211; Default value False. Plot the sites.</li>
+<li><strong>save</strong> &#8211; Default value False. Save the figures.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphene_flake.graphene_flake.plt_lattice">
+<code class="descname">plt_lattice</code><span class="sig-paren">(</span><em>lw=1</em>, <em>s=100</em>, <em>plt_sites=True</em>, <em>plt_bonds=True</em>, <em>plt_axis=False</em>, <em>save=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/graphene_flake.html#graphene_flake.plt_lattice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphene_flake.graphene_flake.plt_lattice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the lattice. Blue points correspond to the A sublattice.
+Red points correspond the the B sublattice.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lw</strong> &#8211; Default value 1. Line width of the bonds.</li>
+<li><strong>s</strong> &#8211; Default value 100. Area of each marker.</li>
+<li><strong>plt_sites</strong> &#8211; Default True. Plot the sites.</li>
+<li><strong>plt_bonds</strong> &#8211; Default True. Plot the bonds.</li>
+<li><strong>plt_axis</strong> &#8211; Default False. Plot the axis.</li>
+<li><strong>save</strong> &#8211; Default False. Save the figure.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphene_flake.graphene_flake.plt_lattice_hop">
+<code class="descname">plt_lattice_hop</code><span class="sig-paren">(</span><em>lw=1</em>, <em>s=100</em>, <em>real_mw=False</em>, <em>plt_axis=False</em>, <em>plt_sites=True</em>, <em>plt_bonds=True</em>, <em>save=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/graphene_flake.html#graphene_flake.plt_lattice_hop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphene_flake.graphene_flake.plt_lattice_hop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the lattice in hopping space.
+Blue points correspond to the A sublattice.
+Red points correspond the the B sublattice.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lw</strong> &#8211; Default value 1. Line width of the bonds.</li>
+<li><strong>s</strong> &#8211; Default value 100. Area of each marker.</li>
+<li><strong>real_mw</strong> &#8211; Default value False. Plot the lattice in real space considering
+the microwave regime (<img class="math" src="_images/math/d6f3204604a3ccaaf37c445b31a265f29e4657e9.png" alt="t\approx 10"/> and <img class="math" src="_images/math/9076f54aec481fafdc3b4c9e4c35969969652c8d.png" alt="d\approx 10mm"/>)</li>
+<li><strong>plt_sites</strong> &#8211; Default False. Plot the sites.</li>
+<li><strong>plt_bonds</strong> &#8211; Default False. Plot the bonds.</li>
+<li><strong>plt_axis</strong> &#8211; Default False. Plot the axis.</li>
+<li><strong>save</strong> &#8211; Default False. Save the figure.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphene_flake.graphene_flake.plt_bonds">
+<code class="descname">plt_bonds</code><span class="sig-paren">(</span><em>coor_x</em>, <em>coor_y</em>, <em>lw=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/graphene_flake.html#graphene_flake.plt_bonds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphene_flake.graphene_flake.plt_bonds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the bonds of the lattice.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphene_flake.graphene_flake.check_dir">
+<code class="descname">check_dir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/graphene_flake.html#graphene_flake.check_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphene_flake.graphene_flake.check_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create if the directory to store the figures exists.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphene_flake.graphene_flake.plt_show">
+<code class="descname">plt_show</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/graphene_flake.html#graphene_flake.plt_show"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphene_flake.graphene_flake.plt_show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Duplicate the matplotlib method <em>show</em> to avoid importing
+matplotlib to plot on screen the figures generated
+by the <strong>graphene_flake</strong> class.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="graphene_flake.tri_to_hexa_zz">
+<em class="property">class </em><code class="descclassname">graphene_flake.</code><code class="descname">tri_to_hexa_zz</code><span class="sig-paren">(</span><em>sites_base</em>, <em>sites_cut=0</em>, <em>t_1=1.0</em>, <em>t_2=1.0</em>, <em>t_3=1.0</em>, <em>ext='png'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/graphene_flake.html#tri_to_hexa_zz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphene_flake.tri_to_hexa_zz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#graphene_flake.graphene_flake" title="graphene_flake.graphene_flake"><code class="xref py py-class docutils literal"><span class="pre">graphene_flake.graphene_flake</span></code></a></p>
+<blockquote>
+<div>This is a child class of <strong>graphene_flake</strong>. <strong>tri_to_hexa_zz</strong> models
+a triangular flake and the transition from triangular to hexagonal flake.
+The transition is obtained but cutting the edges of the triangular flake.</div></blockquote>
+<p>Example usage:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Triangular flake with one 3 sites at the base:</span>
+<span class="c">#                A                        8</span>
+<span class="c">#                |                        |</span>
+<span class="c">#                B                        7</span>
+<span class="c">#              /   \                    /   \</span>
+<span class="c">#            A       A                5       6</span>
+<span class="c">#            |       |                |       |</span>
+<span class="c">#            B       B                3       4</span>
+<span class="c">#          /   \   /   \            /   \   /   \</span>
+<span class="c">#         A      A      A          0      1      2</span>
+<span class="c">#</span>
+<span class="c">#</span>
+<span class="c"># Triangular flake with one 3 sites at the base and 1 cut:</span>
+<span class="c">#           B                        7</span>
+<span class="c">#         /   \                    /   \</span>
+<span class="c">#       A       A                5       6</span>
+<span class="c">#       |       |                |       |</span>
+<span class="c">#       B       B                3       4</span>
+<span class="c">#         \   /                    \   /</span>
+<span class="c">#           A                        1</span>
+<span class="c">#</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sites_base</strong> &#8211; Number of A sites at the base of the triangle. Min value 3.</li>
+<li><strong>sites_cut</strong> &#8211; <p>Default value 0. Number of cuts.</p>
+<ul>
+<li>triangle: sites_cut = 0.</li>
+<li>hexagon 0 &lt; sites_cut <img class="math" src="_images/math/ed29d96c4b9da62698bd017a1ac0972f0f5a55be.png" alt="\le"/> (sites_base+2)/3.</li>
+<li>regular hexagon: sites_cut = (sites_base+2)/3.<blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">3*sites_cut*-2 <img class="math" src="_images/math/ed29d96c4b9da62698bd017a1ac0972f0f5a55be.png" alt="\le"/> <em>sites_base</em>.</p>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><strong>t_1</strong> &#8211; Default value 1. Hopping parameter t_1.</li>
+<li><strong>t_2</strong> &#8211; Default value 1. Hopping parameter t_2.</li>
+<li><strong>t_3</strong> &#8211; Default value 1. Hopping parameter t_2.</li>
+<li><strong>ext</strong> &#8211; Default value &#8216;png&#8217;. Format of the saved figures.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="graphene_flake.tri_to_hexa_zz.get_lin_strain_lims">
+<code class="descname">get_lin_strain_lims</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/graphene_flake.html#tri_to_hexa_zz.get_lin_strain_lims"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphene_flake.tri_to_hexa_zz.get_lin_strain_lims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the maximal negative and positive strain keeping the hoppings positive.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphene_flake.tri_to_hexa_zz.get_coor_lin_strain">
+<code class="descname">get_coor_lin_strain</code><span class="sig-paren">(</span><em>hop_plt_x</em>, <em>hop_plt_y</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/graphene_flake.html#tri_to_hexa_zz.get_coor_lin_strain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphene_flake.tri_to_hexa_zz.get_coor_lin_strain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the lattice site positions in hopping space. 
+Method essentially used to be plot the lattice in hopping space.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>hop_plt_x</strong> &#8211; array containing the hoppings (or distances) along x.</li>
+<li><strong>hop_plt_y</strong> &#8211; array containing the hoppings (or distances) along y.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="graphene_flake.hop_to_real_mw">
+<code class="descclassname">graphene_flake.</code><code class="descname">hop_to_real_mw</code><span class="sig-paren">(</span><em>hop</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/graphene_flake.html#hop_to_real_mw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphene_flake.hop_to_real_mw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the sites position in real space from the hoppings.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="graphene_flake.main">
+<code class="descclassname">graphene_flake.</code><code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/graphene_flake.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#graphene_flake.main" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="examples.html" class="btn btn-neutral float-right" title="Examples">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="about.html" class="btn btn-neutral" title="About"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Charles Poli.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
