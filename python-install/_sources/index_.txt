@@ -1,0 +1,160 @@
+
+******************************
+Python Installation
+******************************
+
+
+MacOS
+=========
+
+
+The python installation will be done using MacPorts.
+
+Get MacPorts
+____________
+
+First, download **Xcode** and **Xcode Command Line Tools** from the *Apple App Store* and install them. 
+
+Second, install  `MacPorts <hhttp://www.macports.org/>`_ : `http://www.macports.org/install.php <http://www.macports.org/install.php/>`_ 
+
+To upgrade, from time to time, the MacPorts:
+
+.. code-block:: bash
+
+	sudo port selfupdate
+	port upgrade outdated
+
+
+Get Python
+____________
+
+I will install the version 3.4, if you want to install a version XX just replace 34 by XX in the commands
+In a terminal: 
+
+
+.. code-block:: bash
+
+	sudo port install python34
+	# scientific librairies
+	sudo port install py34-scipy py34-numpy py34-matplotlib  
+	# notebook
+	sudo port install py27-tornado py27-zmq  # to use notebook parallel)
+	sudo port install py34-ipython +notebook +parallel py34-jupyter
+	# machine learning librairies
+	sudo port install py34-pandas py34-scikit-learn py34-seaborn
+
+
+Other tools
+____________________________
+
+**Git**
+
+.. code-block:: bash
+
+	sudo port install git
+	git config --global user.name "John Doe"
+	git config --global user.email john@doe.com
+
+One can then install packages from **GitHub**:
+
+.. code-block:: bash
+
+	git clone https://github.com/jakevdp/JSAnimation
+	# I picked up a package to create animations in python notebooks
+	cd JSAnimation
+	python setup.py build
+	sudo python setup.py install
+
+
+
+Text Editors / IDEs 
+____________________________________
+
+**Xcode**
+
+.. code-block:: bash
+
+	touch test.py  # create an empty file 
+	open test.py	 # open the file with Xcode
+
+
+**Emacs**
+
+.. code-block:: bash
+
+	sudo port install emacs
+	sudo port install emacs-app
+	emacs test.py  # open in the terminal an empty file 
+
+IPython notebook
+____________________________________
+
+
+.. code-block:: bash
+
+	ipython notebook
+
+
+Ubuntu
+=========
+
+    Just go to the Get Python section and replace *port* by *get-apt* 
+
+Debian
+=========
+
+    Just go to the Get Python section and replace *port* by *yum* 
+
+Windows
+=========
+download the .whl from http://www.lfd.uci.edu/~gohlke/pythonlibs/
+
+
+Tests
+========================
+
+scientific modules
+__________________________________________
+
+.. code-block:: python
+
+	import numpy as np
+	import scipy.sparse  as sparse
+	import matplotlib.pyplot as plt
+
+	d0 = 9*np.ones(10)
+	d1 = np.arange(9)
+	m = sparse.diags([d1, d0, d1], [-1, 0, 1])
+	print(m.toarray())
+
+	a_min, a_max = -1.5, 1.5
+	a = np.linspace(a_min, a_max, 100)
+	x, y = np.meshgrid(a, a)
+	z = np.exp(-x*x-y*y) 
+	fig, ax = plt.subplots()
+
+	ax.imshow(z, extent=[a_min, a_max, a_min, a_max])
+	plt.show()
+
+pandas module
+__________________________________________
+
+
+.. code-block:: python
+
+	import pandas as pd
+	import matplotlib.pyplot as plt
+	import seaborn as sns
+	sns.set_style('whitegrid')	
+	from pandas.io.data import DataReader
+	from datetime import datetime
+
+	stocks = ['AAPL', 'NFLX', 'FB']
+	end = datetime.now()
+	start = datetime(end.year-1, end.month, end.day)
+	closing_df = DataReader(stocks, 'yahoo', start, end)['Adj Close']
+	closing_df.plot(legend=True, figsize=(10, 4), lw=3)
+	return_df = closing_df.pct_change()
+	sns.pairplot(return_df .dropna(), size=3)
+	plt.show()
+

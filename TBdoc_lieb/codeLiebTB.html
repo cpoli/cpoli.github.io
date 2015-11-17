@@ -1,0 +1,384 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>liebTB code &mdash; liebTB  documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="liebTB  documentation" href="index.html"/>
+        <link rel="next" title="Examples" href="examplesLieb.html"/>
+        <link rel="prev" title="Tight-Binding Lieb" href="indexLiebTB.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+          <center>
+              <a href="../prog.html"><div class="test"> <img src = "../images/house.jpg"
+                  height="30px"/></a>
+          </center>
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+                  <center>
+              <a href="../prog.html"><div class="test"> <img src = "../images/house.jpg"
+                  height="30px"/></a>
+          </center>
+          <a href="indexLiebTB.html" class="fa fa-home"> liebTB</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">liebTB code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examplesLieb.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examplesLieb.html#identical-hoppings">Identical hoppings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examplesLieb.html#identical-hoppings-with-an-impurity">Identical hoppings with an impurity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examplesLieb.html#alternative-hoppings">Alternative hoppings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examplesLieb.html#diagonal-hopping">Diagonal hopping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examplesLieb.html#hopping-disorder">Hopping disorder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examplesLieb.html#adiabatic-pumping">Adiabatic pumping</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="indexLiebTB.html">liebTB</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="indexLiebTB.html">Docs</a> &raquo;</li>
+      
+    <li>liebTB code</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/codeLiebTB.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="module-liebTB">
+<span id="liebtb-code"></span><h1>liebTB code<a class="headerlink" href="#module-liebTB" title="Permalink to this headline">¶</a></h1>
+<p><strong>liebTB</strong> module models a line centered squared lattice (Lieb lattice)
+with real and/or complex valued hoppings and onsite energies.</p>
+<p><strong>liebTB</strong> is available at <a class="reference external" href="https://github.com/cpoli/TB">https://github.com/cpoli/TB</a></p>
+<dl class="class">
+<dt id="liebTB.eigLieb">
+<em class="property">class </em><code class="descclassname">liebTB.</code><code class="descname">eigLieb</code><span class="sig-paren">(</span><em>lat</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/liebTB.html#eigLieb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#liebTB.eigLieb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Child of the class <strong>eigTB</strong>. Dedicated to the Lieb lattice.</p>
+<dl class="method">
+<dt id="liebTB.eigLieb.set_hop_alt">
+<code class="descname">set_hop_alt</code><span class="sig-paren">(</span><em>ta</em>, <em>tb</em>, <em>tc</em>, <em>td</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/liebTB.html#eigLieb.set_hop_alt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#liebTB.eigLieb.set_hop_alt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the nearest hoppings of the Lieb lattice with alternating hoppings
+and, the next nearest hoppings. As the  next nearest hoppings are 
+diagonal hoppings, the value of the diagonal between <img class="math" src="_images/math/44780f0598b4d22c6888cfca27deb04115f7fa88.png" alt="t_1"/> 
+and <img class="math" src="_images/math/c4a5e7418ac67584c9e6586936fcaf49afe6cb1e.png" alt="t_2"/> is given by <img class="math" src="_images/math/8f0c23e8b10632c4c02512f5e2d59af6b5eb9159.png" alt="c\sqrt{t_1^2+t_2^2}"/>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ta</strong> &#8211; Value of the math:<cite>t_{ab}</cite> hoppings.</li>
+<li><strong>tb</strong> &#8211; Value of the math:<cite>t_{ba}</cite> hoppings.</li>
+<li><strong>tc</strong> &#8211; Value of the math:<cite>t_{ac}</cite> hoppings.</li>
+<li><strong>td</strong> &#8211; Value of the math:<cite>t_{ca}</cite> hoppings.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="liebTB.eigLieb.set_hop_alt_nn">
+<code class="descname">set_hop_alt_nn</code><span class="sig-paren">(</span><em>nn</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/liebTB.html#eigLieb.set_hop_alt_nn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#liebTB.eigLieb.set_hop_alt_nn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the next nearest hoppings if the Lieb lattice has alternating hoppings.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>c</strong> &#8211; Strength of the diagonal hoppings.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="liebTB.eigLieb.set_dim_defect">
+<code class="descname">set_dim_defect</code><span class="sig-paren">(</span><em>dim_x=-1</em>, <em>dim_y=-1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/liebTB.html#eigLieb.set_dim_defect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#liebTB.eigLieb.set_dim_defect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set dimerization defects along <img class="math" src="_images/math/188c175aac0a8a9c22499336711b5d7256407254.png" alt="x"/> and/or <img class="math" src="_images/math/b124ff74afb0914bb434e8fb849eb56d734412f8.png" alt="y"/>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dim_x</strong> &#8211; Default value -1 (no defect). Dimerization along <img class="math" src="_images/math/188c175aac0a8a9c22499336711b5d7256407254.png" alt="x"/> site index.</li>
+<li><strong>dim_x</strong> &#8211; Default value -1 (no defect). Dimerization along <img class="math" src="_images/math/b124ff74afb0914bb434e8fb849eb56d734412f8.png" alt="y"/> site index.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="liebTB.eigLieb.set_disorder_uniform">
+<code class="descname">set_disorder_uniform</code><span class="sig-paren">(</span><em>alpha</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/liebTB.html#eigLieb.set_disorder_uniform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#liebTB.eigLieb.set_disorder_uniform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a non generic disorder.
+Disorder uniform along math:<cite>y</cite> for math:<cite>t_{ab}</cite>  and math:<cite>t_{ba}</cite>,  
+and uniform along math:<cite>x</cite> for math:<cite>t_{ac}</cite>  and math:<cite>t_{ca}</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>alpha</strong> &#8211; Stength of the disorder.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This disorder preserves the zero mode.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="liebTB.eigLieb.set_disorder_pair">
+<code class="descname">set_disorder_pair</code><span class="sig-paren">(</span><em>alpha</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/liebTB.html#eigLieb.set_disorder_pair"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#liebTB.eigLieb.set_disorder_pair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a non generic disorder.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>alpha</strong> &#8211; Stength of the disorder.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This disorder preserves the zero mode.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="liebTB.eigLieb.set_disorder_placket">
+<code class="descname">set_disorder_placket</code><span class="sig-paren">(</span><em>alpha</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/liebTB.html#eigLieb.set_disorder_placket"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#liebTB.eigLieb.set_disorder_placket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a non generic disorder.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>alpha</strong> &#8211; Stength of the disorder.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This disorder preserves the zero mode.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="liebTB.eigLieb.set_magnetic_field">
+<code class="descname">set_magnetic_field</code><span class="sig-paren">(</span><em>theta</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/liebTB.html#eigLieb.set_magnetic_field"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#liebTB.eigLieb.set_magnetic_field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add Pierls phases to the hoppings.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nx</strong> &#8211; Number of sites along math:<cite>x</cite>. (Input of the class <strong>latticeTB</strong>)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This disorder preserves the zero mode.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="liebTB.eigLieb.get_butterfly">
+<code class="descname">get_butterfly</code><span class="sig-paren">(</span><em>N</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/liebTB.html#eigLieb.get_butterfly"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#liebTB.eigLieb.get_butterfly" title="Permalink to this definition">¶</a></dt>
+<dd><p>&#8216;
+Get energies depending on phase.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>N</strong> &#8211; Number of spectra.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="liebTB.plotLieb">
+<em class="property">class </em><code class="descclassname">liebTB.</code><code class="descname">plotLieb</code><span class="sig-paren">(</span><em>sys</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/liebTB.html#plotLieb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#liebTB.plotLieb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the output of the class <strong>latticeTB</strong> and the class <strong>eigTB</strong>.</p>
+<dl class="method">
+<dt id="liebTB.plotLieb.plt_lattice_hop">
+<code class="descname">plt_lattice_hop</code><span class="sig-paren">(</span><em>ms=20</em>, <em>lw=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/liebTB.html#plotLieb.plt_lattice_hop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#liebTB.plotLieb.plt_lattice_hop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the coordinates of  the Lieb lattice sites in hoppings space.
+:param hop: Hoppings.
+:param nx: Number of sites along <img class="math" src="_images/math/188c175aac0a8a9c22499336711b5d7256407254.png" alt="x"/>.
+:param ny: Number of sites along <img class="math" src="_images/math/b124ff74afb0914bb434e8fb849eb56d734412f8.png" alt="y"/>. 
+:param ms: Default value 20. Markersize.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="liebTB.plotLieb.plt_dispersion">
+<code class="descname">plt_dispersion</code><span class="sig-paren">(</span><em>ta</em>, <em>tb</em>, <em>tc</em>, <em>td</em>, <em>nn=0.0</em>, <em>fs=20</em>, <em>N=100</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/liebTB.html#plotLieb.plt_dispersion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#liebTB.plotLieb.plt_dispersion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the relation dispersion of the Lieb lattice.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ta</strong> &#8211; Hoppings.</li>
+<li><strong>nx</strong> &#8211; Number of sites along <img class="math" src="_images/math/188c175aac0a8a9c22499336711b5d7256407254.png" alt="x"/>.</li>
+<li><strong>ny</strong> &#8211; Number of sites along <img class="math" src="_images/math/b124ff74afb0914bb434e8fb849eb56d734412f8.png" alt="y"/>.</li>
+<li><strong>ms</strong> &#8211; Default value 20. Markersize.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="liebTB.equations">
+<code class="descclassname">liebTB.</code><code class="descname">equations</code><span class="sig-paren">(</span><em>p</em>, <em>param</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/liebTB.html#equations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#liebTB.equations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the intersection of the points at the extremity of two segments.
+Used to build up the lattice in hopping space.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="examplesLieb.html" class="btn btn-neutral float-right" title="Examples">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="indexLiebTB.html" class="btn btn-neutral" title="Tight-Binding Lieb"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Charles Poli.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
