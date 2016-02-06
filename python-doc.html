@@ -75,17 +75,24 @@
         In a terminal:
         <div class="shell-wrap">
         <ul class="shell-body">
-        <li>sudo port install python34</li>
+        <li>sudo port install python35</li>
+        <li>sudo port install py35-setuptools py35-nose</li>
         <li># scientific librairies</li>
-        <li>sudo port install py34-scipy py34-numpy py34-matplotlib</li>
+        <li>sudo port install py35-numpy py35-scipy py35-matplotlib</li>
         <li># notebook</li>
-        <li>sudo port install py34-tornado py34-zmq  # to use notebook parallel)</li>
-        <li>sudo port install py34-ipython +notebook +parallel py34-jupyter</li>
+        <li>sudo port install py35-tornado py35-zmq  # to use notebook parallel)</li>
+        <li>sudo port install py35-ipython +notebook +parallel py35-jupyter</li>
         <li># machine learning librairies</li>
-        <li>sudo port install py34-pandas py34-scikit-learn py34-seaborn</li>
+        <li>sudo port install py35-pandas py35-scikit-learn py35-seaborn</li>
         </ul>
         </div>
         
+        To use the command <i>python</i>
+        <div class="shell-wrap">
+        <ul class="shell-body">
+        sudo port select --set python python35
+        </ul>
+        </div>
         And it's done!
         
         </br></br></br>

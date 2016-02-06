@@ -3,7 +3,7 @@
     padding: 0px;
 }
 
-# test{
+#test{
     position: fixed;
     background-color: black;
     border: dashed 5px red;
@@ -12,29 +12,36 @@
 
 #top_menu{
     width: 100%px;
-    background-color: black;
     color: white;
     width: 100%px;
     list-style: none;
-    color: white;
-    margin-top: -15px;
-    margin-bottom: -15px;
     font-size: 21.5px;
+    color: white;
+    
     padding-left: 80px;
+    margin-right: -1px;
+
+
+    /*
+        background-color: green;
+
+margin-top: -15px;
     margin: auto;
 
-
+    */
 }
 
 #black-strip {
-    position:absolute;
+    position: absolute;
     background-color: black;
     color: black;
     width: 100%;
     padding: 0px 0px
     border: 5px solid blue;
     margin: 0px 0px 5px 0px;
-    padding-bottom:55px
+    padding-bottom:70px;
+    padding-right: 200px
+
 }
 
 #top_menu ul {list-style: none}
@@ -46,11 +53,14 @@
 
 #top_menu {display: inline-block}
 
-#top_header{
+#top_header {
     background-color:DimGray;
     color: white;
     padding: 20px;
+
     margin: auto;
+    margin-right: -200px;
+
     width: auto;
     margin-top: -5px;
 }
