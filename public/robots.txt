@@ -2,3 +2,11 @@ User-agent: *
 Allow: /
 
 Sitemap: https://cpoli.github.io/sitemap.xml
+Sitemap: https://cpoli.github.io/blockchainkit/sitemap.xml
+Sitemap: https://cpoli.github.io/chemistrykit/sitemap.xml
+Sitemap: https://cpoli.github.io/earthsciencekit/sitemap.xml
+Sitemap: https://cpoli.github.io/engineeringkit/sitemap.xml
+Sitemap: https://cpoli.github.io/financialkit/sitemap.xml
+Sitemap: https://cpoli.github.io/mathematicskit/sitemap.xml
+Sitemap: https://cpoli.github.io/physicskit/sitemap.xml
+Sitemap: https://cpoli.github.io/tbkit/sitemap.xml
