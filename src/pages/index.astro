@@ -1,37 +1,64 @@
 ---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+import chainalysisLogo from '../assets/companies/chainalysis.png';
+import lancasterLogo from '../assets/companies/lancaster.png';
+import paypalLogo from '../assets/companies/paypal.png';
+import quantinuumLogo from '../assets/companies/quantinuum.png';
+import ucaLogo from '../assets/companies/univ-cotedazur.png';
+import { formatCount, githubStars, monthlyDownloads } from '../lib/stats';
 import '../styles/global.css';
+
+// Card images: src/assets/packages/<lowercase package name>.png (gallery figure or logo).
+const thumbnails = import.meta.glob<{ default: ImageMetadata }>('../assets/packages/*.png', { eager: true });
+const thumbnail = (pkg: string) => thumbnails[`../assets/packages/${pkg.toLowerCase()}.png`]?.default;
 
 const name = 'Charles Poli';
 const headline = 'Staff Data Scientist at Chainalysis';
+const title = `${name}, PhD · Data Scientist & Theoretical Physicist`;
 const description =
-  'Charles Poli: data scientist and theoretical physicist. Open-source scientific Python packages, research in wave chaos, random matrix theory and topological photonics.';
+  'Charles Poli, PhD: data scientist at Chainalysis and theoretical physicist. Open-source Python toolkits, Iguanas, Gators and wave chaos research.';
 
+// Icons: Simple Icons (CC0), 24x24 paths.
 const links = [
-  { label: 'GitHub', href: 'https://github.com/cpoli' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/charles-poli-60a5b088/' },
-  { label: 'Google Scholar', href: 'https://scholar.google.com/citations?user=rdqRCfcAAAAJ' },
+  { label: 'GitHub', href: 'https://github.com/cpoli', icon: 'M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/charles-poli-60a5b088/', icon: 'M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z' },
+  { label: 'Google Scholar', href: 'https://scholar.google.com/citations?user=rdqRCfcAAAAJ', icon: 'M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z' },
 ];
 
 const packageGroups = [
   {
     title: 'Scientific toolkits',
     items: [
-      { name: 'mathematicskit', href: 'https://cpoli.github.io/mathematicskit/', text: 'Computational mathematics, from numerical analysis and linear algebra to dynamical systems, number theory and topology.' },
-      { name: 'physicskit', href: 'https://cpoli.github.io/physicskit/', text: 'Computational physics: general relativity, quantum mechanics, chaos, random matrix theory and condensed matter.' },
-      { name: 'chemistrykit', href: 'https://cpoli.github.io/chemistrykit/', text: 'Computational chemistry: reaction kinetics, thermodynamics, quantum chemistry, electrochemistry and spectroscopy.' },
-      { name: 'financialkit', href: 'https://cpoli.github.io/financialkit/', text: 'Quantitative finance: option pricing, fixed income, stochastic volatility, credit, portfolio optimization and risk.' },
-      { name: 'blockchainkit', href: 'https://cpoli.github.io/blockchainkit/', text: 'Cryptography and blockchain breakthroughs, explained through reproducible Python experiments.' },
-      { name: 'tbkit', href: 'https://cpoli.github.io/tbkit/', text: 'Build and solve tight-binding models.' },
+      { name: 'mathematicskit', alt: "Domain colouring of complex functions, from the mathematicskit gallery", repo: 'cpoli/mathematicskit', href: 'https://cpoli.github.io/mathematicskit/', text: 'Computational mathematics, from numerical analysis and linear algebra to dynamical systems, number theory and topology.' },
+      { name: 'physicskit', alt: "Billiard trajectory coloured by bounce index, from the physicskit gallery", repo: 'cpoli/physicskit', href: 'https://cpoli.github.io/physicskit/', text: 'Computational physics: general relativity, quantum mechanics, chaos, random matrix theory and condensed matter.' },
+      { name: 'chemistrykit', alt: "Van der Waals isotherms of CO2 near the critical point, from the chemistrykit gallery", repo: 'cpoli/chemistrykit', href: 'https://cpoli.github.io/chemistrykit/', text: 'Computational chemistry: reaction kinetics, thermodynamics, quantum chemistry, electrochemistry and spectroscopy.' },
+      { name: 'financialkit', alt: "Simulated asset paths defaulting before maturity, from the financialkit gallery", repo: 'cpoli/financialkit', href: 'https://cpoli.github.io/financialkit/', text: 'Quantitative finance: option pricing, fixed income, stochastic volatility, credit, portfolio optimization and risk.' },
+      { name: 'blockchainkit', alt: "Connectivity threshold of a random peer-to-peer network, from the blockchainkit gallery", repo: 'cpoli/blockchainkit', href: 'https://cpoli.github.io/blockchainkit/', text: 'Cryptography and blockchain breakthroughs, explained through reproducible Python experiments.' },
+      { name: 'tbkit', alt: "Hofstadter's butterfly of a tight-binding flake, from the tbkit gallery", repo: 'cpoli/tbkit', href: 'https://cpoli.github.io/tbkit/', text: 'Build and solve tight-binding models.' },
     ],
   },
   {
     title: 'PayPal open source',
     items: [
-      { name: 'Iguanas', href: 'https://paypal.github.io/Iguanas/', text: 'Fast, flexible generation and optimization of rule-based fraud detection systems.' },
-      { name: 'Gators', href: 'https://paypal.github.io/Gators/', text: 'Feature engineering for machine-learning pipelines, built for fast real-time inference.' },
+      { name: 'Iguanas', alt: 'Iguanas logo', repo: 'paypal/Iguanas', logo: true, href: 'https://paypal.github.io/Iguanas/', text: 'Fast, flexible generation and optimization of rule-based fraud detection systems.' },
+      { name: 'Gators', alt: 'Gators logo', repo: 'paypal/Gators', logo: true, href: 'https://paypal.github.io/Gators/', text: 'Feature engineering for machine-learning pipelines, built for fast real-time inference.' },
     ],
   },
 ];
+
+// Star counts below this are hidden on the cards.
+const MIN_STARS = 10;
+
+// PyPI names match the package names (case-insensitive).
+const stats = Object.fromEntries(
+  await Promise.all(
+    packageGroups.flatMap((g) => g.items).map(async (p) => {
+      const [stars, downloads] = await Promise.all([githubStars(p.repo), monthlyDownloads(p.name)]);
+      return [p.name, { stars, downloads }] as const;
+    }),
+  ),
+);
 
 const papers = [
   {
@@ -58,24 +85,45 @@ const papers = [
 ];
 
 const experience = [
-  { org: 'Chainalysis', role: 'Staff Data Scientist' },
-  { org: 'PayPal', role: 'Data science; open-sourced Iguanas and Gators' },
-  { org: 'Cambridge Quantum Computing', role: 'Senior Research Manager' },
-  { org: 'Academic research', role: 'Postdoctoral positions at Lancaster University (UK), UNAM and BUAP (Mexico), and INFN Padova (Italy)' },
-  { org: 'Université de Nice-Sophia Antipolis', role: 'PhD in theoretical physics, 2009' },
+  { org: 'Chainalysis', href: 'https://www.chainalysis.com/', logo: chainalysisLogo, role: 'Data science' },
+  { org: 'PayPal', href: 'https://www.paypal.com/uk/home', logo: paypalLogo, role: 'Data science; open-sourced Iguanas and Gators' },
+  { org: 'Cambridge Quantum Computing', href: 'https://www.quantinuum.com/', logo: quantinuumLogo, role: 'Data science' },
+  { org: 'Academic research', href: 'https://www.lancaster.ac.uk/', logo: lancasterLogo, role: 'Postdoctoral positions at Lancaster University (UK), UNAM and BUAP (Mexico), and INFN Padova (Italy)' },
+  { org: 'Université de Nice-Sophia Antipolis', href: 'https://univ-cotedazur.fr/vie-des-campus/visite-des-campus/campus-valrose', logo: ucaLogo, role: 'PhD in theoretical physics, 2009' },
 ];
 
-const personLd = {
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL('/og-image.png', Astro.site);
+
+// schema.org ProfilePage: Google's recommended markup for a personal profile.
+const profileLd = {
   '@context': 'https://schema.org',
-  '@type': 'Person',
-  name,
-  jobTitle: 'Staff Data Scientist',
-  worksFor: { '@type': 'Organization', name: 'Chainalysis' },
-  url: Astro.site?.href,
-  sameAs: links.map((l) => l.href),
+  '@type': 'ProfilePage',
+  url: canonical.href,
+  name: title,
+  description,
+  dateModified: new Date().toISOString(),
+  mainEntity: {
+    '@type': 'Person',
+    '@id': `${Astro.site?.href}#person`,
+    name,
+    honorificSuffix: 'PhD',
+    alternateName: 'cpoli',
+    url: Astro.site?.href,
+    jobTitle: 'Staff Data Scientist',
+    worksFor: { '@type': 'Organization', name: 'Chainalysis', url: 'https://www.chainalysis.com/' },
+    alumniOf: [
+      { '@type': 'CollegeOrUniversity', name: 'Université de Nice-Sophia Antipolis', sameAs: 'https://univ-cotedazur.fr/' },
+      { '@type': 'CollegeOrUniversity', name: 'Université Paris-Sud' },
+    ],
+    knowsAbout: [
+      'Data science', 'Machine learning', 'Fraud detection', 'Blockchain analytics', 'Scientific Python',
+      'Wave chaos', 'Random matrix theory', 'Topological photonics', 'Tight-binding models',
+    ],
+    sameAs: [...links.map((l) => l.href), 'https://pypi.org/user/cpoli/'],
+  },
 };
 
-const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -83,17 +131,34 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{name} · Data scientist & physicist</title>
+    <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="author" content={name} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="sitemap" href="/sitemap.xml" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#fdfdfc" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#14171a" media="(prefers-color-scheme: dark)" />
     <meta property="og:type" content="profile" />
-    <meta property="og:title" content={name} />
+    <meta property="og:site_name" content={name} />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${name}: data scientist and theoretical physicist`} />
+    <meta property="profile:first_name" content="Charles" />
+    <meta property="profile:last_name" content="Poli" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="google-site-verification" content="-kU_m9kdHUpm0800RreI0ftx_vcH5XIWWkT0mzcWWTE" />
-    <script type="application/ld+json" set:html={JSON.stringify(personLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(profileLd)} />
   </head>
   <body>
     <main>
@@ -102,7 +167,14 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         <p class="headline">{headline}</p>
         <nav aria-label="Profiles">
           <ul class="links">
-            {links.map((l) => <li><a href={l.href} rel="me">{l.label}</a></li>)}
+            {links.map((l) => (
+              <li>
+                <a href={l.href} rel="me">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d={l.icon} /></svg>
+                  {l.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
       </header>
@@ -136,11 +208,24 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
             <ul class="cards">
               {group.items.map((p) => (
                 <li>
+                  {thumbnail(p.name) && (
+                    <a href={p.href} class:list={['thumb', { logo: 'logo' in p }]} tabindex="-1" aria-hidden="true">
+                      <Image src={thumbnail(p.name)!} alt={p.alt} width={340} densities={[1, 2]} />
+                    </a>
+                  )}
                   <a href={p.href}><code>{p.name}</code></a>
                   <p>{p.text}</p>
+                  <p class="stats">
+                    {(stats[p.name].stars ?? 0) >= MIN_STARS && (
+                      <a href={`https://github.com/${p.repo}`} title="GitHub stars" aria-label={`${stats[p.name].stars} GitHub stars`}>★ {formatCount(stats[p.name].stars!)}</a>
+                    )}
+                    {stats[p.name].downloads !== undefined && (
+                      <a href={`https://pypistats.org/packages/${p.name.toLowerCase()}`} title="PyPI downloads, last 30 days">{formatCount(stats[p.name].downloads!)} downloads/month</a>
+                    )}
+                  </p>
                 </li>
               ))}
-          </ul>
+            </ul>
           </>
         ))}
       </section>
@@ -176,7 +261,10 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         <ul class="timeline">
           {experience.map((e) => (
             <li>
-              <strong>{e.org}</strong>
+              <strong class="org">
+                {'logo' in e ? <Image src={e.logo!} alt="" width={20} densities={[1, 2]} class="org-logo" /> : <span class="org-spacer" />}
+                {'href' in e ? <a href={e.href}>{e.org}</a> : e.org}
+              </strong>
               <span class="meta">{e.role}</span>
             </li>
           ))}

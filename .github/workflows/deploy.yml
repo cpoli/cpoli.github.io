@@ -3,6 +3,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [master]
+  schedule:
+    - cron: '17 6 * * *' # daily, to refresh package stars and downloads
   workflow_dispatch:
 
 permissions:
@@ -17,6 +19,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v5
       - uses: withastro/action@v5
