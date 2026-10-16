@@ -1,0 +1,191 @@
+---
+import '../styles/global.css';
+
+const name = 'Charles Poli';
+const headline = 'Staff Data Scientist at Chainalysis';
+const description =
+  'Charles Poli: data scientist and theoretical physicist. Open-source scientific Python packages, research in wave chaos, random matrix theory and topological photonics.';
+
+const links = [
+  { label: 'GitHub', href: 'https://github.com/cpoli' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/charles-poli-60a5b088/' },
+  { label: 'Google Scholar', href: 'https://scholar.google.com/citations?user=rdqRCfcAAAAJ' },
+];
+
+const packageGroups = [
+  {
+    title: 'Scientific toolkits',
+    items: [
+      { name: 'mathematicskit', href: 'https://cpoli.github.io/mathematicskit/', text: 'Computational mathematics, from numerical analysis and linear algebra to dynamical systems, number theory and topology.' },
+      { name: 'physicskit', href: 'https://cpoli.github.io/physicskit/', text: 'Computational physics: general relativity, quantum mechanics, chaos, random matrix theory and condensed matter.' },
+      { name: 'chemistrykit', href: 'https://cpoli.github.io/chemistrykit/', text: 'Computational chemistry: reaction kinetics, thermodynamics, quantum chemistry, electrochemistry and spectroscopy.' },
+      { name: 'financialkit', href: 'https://cpoli.github.io/financialkit/', text: 'Quantitative finance: option pricing, fixed income, stochastic volatility, credit, portfolio optimization and risk.' },
+      { name: 'blockchainkit', href: 'https://cpoli.github.io/blockchainkit/', text: 'Cryptography and blockchain breakthroughs, explained through reproducible Python experiments.' },
+      { name: 'tbkit', href: 'https://cpoli.github.io/tbkit/', text: 'Build and solve tight-binding models.' },
+    ],
+  },
+  {
+    title: 'PayPal open source',
+    items: [
+      { name: 'Iguanas', href: 'https://paypal.github.io/Iguanas/', text: 'Fast, flexible generation and optimization of rule-based fraud detection systems.' },
+      { name: 'Gators', href: 'https://paypal.github.io/Gators/', text: 'Feature engineering for machine-learning pipelines, built for fast real-time inference.' },
+    ],
+  },
+];
+
+const papers = [
+  {
+    title: 'Selective enhancement of topologically induced interface states in a dielectric resonator chain',
+    authors: 'C. Poli, M. Bellec, U. Kuhl, F. Mortessagne, H. Schomerus',
+    venue: 'Nature Communications 6, 6710',
+    year: 2015,
+    href: 'https://doi.org/10.1038/ncomms7710',
+  },
+  {
+    title: 'Nearest level spacing statistics in open chaotic systems: Generalization of the Wigner surmise',
+    authors: 'C. Poli, G. A. Luna-Acosta, H.-J. Stöckmann',
+    venue: 'Physical Review Letters 108, 174101',
+    year: 2012,
+    href: 'https://doi.org/10.1103/PhysRevLett.108.174101',
+  },
+  {
+    title: 'Statistics of resonance states in open chaotic systems: A perturbative approach',
+    authors: 'C. Poli, D. V. Savin, O. Legrand, F. Mortessagne',
+    venue: 'Physical Review E 80, 046203',
+    year: 2009,
+    href: 'https://doi.org/10.1103/PhysRevE.80.046203',
+  },
+];
+
+const experience = [
+  { org: 'Chainalysis', role: 'Staff Data Scientist' },
+  { org: 'PayPal', role: 'Data science; open-sourced Iguanas and Gators' },
+  { org: 'Cambridge Quantum Computing', role: 'Senior Research Manager' },
+  { org: 'Academic research', role: 'Postdoctoral positions at Lancaster University (UK), UNAM and BUAP (Mexico), and INFN Padova (Italy)' },
+  { org: 'Université de Nice-Sophia Antipolis', role: 'PhD in theoretical physics, 2009' },
+];
+
+const personLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name,
+  jobTitle: 'Staff Data Scientist',
+  worksFor: { '@type': 'Organization', name: 'Chainalysis' },
+  url: Astro.site?.href,
+  sameAs: links.map((l) => l.href),
+};
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{name} · Data scientist & physicist</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <meta name="color-scheme" content="light dark" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content={name} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="google-site-verification" content="-kU_m9kdHUpm0800RreI0ftx_vcH5XIWWkT0mzcWWTE" />
+    <script type="application/ld+json" set:html={JSON.stringify(personLd)} />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>{name}</h1>
+        <p class="headline">{headline}</p>
+        <nav aria-label="Profiles">
+          <ul class="links">
+            {links.map((l) => <li><a href={l.href} rel="me">{l.label}</a></li>)}
+          </ul>
+        </nav>
+      </header>
+
+      <section aria-labelledby="about">
+        <h2 id="about">About</h2>
+        <p>
+          I'm a Staff Data Scientist at Chainalysis, where I apply machine learning to blockchain analytics.
+          I started out as a theoretical physicist and still approach data problems the way I approached physics:
+          build a simple model, test it against reality, and make sure the answer holds up.
+        </p>
+        <p>
+          My PhD and postdoctoral research in France, Italy, Mexico and the UK covered wave chaos, random matrix
+          theory and topological states. I worked closely with experimental groups, and that collaboration produced
+          a generalization of the Wigner surmise to open chaotic systems and selective enhancement of
+          topological interface states in a microwave resonator chain.
+        </p>
+        <p>
+          Since moving to industry, I've built AI-driven trading systems at Cambridge Quantum Computing and
+          fraud-detection tooling at PayPal, where I open-sourced Iguanas and Gators. In my own time I write
+          open-source Python toolkits for mathematics, physics, chemistry and finance that teach each field
+          through the history of its breakthroughs, with runnable examples.
+        </p>
+      </section>
+
+      <section aria-labelledby="software">
+        <h2 id="software">Open source</h2>
+        {packageGroups.map((group) => (
+          <>
+            <h3>{group.title}</h3>
+            <ul class="cards">
+              {group.items.map((p) => (
+                <li>
+                  <a href={p.href}><code>{p.name}</code></a>
+                  <p>{p.text}</p>
+                </li>
+              ))}
+          </ul>
+          </>
+        ))}
+      </section>
+
+      <section aria-labelledby="papers">
+        <h2 id="papers">Selected papers</h2>
+        <ol class="papers">
+          {papers.map((p) => (
+            <li>
+              <a href={p.href}>{p.title}</a>
+              <span class="meta">{p.authors}</span>
+              <span class="meta"><em>{p.venue}</em> ({p.year})</span>
+            </li>
+          ))}
+        </ol>
+        <p class="more">
+          Full list on <a href="https://scholar.google.com/citations?user=rdqRCfcAAAAJ">Google Scholar</a>.
+        </p>
+      </section>
+
+      <section aria-labelledby="thesis">
+        <h2 id="thesis">PhD thesis</h2>
+        <p>
+          <a href="https://theses.hal.science/tel-00440506" hreflang="fr">
+            Wave chaos in open systems: a non-Hermitian random matrix theory approach
+          </a>
+          <span class="meta">Université de Nice-Sophia Antipolis, 2009. Advisors: F. Mortessagne and O. Legrand. Written in French.</span>
+        </p>
+      </section>
+
+      <section aria-labelledby="experience">
+        <h2 id="experience">Experience</h2>
+        <ul class="timeline">
+          {experience.map((e) => (
+            <li>
+              <strong>{e.org}</strong>
+              <span class="meta">{e.role}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>© {new Date().getFullYear()} {name}</p>
+    </footer>
+  </body>
+</html>

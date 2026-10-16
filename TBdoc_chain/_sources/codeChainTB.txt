@@ -1,6 +1,0 @@
-chainTB code
-=======================
-
-.. automodule:: chainTB
-    :members:
-    :undoc-members:
