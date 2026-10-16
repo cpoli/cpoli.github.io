@@ -211,6 +211,7 @@ const profileLd = {
                   {thumbnail(p.name) && (
                     <a href={p.href} class:list={['thumb', { logo: 'logo' in p }]} tabindex="-1" aria-hidden="true">
                       <Image src={thumbnail(p.name)!} alt={p.alt} width={340} densities={[1, 2]} />
+                      {!('logo' in p) && <span class="caption">{p.alt.replace(/, from the .* gallery$/, '')}</span>}
                     </a>
                   )}
                   <a href={p.href}><code>{p.name}</code></a>

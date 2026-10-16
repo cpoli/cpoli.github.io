@@ -136,8 +136,14 @@ ol {
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+  grid-template-columns: 1fr;
   gap: 0.75rem;
+}
+
+@media (min-width: 36rem) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .cards li {
@@ -145,6 +151,13 @@ ol {
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 0.9rem 1rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.cards li:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  box-shadow: 0 10px 28px -12px rgb(0 0 0 / 0.28);
 }
 
 .cards a {
@@ -152,6 +165,7 @@ ol {
 }
 
 .cards .thumb {
+  position: relative;
   display: block;
   margin: -0.9rem -1rem 0.75rem;
   border-bottom: 1px solid var(--border);
@@ -166,6 +180,50 @@ ol {
   aspect-ratio: 16 / 10;
   object-fit: contain;
   background: #fff;
+  transition: transform 0.4s ease;
+}
+
+.cards li:hover .thumb img {
+  transform: scale(1.05);
+}
+
+/* What the figure shows, revealed on hover. */
+.cards .caption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 1.5rem 0.75rem 0.5rem;
+  background: linear-gradient(transparent, rgb(0 0 0 / 0.72));
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.35;
+  opacity: 0;
+  transform: translateY(0.5rem);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.cards li:hover .caption {
+  opacity: 1;
+  transform: none;
+}
+
+@media (hover: none) {
+  .cards .caption {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cards li,
+  .cards .thumb img,
+  .cards .caption {
+    transition: none;
+  }
+
+  .cards li:hover,
+  .cards li:hover .thumb img {
+    transform: none;
+  }
 }
 
 .cards p {
