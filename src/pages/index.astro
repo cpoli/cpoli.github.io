@@ -17,7 +17,7 @@ const name = 'Charles Poli';
 const headline = 'Staff Data Scientist at Chainalysis';
 const title = `${name}, PhD · Data Scientist & Theoretical Physicist`;
 const description =
-  'Charles Poli, PhD, Staff Data Scientist at Chainalysis and theoretical physicist. Author of open-source Python toolkits for physics, maths, chemistry and finance.';
+  'Charles Poli, PhD, Staff Data Scientist at Chainalysis and theoretical physicist, author of open-source Python toolkits for science, engineering and finance.';
 
 // Icons: Simple Icons (CC0), 24x24 paths.
 const links = [
@@ -33,6 +33,8 @@ const packageGroups = [
       { name: 'mathematicskit', alt: "Domain colouring of complex functions, from the mathematicskit gallery", repo: 'cpoli/mathematicskit', href: 'https://cpoli.github.io/mathematicskit/', text: 'Computational mathematics, from numerical analysis and linear algebra to dynamical systems, number theory and topology.' },
       { name: 'physicskit', alt: "Billiard trajectory coloured by bounce index, from the physicskit gallery", repo: 'cpoli/physicskit', href: 'https://cpoli.github.io/physicskit/', text: 'Computational physics: general relativity, quantum mechanics, chaos, random matrix theory and condensed matter.' },
       { name: 'chemistrykit', alt: "Van der Waals isotherms of CO2 near the critical point, from the chemistrykit gallery", repo: 'cpoli/chemistrykit', href: 'https://cpoli.github.io/chemistrykit/', text: 'Computational chemistry: reaction kinetics, thermodynamics, quantum chemistry, electrochemistry and spectroscopy.' },
+      { name: 'engineeringkit', alt: "Damped vibration of a mass-spring system, from the engineeringkit gallery", repo: 'cpoli/engineeringkit', href: 'https://cpoli.github.io/engineeringkit/', text: 'Computational engineering: structures, control systems, fluids, heat transfer, signal processing and reliability.' },
+      { name: 'earthsciencekit', alt: "Inertial ocean current spiralling under the Coriolis force, from the earthsciencekit gallery", repo: 'cpoli/earthsciencekit', href: 'https://cpoli.github.io/earthsciencekit/', text: 'Earth-system models: plate tectonics, seismology, climate, oceanography, hydrology and glaciology.' },
       { name: 'financialkit', alt: "Simulated asset paths defaulting before maturity, from the financialkit gallery", repo: 'cpoli/financialkit', href: 'https://cpoli.github.io/financialkit/', text: 'Quantitative finance: option pricing, fixed income, stochastic volatility, credit, portfolio optimization and risk.' },
       { name: 'blockchainkit', alt: "Connectivity threshold of a random peer-to-peer network, from the blockchainkit gallery", repo: 'cpoli/blockchainkit', href: 'https://cpoli.github.io/blockchainkit/', text: 'Cryptography and blockchain breakthroughs, explained through reproducible Python experiments.' },
       { name: 'tbkit', alt: "Hofstadter's butterfly of a tight-binding flake, from the tbkit gallery", repo: 'cpoli/tbkit', href: 'https://cpoli.github.io/tbkit/', text: 'Build and solve tight-binding models.' },
@@ -118,6 +120,7 @@ const profileLd = {
     ],
     knowsAbout: [
       'Data science', 'Machine learning', 'Fraud detection', 'Blockchain analytics', 'Scientific Python',
+      'Computational physics', 'Computational mathematics', 'Quantitative finance',
       'Wave chaos', 'Random matrix theory', 'Topological photonics', 'Tight-binding models',
     ],
     sameAs: [...links.map((l) => l.href), 'https://pypi.org/user/cpoli/'],
@@ -195,7 +198,7 @@ const profileLd = {
         <p>
           Since moving to industry, I've built AI-driven trading systems at Cambridge Quantum Computing and
           fraud-detection tooling at PayPal, where I open-sourced Iguanas and Gators. In my own time I write
-          open-source Python toolkits for mathematics, physics, chemistry and finance that teach each field
+          open-source Python toolkits for mathematics, physics, chemistry, engineering, Earth science and finance that teach each field
           through the history of its breakthroughs, with runnable examples.
         </p>
       </section>
