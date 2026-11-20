@@ -1,0 +1,27 @@
+---
+import Base from '../../layouts/Base.astro';
+import { formatDate, publishedNotes } from '../../lib/content';
+
+const notes = await publishedNotes();
+---
+
+<Base
+  title="Notes · Charles Poli"
+  description="Short notes on the breakthroughs behind Charles Poli's open-source toolkits for science, engineering and finance, each with runnable examples."
+>
+  <h1>Notes</h1>
+  <p class="headline">Short pieces on the breakthroughs behind the kits, each with code you can run.</p>
+  {notes.length === 0 ? (
+    <p>The first notes are on their way. Meanwhile, the <a href="/">toolkits</a> each have a history of breakthroughs.</p>
+  ) : (
+    <ul class="notes">
+      {notes.map((n) => (
+        <li>
+          <a href={`/notes/${n.id}/`}>{n.data.title}</a>
+          <span class="meta"><time datetime={n.data.date.toISOString()}>{formatDate(n.data.date)}</time> · {n.data.description}</span>
+        </li>
+      ))}
+    </ul>
+  )}
+  <p class="more"><a href="/rss.xml">Subscribe with RSS</a></p>
+</Base>

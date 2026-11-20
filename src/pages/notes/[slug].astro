@@ -1,0 +1,61 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { formatDate, publishedNotes, shareImage } from '../../lib/content';
+
+export async function getStaticPaths() {
+  const notes = await publishedNotes();
+  return notes.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const n = entry.data;
+const { Content } = await render(entry);
+const url = new URL(Astro.url.pathname, Astro.site).href;
+const image = await shareImage(n.kit, Astro.site);
+const hasMath = entry.body?.includes('$') ?? false;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: n.title,
+  description: n.description,
+  url,
+  mainEntityOfPage: url,
+  datePublished: n.date.toISOString(),
+  dateModified: (n.updated ?? n.date).toISOString(),
+  image,
+  author: { '@type': 'Person', name: 'Charles Poli', url: new URL('/', Astro.site).href },
+};
+---
+
+<Base
+  title={`${n.title} · Charles Poli`}
+  description={n.description}
+  image={image}
+  imageAlt={`Figure from the ${n.kit} gallery`}
+  ogType="article"
+  jsonLd={jsonLd}
+>
+  <Fragment slot="head">
+    <meta property="article:published_time" content={n.date.toISOString()} />
+    {n.updated && <meta property="article:modified_time" content={n.updated.toISOString()} />}
+    <meta property="article:author" content={new URL('/', Astro.site).href} />
+    {hasMath && <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous" />}
+  </Fragment>
+  <article class="prose">
+    <h1>{n.title}</h1>
+    <p class="meta">
+      <time datetime={n.date.toISOString()}>{formatDate(n.date)}</time>
+      {n.draft && <> · <strong>draft</strong></>}
+    </p>
+    <Content />
+  </article>
+  {hasMath && (
+    <>
+      <script is:inline defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+      <script is:inline defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+        onload="renderMathInElement(document.querySelector('article'), { delimiters: [{ left: '$$', right: '$$', display: true }, { left: '$', right: '$', display: false }], ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] })"></script>
+    </>
+  )}
+</Base>
