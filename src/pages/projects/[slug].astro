@@ -1,0 +1,61 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { shareImage, thumbnail } from '../../lib/content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const p = entry.data;
+const { Content } = await render(entry);
+const img = thumbnail(p.image);
+const repoUrl = `https://github.com/${p.repo}`;
+const pypi = `https://pypi.org/project/${p.repo.split('/')[1].toLowerCase()}/`;
+const url = new URL(Astro.url.pathname, Astro.site).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareSourceCode',
+  name: p.name,
+  description: p.description,
+  url,
+  codeRepository: repoUrl,
+  programmingLanguage: 'Python',
+  keywords: p.keywords.join(', '),
+  sameAs: [p.docs, pypi],
+  author: { '@type': 'Person', name: 'Charles Poli', url: new URL('/', Astro.site).href },
+};
+---
+
+<Base
+  title={`${p.title} · Charles Poli`}
+  description={p.description}
+  image={await shareImage(p.image, Astro.site)}
+  imageAlt={p.imageAlt}
+  jsonLd={jsonLd}
+>
+  <article class="prose">
+    <header class="project-head">
+      {img && (
+        <div class:list={['thumb', { logo: p.logo }]}>
+          <Image src={img} alt={p.imageAlt} width={340} densities={[1, 2]} />
+        </div>
+      )}
+      <div>
+        <h1>{p.name}</h1>
+        <p class="headline">{p.tagline}</p>
+        <ul class="links">
+          <li><a href={p.docs}>Docs</a></li>
+          <li><a href={repoUrl}>GitHub</a></li>
+          <li><a href={pypi}>PyPI</a></li>
+        </ul>
+        <pre class="install"><code>{p.install}</code></pre>
+      </div>
+    </header>
+    <Content />
+  </article>
+</Base>
