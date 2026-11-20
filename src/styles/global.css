@@ -305,3 +305,120 @@ footer {
   color: var(--muted);
   font-size: 0.875rem;
 }
+
+/* One-line pitch under the headline, for package users and hiring visitors alike. */
+.pitch {
+  margin: 0 0 1rem;
+  max-width: 38rem;
+}
+
+/* Link back to the hub on every page but the home page. */
+.crumbs {
+  display: flex;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* Recent notes on the home page and the notes index. */
+.notes li {
+  margin-bottom: 1rem;
+}
+
+.notes a {
+  font-weight: 600;
+}
+
+/* Notes and project pages. */
+.prose {
+  line-height: 1.65;
+}
+
+.prose ul,
+.prose ol {
+  margin: 0.5rem 0 1rem;
+  padding-left: 1.4rem;
+}
+
+.prose ul {
+  list-style: disc;
+}
+
+.prose ol {
+  list-style: decimal;
+}
+
+.prose li {
+  margin-bottom: 0.3rem;
+}
+
+.prose pre {
+  margin: 1rem 0;
+  padding: 0.9rem 1rem;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.prose pre code {
+  font-size: inherit;
+}
+
+.prose table {
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.prose th,
+.prose td {
+  padding: 0.35rem 0.9rem 0.35rem 0;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.prose .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.project-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.project-head .thumb {
+  flex: 0 1 220px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.project-head .thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.project-head .thumb.logo img {
+  padding: 1rem;
+}
+
+.project-head > div {
+  flex: 1 1 260px;
+}
+
+.project-head h1 {
+  margin-bottom: 0;
+}
+
+.project-head .install {
+  margin: 0.75rem 0 0;
+  padding: 0.5rem 0.75rem;
+}
