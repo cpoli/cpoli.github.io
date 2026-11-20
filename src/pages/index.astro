@@ -1,20 +1,18 @@
 ---
-import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
 import chainalysisLogo from '../assets/companies/chainalysis.png';
 import lancasterLogo from '../assets/companies/lancaster.png';
 import paypalLogo from '../assets/companies/paypal.png';
 import quantinuumLogo from '../assets/companies/quantinuum.png';
 import ucaLogo from '../assets/companies/univ-cotedazur.png';
+import Base from '../layouts/Base.astro';
+import { formatDate, publishedNotes, thumbnail } from '../lib/content';
 import { formatCount, githubStars, monthlyDownloads } from '../lib/stats';
-import '../styles/global.css';
-
-// Card images: src/assets/packages/<lowercase package name>.png (gallery figure or logo).
-const thumbnails = import.meta.glob<{ default: ImageMetadata }>('../assets/packages/*.png', { eager: true });
-const thumbnail = (pkg: string) => thumbnails[`../assets/packages/${pkg.toLowerCase()}.png`]?.default;
 
 const name = 'Charles Poli';
 const headline = 'Staff Data Scientist at Chainalysis';
+const pitch =
+  'Theoretical physicist turned data scientist, and author of eight open-source Python toolkits that teach science, engineering and finance through the history of their breakthroughs.';
 const title = `${name}, PhD · Data Scientist & Theoretical Physicist`;
 const description =
   'Charles Poli, PhD, Staff Data Scientist at Chainalysis and theoretical physicist, author of open-source Python toolkits for science, engineering and finance.';
@@ -37,17 +35,19 @@ const packageGroups = [
       { name: 'earthsciencekit', alt: "Inertial ocean current spiralling under the Coriolis force, from the earthsciencekit gallery", repo: 'cpoli/earthsciencekit', href: 'https://cpoli.github.io/earthsciencekit/', text: 'Earth-system models: plate tectonics, seismology, climate, oceanography, hydrology and glaciology.' },
       { name: 'financialkit', alt: "Simulated asset paths defaulting before maturity, from the financialkit gallery", repo: 'cpoli/financialkit', href: 'https://cpoli.github.io/financialkit/', text: 'Quantitative finance: option pricing, fixed income, stochastic volatility, credit, portfolio optimization and risk.' },
       { name: 'blockchainkit', alt: "Connectivity threshold of a random peer-to-peer network, from the blockchainkit gallery", repo: 'cpoli/blockchainkit', href: 'https://cpoli.github.io/blockchainkit/', text: 'Cryptography and blockchain breakthroughs, explained through reproducible Python experiments.' },
-      { name: 'tbkit', alt: "Hofstadter's butterfly of a tight-binding flake, from the tbkit gallery", repo: 'cpoli/tbkit', href: 'https://cpoli.github.io/tbkit/', text: 'Build and solve tight-binding models.' },
+      { name: 'tbkit', alt: "Hofstadter's butterfly of a tight-binding flake, from the tbkit gallery", repo: 'cpoli/tbkit', href: '/projects/tbkit/', docs: 'https://cpoli.github.io/tbkit/', text: 'Build and solve tight-binding models.' },
     ],
   },
   {
     title: 'PayPal open source',
     items: [
-      { name: 'Iguanas', alt: 'Iguanas logo', repo: 'paypal/Iguanas', logo: true, href: 'https://github.com/paypal/Iguanas/', text: 'Fast, flexible generation and optimization of rule-based fraud detection systems.' },
-      { name: 'Gators', alt: 'Gators logo', repo: 'paypal/Gators', logo: true, href: 'https://github.com/paypal/Gators/', text: 'Feature engineering for machine-learning pipelines, built for fast real-time inference.' },
+      { name: 'Iguanas', alt: 'Iguanas logo', repo: 'paypal/Iguanas', logo: true, href: '/projects/iguanas/', docs: 'https://paypal.github.io/Iguanas/', text: 'Fast, flexible generation and optimization of rule-based fraud detection systems.' },
+      { name: 'Gators', alt: 'Gators logo', repo: 'paypal/Gators', logo: true, href: '/projects/gators/', docs: 'https://paypal.github.io/gators/', text: 'Feature engineering for machine-learning pipelines, built for fast real-time inference.' },
     ],
   },
 ];
+
+// Cards with a `docs` link have a project page at `href`; the rest link straight to their docs.
 
 // Star counts below this are hidden on the cards.
 const MIN_STARS = 10;
@@ -94,8 +94,8 @@ const experience = [
   { org: 'Université de Nice-Sophia Antipolis', href: 'https://univ-cotedazur.fr/vie-des-campus/visite-des-campus/campus-valrose', logo: ucaLogo, role: 'PhD in theoretical physics, 2009' },
 ];
 
+const notes = (await publishedNotes()).slice(0, 3);
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const ogImage = new URL('/og-image.png', Astro.site);
 
 // schema.org ProfilePage: Google's recommended markup for a personal profile.
 const profileLd = {
@@ -129,156 +129,135 @@ const profileLd = {
 
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta name="author" content={name} />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <link rel="canonical" href={canonical} />
-    <link rel="sitemap" href="/sitemap.xml" />
-    <link rel="icon" href="/favicon.ico" sizes="48x48" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" content="#fdfdfc" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#14171a" media="(prefers-color-scheme: dark)" />
-    <meta property="og:type" content="profile" />
-    <meta property="og:site_name" content={name} />
-    <meta property="og:locale" content="en_GB" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={`${name}: data scientist and theoretical physicist`} />
+<Base title={title} description={description} ogType="profile" jsonLd={profileLd} backLink={false}>
+  <Fragment slot="head">
     <meta property="profile:first_name" content="Charles" />
     <meta property="profile:last_name" content="Poli" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="google-site-verification" content="-kU_m9kdHUpm0800RreI0ftx_vcH5XIWWkT0mzcWWTE" />
-    <script type="application/ld+json" set:html={JSON.stringify(profileLd)} />
-    <script is:inline data-goatcounter="https://cpoli.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
-  </head>
-  <body>
-    <main>
-      <header>
-        <h1>{name}</h1>
-        <p class="headline">{headline}</p>
-        <nav aria-label="Profiles">
-          <ul class="links">
-            {links.map((l) => (
-              <li>
-                <a href={l.href} rel="me">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d={l.icon} /></svg>
-                  {l.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </header>
+  </Fragment>
 
-      <section aria-labelledby="about">
-        <h2 id="about">About</h2>
-        <p>
-          I'm a Staff Data Scientist at Chainalysis, where I apply machine learning to blockchain analytics.
-          I started out as a theoretical physicist and still approach data problems the way I approached physics:
-          build a simple model, test it against reality, and make sure the answer holds up.
-        </p>
-        <p>
-          My PhD and postdoctoral research in France, Italy, Mexico and the UK covered wave chaos, random matrix
-          theory and topological states. I worked closely with experimental groups, and that collaboration produced
-          a generalization of the Wigner surmise to open chaotic systems and selective enhancement of
-          topological interface states in a microwave resonator chain.
-        </p>
-        <p>
-          Since moving to industry, I've built AI-driven trading systems at Cambridge Quantum Computing and
-          fraud-detection tooling at PayPal, where I open-sourced Iguanas and Gators. In my own time I write
-          open-source Python toolkits for mathematics, physics, chemistry, engineering, Earth science and finance that teach each field
-          through the history of its breakthroughs, with runnable examples.
-        </p>
-      </section>
-
-      <section aria-labelledby="software">
-        <h2 id="software">Open source</h2>
-        {packageGroups.map((group) => (
-          <>
-            <h3>{group.title}</h3>
-            <ul class="cards">
-              {group.items.map((p) => (
-                <li>
-                  {thumbnail(p.name) && (
-                    <a href={p.href} class:list={['thumb', { logo: 'logo' in p }]} tabindex="-1" aria-hidden="true">
-                      <Image src={thumbnail(p.name)!} alt={p.alt} width={340} densities={[1, 2]} />
-                      {!('logo' in p) && <span class="caption">{p.alt.replace(/, from the .* gallery$/, '')}</span>}
-                    </a>
-                  )}
-                  <a href={p.href}><code>{p.name}</code></a>
-                  <p>{p.text}</p>
-                  <p class="stats">
-                    {(stats[p.name].stars ?? 0) >= MIN_STARS && (
-                      <a href={`https://github.com/${p.repo}`} title="GitHub stars" aria-label={`${stats[p.name].stars} GitHub stars`}>★ {formatCount(stats[p.name].stars!)}</a>
-                    )}
-                    {stats[p.name].downloads !== undefined && (
-                      <a href={`https://pypistats.org/packages/${p.name.toLowerCase()}`} title="PyPI downloads, last 30 days">{formatCount(stats[p.name].downloads!)} downloads/month</a>
-                    )}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </>
+  <header>
+    <h1>{name}</h1>
+    <p class="headline">{headline}</p>
+    <p class="pitch">{pitch}</p>
+    <nav aria-label="Profiles">
+      <ul class="links">
+        {links.map((l) => (
+          <li>
+            <a href={l.href} rel="me">
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d={l.icon} /></svg>
+              {l.label}
+            </a>
+          </li>
         ))}
-      </section>
+      </ul>
+    </nav>
+  </header>
 
-      <section aria-labelledby="papers">
-        <h2 id="papers">Selected papers</h2>
-        <ol class="papers">
-          {papers.map((p) => (
+  <section aria-labelledby="software">
+    <h2 id="software">Open source</h2>
+    {packageGroups.map((group) => (
+      <>
+        <h3>{group.title}</h3>
+        <ul class="cards">
+          {group.items.map((p) => (
             <li>
-              <a href={p.href}>{p.title}</a>
-              <span class="meta">{p.authors}</span>
-              <span class="meta"><em>{p.venue}</em> ({p.year})</span>
-            </li>
-          ))}
-        </ol>
-        <p class="more">
-          Full list on <a href="https://scholar.google.com/citations?user=rdqRCfcAAAAJ">Google Scholar</a>.
-        </p>
-      </section>
-
-      <section aria-labelledby="thesis">
-        <h2 id="thesis">PhD thesis</h2>
-        <p>
-          <a href="https://theses.hal.science/tel-00440506" hreflang="fr">
-            Wave chaos in open systems: a non-Hermitian random matrix theory approach
-          </a>
-          <span class="meta">Université de Nice-Sophia Antipolis, 2009. Advisors: F. Mortessagne and O. Legrand. Written in French.</span>
-        </p>
-      </section>
-
-      <section aria-labelledby="experience">
-        <h2 id="experience">Experience</h2>
-        <ul class="timeline">
-          {experience.map((e) => (
-            <li>
-              <strong class="org">
-                {'logo' in e ? <Image src={e.logo!} alt="" width={20} densities={[1, 2]} class="org-logo" /> : <span class="org-spacer" />}
-                {'href' in e ? <a href={e.href}>{e.org}</a> : e.org}
-              </strong>
-              <span class="meta">{e.role}</span>
+              {thumbnail(p.name) && (
+                <a href={p.href} class:list={['thumb', { logo: 'logo' in p }]} tabindex="-1" aria-hidden="true">
+                  <Image src={thumbnail(p.name)!} alt={p.alt} width={340} densities={[1, 2]} />
+                  {!('logo' in p) && <span class="caption">{p.alt.replace(/, from the .* gallery$/, '')}</span>}
+                </a>
+              )}
+              <a href={p.href}><code>{p.name}</code></a>
+              <p>{p.text}</p>
+              <p class="stats">
+                {'docs' in p && (
+                  <>
+                    <a href={p.docs}>Docs</a>
+                    <a href={`https://github.com/${p.repo}`}>GitHub</a>
+                  </>
+                )}
+                {(stats[p.name].stars ?? 0) >= MIN_STARS && (
+                  <a href={`https://github.com/${p.repo}`} title="GitHub stars" aria-label={`${stats[p.name].stars} GitHub stars`}>★ {formatCount(stats[p.name].stars!)}</a>
+                )}
+                {stats[p.name].downloads !== undefined && (
+                  <a href={`https://pypistats.org/packages/${p.name.toLowerCase()}`} title="PyPI downloads, last 30 days">{formatCount(stats[p.name].downloads!)} downloads/month</a>
+                )}
+              </p>
             </li>
           ))}
         </ul>
-      </section>
-    </main>
+      </>
+    ))}
+  </section>
 
-    <footer>
-      <p>© {new Date().getFullYear()} {name}</p>
-    </footer>
-  </body>
-</html>
+  {notes.length > 0 && (
+    <section aria-labelledby="notes">
+      <h2 id="notes">Notes</h2>
+      <ul class="notes">
+        {notes.map((n) => (
+          <li>
+            <a href={`/notes/${n.id}/`}>{n.data.title}</a>
+            <span class="meta"><time datetime={n.data.date.toISOString()}>{formatDate(n.data.date)}</time> · {n.data.description}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="more"><a href="/notes/">All notes</a> · <a href="/rss.xml">RSS</a></p>
+    </section>
+  )}
+
+  <section aria-labelledby="about">
+    <h2 id="about">About</h2>
+    <p>
+      I'm a Staff Data Scientist at Chainalysis, where I apply machine learning to blockchain analytics.
+      Before that I built AI-driven trading systems at Cambridge Quantum Computing and fraud-detection
+      tooling at PayPal, where I open-sourced Iguanas and Gators.
+    </p>
+    <p>
+      I started out as a theoretical physicist. My PhD and postdoctoral research in France, Italy, Mexico and
+      the UK covered wave chaos, random matrix theory and topological states, in close collaboration with
+      experimental groups. I still approach data problems the same way: build a simple model, test it
+      against reality, and make sure the answer holds up.
+    </p>
+  </section>
+
+  <section aria-labelledby="papers">
+    <h2 id="papers">Selected papers</h2>
+    <ol class="papers">
+      {papers.map((p) => (
+        <li>
+          <a href={p.href}>{p.title}</a>
+          <span class="meta">{p.authors}</span>
+          <span class="meta"><em>{p.venue}</em> ({p.year})</span>
+        </li>
+      ))}
+    </ol>
+    <p class="more">
+      Full list on <a href="https://scholar.google.com/citations?user=rdqRCfcAAAAJ">Google Scholar</a>.
+    </p>
+  </section>
+
+  <section aria-labelledby="thesis">
+    <h2 id="thesis">PhD thesis</h2>
+    <p>
+      <a href="https://theses.hal.science/tel-00440506" hreflang="fr">
+        Wave chaos in open systems: a non-Hermitian random matrix theory approach
+      </a>
+      <span class="meta">Université de Nice-Sophia Antipolis, 2009. Advisors: F. Mortessagne and O. Legrand. Written in French.</span>
+    </p>
+  </section>
+
+  <section aria-labelledby="experience">
+    <h2 id="experience">Experience</h2>
+    <ul class="timeline">
+      {experience.map((e) => (
+        <li>
+          <strong class="org">
+            {'logo' in e ? <Image src={e.logo!} alt="" width={20} densities={[1, 2]} class="org-logo" /> : <span class="org-spacer" />}
+            {'href' in e ? <a href={e.href}>{e.org}</a> : e.org}
+          </strong>
+          <span class="meta">{e.role}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>
