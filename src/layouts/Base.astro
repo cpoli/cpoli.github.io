@@ -18,7 +18,7 @@ interface Props {
 const { title, description, image, imageAlt, ogType = 'website', jsonLd, backLink = true } = Astro.props;
 const name = 'Charles Poli';
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const ogImage = image ?? new URL('/og-image.png', Astro.site).href;
+const ogImage = image ?? new URL('/og-stadium.png', Astro.site).href;
 ---
 
 <!doctype html>

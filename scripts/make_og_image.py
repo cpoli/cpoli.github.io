@@ -1,4 +1,4 @@
-"""Render public/og-image.png, the 1200x630 share image used by LinkedIn and others.
+"""Render public/og-stadium.png, the 1200x630 share image used by LinkedIn and others.
 
 Needs physicskit; run with its environment from the repo root:
 
@@ -15,7 +15,7 @@ from matplotlib.colors import LinearSegmentedColormap
 
 from physicskit.chaos.systems.billiards import BunimovichStadium
 
-OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parent.parent / "public" / "og-image.png"
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parent.parent / "public" / "og-stadium.png"
 W, H, DPI = 1200, 630, 100
 BG, FG, MUTED, ACCENT = "#fdfdfc", "#1f2328", "#5d6670", "#1b5fbf"
 PT = 72 / DPI  # points per pixel
