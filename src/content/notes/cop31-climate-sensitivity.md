@@ -53,11 +53,11 @@ for sensitivity in [1.5, 3.0, 4.5]:               # Charney's range, K per doubl
 # 4.5 2.63
 ```
 
-At today's 420 ppm, CO₂ alone commits the planet to between 0.9 and 2.6 °C of eventual warming, depending only on where in Charney's range the truth lies. This ignores methane, aerosols and the ocean's delay, all of which the gallery examples add one at a time. The point is how much the answer depends on that one uncertain number. The [Charney report entry](https://cpoli.github.io/earthsciencekit/history/climate_breakthroughs.html#the-charney-report-s-sensitivity-range) also shows the delay: a more sensitive climate responds more slowly.
+At today's 420 ppm, CO₂ alone commits the planet to between 0.9 and 2.6 °C of eventual warming, depending only on where in Charney's range the truth lies. This ignores methane, aerosols and the ocean's delay, all of which the gallery examples add one at a time. The point is how much the answer depends on that one uncertain number. The [Charney report example](https://cpoli.github.io/earthsciencekit/api/gallery/climate/plot_12_charney_report_sensitivity.html) also shows the delay: a more sensitive climate responds more slowly.
 
 ## 2004: reading the number from the energy budget
 
-Jonathan Gregory found a way to read sensitivity without waiting for equilibrium. Quadruple CO₂ abruptly in a model, then plot the yearly imbalance at the top of the atmosphere against the warming so far. The points fall on a line: its intercept is the forcing, its slope the feedback, and where it crosses zero is the final warming. The [Gregory regression entry](https://cpoli.github.io/earthsciencekit/history/climate_breakthroughs.html#gregory-s-forcing-feedback-regression) recovers both from a noisy run.
+Jonathan Gregory found a way to read sensitivity without waiting for equilibrium. Quadruple CO₂ abruptly in a model, then plot the yearly imbalance at the top of the atmosphere against the warming so far. The points fall on a line: its intercept is the forcing, its slope the feedback, and where it crosses zero is the final warming. The [Gregory regression example](https://cpoli.github.io/earthsciencekit/api/gallery/climate/plot_15_gregory_forcing_feedback_regression.html) recovers both from a noisy run.
 
 Combining such model runs with paleoclimate records and the observed warming, the IPCC's 2021 assessment narrowed Charney's range for the first time in 42 years: likely 2.5 to 4 °C, best estimate 3 °C. Charney's central value stood.
 
@@ -65,7 +65,7 @@ Combining such model runs with paleoclimate records and the observed warming, th
 
 The same week, NASA's Jet Propulsion Laboratory reported that the 2026 El Niño is building faster than the record 1997–98 event, judging by satellite measurements of Pacific sea level. A strong El Niño can lift a single year well above the trend, as the 2023–24 event did when 2024 became the first calendar year above 1.5 °C.
 
-Why does a slow, irregular wobble like that exist at all? Klaus Hasselmann gave a general answer in 1976. The ocean integrates fast, random weather the way a heavy particle integrates molecular kicks in Brownian motion, and the result is slow "red noise" with no slow cause. The [Hasselmann entry](https://cpoli.github.io/earthsciencekit/history/climate_breakthroughs.html#hasselmann-s-stochastic-climate) shows the spectrum. The lesson for the coming year is that a record-breaking 2027 will be weather riding on climate. The ride is temporary; the ramp underneath is the logarithm Arrhenius found. Hasselmann and Manabe shared the 2021 Nobel prize in physics.
+Why does a slow, irregular wobble like that exist at all? Klaus Hasselmann gave a general answer in 1976. The ocean integrates fast, random weather the way a heavy particle integrates molecular kicks in Brownian motion, and the result is slow "red noise" with no slow cause. The [Hasselmann example](https://cpoli.github.io/earthsciencekit/api/gallery/climate/plot_11_hasselmann_stochastic_climate.html) shows the spectrum. The lesson for the coming year is that a record-breaking 2027 will be weather riding on climate. The ride is temporary; the ramp underneath is the logarithm Arrhenius found. Hasselmann and Manabe shared the 2021 Nobel prize in physics.
 
 ## What did not change in Antalya
 
